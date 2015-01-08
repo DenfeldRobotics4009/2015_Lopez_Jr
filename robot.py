@@ -6,6 +6,7 @@ import wpilib
 dead_zone = .1
 
 def precision_mode(controller_input, button_state):
+    """copied from CubertPy, b/c it worked"""
     if controller_input <= dead_zone and controller_input >= -dead_zone:
         return 0
     elif controller_input >= dead_zone:
@@ -21,6 +22,7 @@ def precision_mode(controller_input, button_state):
 class Lopez_Jr(wpilib.SampleRobot):
     
     def robotInit(self):
+        """initialises robot as a mecanum with 2 joysticks"""
         self.drive = wpilib.RobotDrive(0, 1, 2, 3)
         self.drive.setExpiration(0.1)
         self.stick_left = wpilib.Joystick(0)
@@ -29,10 +31,11 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.drive.setInvertedMotor(self.drive.MotorType.kRearLeft, True) 
     
     def autonomous(self):
+        """does nothing as of yet"""
         pass
 
     def operatorControl(self):
-        """Runs the motors with arcade steering."""
+        """Runs the motors with mecanum steering."""
         
         self.drive.setSafetyEnabled(True)
         
@@ -47,7 +50,7 @@ class Lopez_Jr(wpilib.SampleRobot):
             wpilib.Timer.delay(.005)    # wait for a motor update time
 
     def test(self):
-        '''Runs during test mode'''
+        """no tests yet, woo"""
         pass
 
 if __name__ == "__main__":
