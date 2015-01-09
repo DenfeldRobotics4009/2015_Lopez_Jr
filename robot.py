@@ -43,8 +43,8 @@ class Lopez_Jr(wpilib.SampleRobot):
 
         self.drive.setSafetyEnabled(True)
 
-        while not self.isOperatorControl():
-            precision = Joystick.getRawButton(1)
+        while self.isOperatorControl() and self.isEnabled():
+            precision = self.stick_right.getRawButton(1)
             x = precision_mode(self.stick_right.getX(), precision) # precision mode on x axis
             y = precision_mode(self.stick_right.getY(), precision) # precision mode on y axis
             z = precision_mode(self.stick_right.getZ(), precision) # precision mode on z axis
