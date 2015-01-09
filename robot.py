@@ -19,7 +19,7 @@ def precision_mode(controller_input, button_state):
     else:
         return controller_input
 
-class Lopez_Jr(wpilib.SampleRobot): 
+class Lopez_Jr(wpilib.SampleRobot):
     def robotInit(self):
         """initialises robot as a mecanum with 2 joysticks"""
         self.drive = wpilib.RobotDrive(3, 1, 2, 0)
@@ -27,39 +27,39 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.stick_left = wpilib.Joystick(0)
         self.stick_right = wpilib.Joystick(1)
         self.drive.setInvertedMotor(self.drive.MotorType.kFrontLeft, True)
-        self.drive.setInvertedMotor(self.drive.MotorType.kRearLeft, True) 
+        self.drive.setInvertedMotor(self.drive.MotorType.kRearLeft, True)
         #self.gyro = wpilib.Gyro(1)
         self.aux_left = wpilib.Jaguar(6)
         self.aux_right = wpilib.Jaguar(4)
         self.window_motor = wpilib.Jaguar(5)
-        
-    
+
+
     def autonomous(self):
         """does nothing as of yet"""
         pass
 
     def operatorControl(self):
         """Runs the motors with mecanum steering."""
-        
+
         self.drive.setSafetyEnabled(True)
-        
+
         while not self.isOperatorControl():
             precision = Joystick.getRawButton(1)
             x = precision_mode(self.stick_right.getX(), precision) # precision mode on x axis
             y = precision_mode(self.stick_right.getY(), precision) # precision mode on y axis
             z = precision_mode(self.stick_right.getZ(), precision) # precision mode on z axis
-            
+
             aux = precision_mode(self.stick_left.getY(), precision) # precision mode on aux motors
-            window_motor = precision_mode(self.stick_left.getX(), precision) # precision mode on window motor 
-            
+            window_motor = precision_mode(self.stick_left.getX(), precision) # precision mode on window motor
+
             gyro_angle = 0
-            
+
             self.drive.mecanumDrive_Cartesian(x, y, z, gyro_angle)   # mecanum drive
-            
-            self.aux_left.set(aux) # auxiliary left miniCIM 
+
+            self.aux_left.set(aux) # auxiliary left miniCIM
             self.aux_right.set(aux)# auxiliary right miniCIM
             self.window_motor.set(window_motor) # random window motor that electrical hooked up
-            
+
             wpilib.Timer.delay(.005)    # wait for a motor update time
 
     def test(self):
