@@ -2,6 +2,7 @@
 __author__ = 'nikolojedison'
 #To change this template use Tools | Templates.
 
+from networktables import NetworkTable
 import wpilib
 dead_zone = .1
 
@@ -28,11 +29,11 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.stick_right = wpilib.Joystick(1)
         self.drive.setInvertedMotor(self.drive.MotorType.kFrontLeft, True)
         self.drive.setInvertedMotor(self.drive.MotorType.kRearLeft, True)
-        #self.gyro = wpilib.Gyro(1)
+        self.gyro = wpilib.Gyro(0)
         self.aux_left = wpilib.Jaguar(6)
         self.aux_right = wpilib.Jaguar(4)
         self.window_motor = wpilib.Jaguar(5)
-
+        self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
 
     def autonomous(self):
         """does nothing as of yet"""
@@ -51,10 +52,11 @@ class Lopez_Jr(wpilib.SampleRobot):
 
             aux = precision_mode(self.stick_left.getY(), precision) # precision mode on aux motors
             window_motor = precision_mode(self.stick_left.getX(), precision) # precision mode on window motor
-
+            self.smart_dashboard.putNumber("Gyro",self.gyro.getAngle())
+            
             gyro_angle = 0
 
-            self.drive.mecanumDrive_Cartesian(x, y, z, gyro_angle)   # mecanum drive
+            self.drive.mecanumDrive_Cartesian(x, y, z, 0)   # mecanum drive
 
             self.aux_left.set(aux) # auxiliary left miniCIM
             self.aux_right.set(aux)# auxiliary right miniCIM
