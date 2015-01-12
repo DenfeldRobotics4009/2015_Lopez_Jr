@@ -11,7 +11,7 @@ def precision_mode(controller_input, button_state):
         return 0
     elif controller_input > 0:
         controller_input = ((controller_input-dead_zone)/(1-dead_zone))**3
-    elif controller_input < 0:
+    else:
         controller_input = ((-controller_input-dead_zone)/(dead_zone-1))**3
 
     if button_state:
