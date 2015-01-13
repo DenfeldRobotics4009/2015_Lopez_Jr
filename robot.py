@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 __author__ = 'nikolojedison'
-#To change this template use Tools | Templates.
+#This code was written to test some things and may end up being used
+#on the robot, but I dunno. So far it seems to work fine. -Nik
 
 from networktables import NetworkTable
 import wpilib
