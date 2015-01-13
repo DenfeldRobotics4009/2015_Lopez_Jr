@@ -2,7 +2,7 @@
 __author__ = 'nikolojedison'
 #This code was written to test some things and may end up being used
 #on the robot, but I dunno. So far it seems to work fine. Change what 
-#needs to be changed, I guess. Probably will evolve as time goes on.
+#needs to be changed, I guess. Will evolve as time goes on.
 #-Nik Mal
 
 from networktables import NetworkTable
@@ -25,8 +25,9 @@ def precision_mode(controller_input, button_state):
 
 class Lopez_Jr(wpilib.SampleRobot):
     def robotInit(self):
-        """initialises robot as a mecanum with 2 joysticks"""
-        #want to change this to Xbox 360 controller eventually
+        """initialises robot as a mecanum drive bot w/ 2 joysticks"""
+        #want to change this to Xbox 360 controller eventually... probably sooner rather
+        #than later.
         self.drive = wpilib.RobotDrive(3, 1, 2, 0)
         self.drive.setExpiration(0.1)
         self.stick_left = wpilib.Joystick(0)
