@@ -7,12 +7,19 @@ __author__ = 'nikolojedison'
 
 from networktables import NetworkTable
 import wpilib
+import time
+import logging
 dead_zone = .1
 
+logging.basicConfig(level=logging.DEBUG)
+
+smart_dashboard = NetworkTable.getTable("SmartDashboard")
+
+#why is this up here? Go down to the autonomous method. Put it there.
 def precision_mode(controller_input, button_state):
     """copied from CubertPy, b/c it worked"""
     if controller_input <= dead_zone and controller_input >= -dead_zone:
-        return 0
+        return 0e
     elif controller_input > 0:
         controller_input = ((controller_input-dead_zone)/(1-dead_zone))**3
     else:
@@ -41,11 +48,19 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
 
     def autonomous(self):
-        """does nothing as of yet"""
-        pass
+        """Woo, auton code. Needs to be tested."""
+        try:
+            auto_program = self.smart_dashboard.getBoolean("Whatever he calls the button", defaultValue=False) #If the dashboard hasn't set the value, it's False by default.
+        except KeyError:
+            pass
+        if auto_program:
+            #Do the thing if the button's pushed
+        else:
+            #Don't
+
 
     def operatorControl(self):
-        """Runs the motors with mecanum steering."""
+        """Runs the drive with mecanum steering. Other motors added as needed."""
 
         self.drive.setSafetyEnabled(True)
 
