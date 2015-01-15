@@ -19,7 +19,7 @@ smart_dashboard = NetworkTable.getTable("SmartDashboard")
 def precision_mode(controller_input, button_state):
     """copied from CubertPy, b/c it worked"""
     if controller_input <= dead_zone and controller_input >= -dead_zone:
-        return 0e
+        return 0
     elif controller_input > 0:
         controller_input = ((controller_input-dead_zone)/(1-dead_zone))**3
     else:
