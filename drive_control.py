@@ -1,5 +1,4 @@
 __author__ = 'nikolojedison'
-#To change this template use Tools | Templates.
 
 def precision_mode(controller_input, button_state):
     """copied from CubertPy, b/c it worked"""
