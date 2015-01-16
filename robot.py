@@ -8,7 +8,7 @@ __author__ = 'nikolojedison'
 from networktables import NetworkTable
 import wpilib
 import logging
-from .autonomous_utilities import Auto
+from autonomous_utilities import Auto
 from drive_control import *
 
 logging.basicConfig(level=logging.DEBUG)
@@ -28,25 +28,25 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.camera.setSize(320, 240)
         self.camera.setWhiteBalanceAuto()
         self.camera.setQuality(30)
-        
+
         server = wpilib.CameraServer.getInstance()
         server.startAutomaticCapture(camera)
-        
+
         self.drive = wpilib.RobotDrive(3, 1, 2, 0)
         self.drive.setExpiration(0.1)
-        
+
         self.stick_left = wpilib.Joystick(0)
         self.stick_right = wpilib.Joystick(1)
-        
+
         self.drive.setInvertedMotor(self.drive.MotorType.kFrontRight, True)
         self.drive.setInvertedMotor(self.drive.MotorType.kRearRight, True)
-        
+
         self.gyro = wpilib.Gyro(0)
-        
+
         self.aux_left = wpilib.Jaguar(6)
         self.aux_right = wpilib.Jaguar(4)
         self.window_motor = wpilib.Jaguar(5)
-        
+
         self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
 
     def autonomous(self):
@@ -71,10 +71,11 @@ class Lopez_Jr(wpilib.SampleRobot):
             auto.tote_lower(1)
             auto.tote_grabba()
             auto.tote_lift(1)
-            
+
         elif auto_program_two: #this is the simple auton that was talked about.
             auto.forward(5)
         else:
+            pass
             #Neither are pushed
 
 
