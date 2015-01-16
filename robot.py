@@ -7,7 +7,6 @@ __author__ = 'nikolojedison'
 
 from networktables import NetworkTable
 import wpilib
-import time
 import logging
 from .autonomous_utilities import Auto
 from drive_control import *
@@ -54,7 +53,7 @@ class Lopez_Jr(wpilib.SampleRobot):
             auto.tote_grabba()
             auto.tote_lift(1)
             
-        elif auto_program_two:
+        elif auto_program_two: #this is the simple auton that was talked about.
             auto.forward(5)
         else:
             #Neither are pushed
