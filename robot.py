@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 __author__ = 'nikolojedison'
 #This code was written to test some things and may end up being used
-#on the robot, but I dunno. So far it seems to work fine. Change what 
+#on the robot, but I dunno. So far it seems to work fine. Change what
 #needs to be changed. Will evolve as time goes on.
 #-Nik Mal
 
@@ -9,26 +9,10 @@ from networktables import NetworkTable
 import wpilib
 import time
 import logging
-dead_zone = .1
+from .autonomous_utilities import Auto
+from drive_control import *
 
 logging.basicConfig(level=logging.DEBUG)
-
-smart_dashboard = NetworkTable.getTable("SmartDashboard")
-
-#why is this up here? Go down to the autonomous method. Put it there.
-def precision_mode(controller_input, button_state):
-    """copied from CubertPy, b/c it worked"""
-    if controller_input <= dead_zone and controller_input >= -dead_zone:
-        return 0e
-    elif controller_input > 0:
-        controller_input = ((controller_input-dead_zone)/(1-dead_zone))**3
-    else:
-        controller_input = ((-controller_input-dead_zone)/(dead_zone-1))**3
-
-    if button_state:
-        return controller_input * 0.5
-    else:
-        return controller_input
 
 class Lopez_Jr(wpilib.SampleRobot):
     def robotInit(self):
@@ -49,14 +33,31 @@ class Lopez_Jr(wpilib.SampleRobot):
 
     def autonomous(self):
         """Woo, auton code. Needs to be tested."""
-        try:
-            auto_program = self.smart_dashboard.getBoolean("Whatever he calls the button", defaultValue=False) #If the dashboard hasn't set the value, it's False by default.
-        except KeyError:
-            pass
-        if auto_program:
+        auto = Auto(self)
+        auto_program_one = self.smart_dashboard.getBoolean("Auto Button 1", defaultValue=False) #If the dashboard hasn't set the value, it's False by default.
+        auto_program_two = self.smart_dashboard.getBoolean("Auto Button 2", defaultValue=False)
+
+        if auto_program_two:
             #Do the thing if the button's pushed
+            auto.tote_grabba()
+            auto.tote_lift(1)
+            auto.can_slappa()
+            auto.forward(1)
+            auto.tote_releasa()
+            auto.tote_lower(1)
+            auto.tote_grabba()
+            auto.tote_lift(1)
+            auto.can_slappa()
+            auto.forward(1)
+            auto.tote_releasa()
+            auto.tote_lower(1)
+            auto.tote_grabba()
+            auto.tote_lift(1)
+            
+        elif auto_program_two:
+            auto.forward(5)
         else:
-            #Don't
+            #Neither are pushed
 
 
     def operatorControl(self):
@@ -66,14 +67,14 @@ class Lopez_Jr(wpilib.SampleRobot):
 
         while self.isOperatorControl() and self.isEnabled():
             precision = self.stick_right.getRawButton(1)
-            x = precision_mode(self.stick_right.getX(), precision) # precision mode on x axis
-            y = precision_mode(self.stick_right.getY(), precision) # precision mode on y axis
-            z = precision_mode(self.stick_right.getZ(), precision) # precision mode on z axis
+            x = drive_control(self.stick_right.getX(), precision)
+            y = drive_control(self.stick_right.getY(), precision)
+            z = drive_control(self.stick_right.getZ(), precision)
 
-            aux = precision_mode(self.stick_left.getY(), precision) # precision mode on aux motors
-            window_motor = precision_mode(self.stick_left.getX(), precision) # precision mode on window motor
+            aux = dead_zone(self.stick_left.getY())
+            window_motor = dead_zone(self.stick_left.getX())
             self.smart_dashboard.putNumber("Gyro",self.gyro.getAngle())
-            
+
             gyro_angle = 0
 
             self.drive.mecanumDrive_Cartesian(x, y, z, 0)   # mecanum drive
@@ -82,7 +83,7 @@ class Lopez_Jr(wpilib.SampleRobot):
             self.aux_right.set(aux)# auxiliary right miniCIM
             self.window_motor.set(window_motor) # random window motor that electrical hooked up
 
-            wpilib.Timer.delay(.005)    # wait for a motor update time
+            wpilib.Timer.delay(.005)    # don't burn up the cpu
 
     def test(self):
         """no tests yet, woo"""
