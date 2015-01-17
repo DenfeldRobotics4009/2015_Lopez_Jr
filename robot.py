@@ -49,11 +49,27 @@ class Lopez_Jr(wpilib.SampleRobot):
 
         self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
 
+        self.mast_pot = wpilib.AnalogPotentiometer(0)
+        self.grabba_pot = wpilib.AnalogPotentiometer(1)
+        self.lift_pot = wpilib.AnalogPotentiometer(2)
+
+        def aux_combined(output):
+            """use for PID control"""
+            self.aux_left.pidWrite(output)
+            self.aux_right.pidWrite(output)
+
+        self.grabba_pid = wpilib.PIDController(4, 0.07, self.grabba_pot, self.window_motor)
+        self.grabba_pid.disable()
+
+        self.lift_pid = wpilib.PIDController(4, 0.07, self.lift_pot, aux_combined)
+        self.lift_pid.disable()
+
     def autonomous(self):
         """Woo, auton code. Needs to be tested."""
         auto = Auto(self)
         auto_program_one = self.smart_dashboard.getBoolean("Auto Button 1", defaultValue=False) #If the dashboard hasn't set the value, it's False by default.
         auto_program_two = self.smart_dashboard.getBoolean("Auto Button 2", defaultValue=False)
+
 
         if auto_program_two:
             #Do the thing if the button's pushed
@@ -101,7 +117,6 @@ class Lopez_Jr(wpilib.SampleRobot):
             self.aux_left.set(aux) # auxiliary left miniCIM
             self.aux_right.set(aux)# auxiliary right miniCIM
             self.window_motor.set(window_motor) # random window motor that electrical hooked up
-
             wpilib.Timer.delay(.005)    # don't burn up the cpu
 
     def test(self):
