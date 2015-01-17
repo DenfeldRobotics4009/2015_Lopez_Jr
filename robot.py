@@ -58,10 +58,10 @@ class Lopez_Jr(wpilib.SampleRobot):
             self.aux_left.pidWrite(output)
             self.aux_right.pidWrite(output)
 
-        self.grabba_pid = wpilib.PIDController(4, 0.07, self.grabba_pot, self.window_motor)
+        self.grabba_pid = wpilib.PIDController(4, 0.07, 0, self.grabba_pot, self.window_motor)
         self.grabba_pid.disable()
 
-        self.lift_pid = wpilib.PIDController(4, 0.07, self.lift_pot, aux_combined)
+        self.lift_pid = wpilib.PIDController(4, 0.07, 0, self.lift_pot, aux_combined)
         self.lift_pid.disable()
 
     def autonomous(self):
