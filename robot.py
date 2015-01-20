@@ -27,10 +27,10 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.camera.setFPS(10)
         self.camera.setSize(320, 240)
         self.camera.setWhiteBalanceAuto()
-        self.camera.setQuality(30)
+        #self.camera.setQuality(30)
 
         server = wpilib.CameraServer.getInstance()
-        server.startAutomaticCapture(camera)
+        server.startAutomaticCapture(self.camera)
 
         self.drive = wpilib.RobotDrive(3, 1, 2, 0)
         self.drive.setExpiration(0.1)
@@ -41,7 +41,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.drive.setInvertedMotor(self.drive.MotorType.kFrontRight, True)
         self.drive.setInvertedMotor(self.drive.MotorType.kRearRight, True)
 
-        self.gyro = wpilib.Gyro(0)
+        #self.gyro = wpilib.Gyro(0)
 
         self.aux_left = wpilib.Jaguar(6)
         self.aux_right = wpilib.Jaguar(4)
@@ -58,10 +58,10 @@ class Lopez_Jr(wpilib.SampleRobot):
             self.aux_left.pidWrite(output)
             self.aux_right.pidWrite(output)
 
-        self.grabba_pid = wpilib.PIDController(4, 0.07, 0, self.grabba_pot, self.window_motor)
+        self.grabba_pid = wpilib.PIDController(4, 0.07, 0, self.grabba_pot.pidGet, self.window_motor.pidWrite)
         self.grabba_pid.disable()
 
-        self.lift_pid = wpilib.PIDController(4, 0.07, 0, self.lift_pot, aux_combined)
+        self.lift_pid = wpilib.PIDController(4, 0.07, 0, self.lift_pot.pidGet, aux_combined)
         self.lift_pid.disable()
 
     def autonomous(self):
@@ -70,6 +70,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         auto_program_one = self.smart_dashboard.getBoolean("Auto Button 1", defaultValue=False) #If the dashboard hasn't set the value, it's False by default.
         auto_program_two = self.smart_dashboard.getBoolean("Auto Button 2", defaultValue=False)
 
+        self.drive.setSafetyEnabled(False)
 
         if auto_program_two:
             #Do the thing if the button's pushed
@@ -106,9 +107,9 @@ class Lopez_Jr(wpilib.SampleRobot):
             y = drive_control(self.stick_right.getY(), precision)
             z = drive_control(self.stick_right.getZ(), precision)
 
-            aux = dead_zone(self.stick_left.getY())
-            window_motor = dead_zone(self.stick_left.getX())
-            self.smart_dashboard.putNumber("Gyro",self.gyro.getAngle())
+            aux = dead_zone(self.stick_left.getY(), .1)
+            window_motor = dead_zone(self.stick_left.getX(), .1)
+            #self.smart_dashboard.putNumber("Gyro",self.gyro.getAngle())
 
             gyro_angle = 0
 
@@ -118,6 +119,9 @@ class Lopez_Jr(wpilib.SampleRobot):
             self.aux_right.set(aux)# auxiliary right miniCIM
             self.window_motor.set(window_motor) # random window motor that electrical hooked up
             wpilib.Timer.delay(.005)    # don't burn up the cpu
+
+    def disabled(self):
+        pass
 
     def test(self):
         """no tests yet, woo"""

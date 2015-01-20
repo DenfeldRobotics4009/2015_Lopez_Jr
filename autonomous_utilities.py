@@ -1,5 +1,6 @@
 __author__ = 'nikolojedison'
 #Various auton utilities.
+import wpilib
 grabba_out = 1
 grabba_in = -1
 lift_up = 1
@@ -25,7 +26,7 @@ class Auto(object):
         """Releases tote by doing the reverse of tote_grabba"""
         self.robot.grabba_pid.setSetpoint(grabba_out)
         self.robot.grabba_pid.enable()
-        tote_lower(.05)
+        self.tote_lower(.05)
         wpilib.Timer.delay(.5)
         self.robot.grabba_pid.disable()
 
