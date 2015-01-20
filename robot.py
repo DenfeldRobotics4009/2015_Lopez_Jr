@@ -101,7 +101,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.drive.setSafetyEnabled(True)
 
         while self.isOperatorControl() and self.isEnabled():
-            precision = self.stick_right.getRawButton(1)
+            precision = self.stick_right.getRawButton(0)
             x = drive_control(self.stick_right.getX(), precision)
             y = drive_control(self.stick_right.getY(), precision)
             z = drive_control(self.stick_right.getZ(), precision)
