@@ -67,12 +67,12 @@ class Lopez_Jr(wpilib.SampleRobot):
     def autonomous(self):
         """Woo, auton code. Needs to be tested."""
         auto = Auto(self)
-        3_tote = self.smart_dashboard.getBoolean("3 Tote Auto", defaultValue=False) #If the dashboard hasn't set the value, it's False by default.
+        three_tote = self.smart_dashboard.getBoolean("3 Tote Auto", defaultValue=False) #If the dashboard hasn't set the value, it's False by default.
         test_switch = self.smart_dashboard.getBoolean("Test Switch", defaultValue=False)
 
         self.drive.setSafetyEnabled(False)
 
-        if 3_tote:
+        if three_tote:
             #Do the thing if the button's pushed
             auto.tote_grabba()
             auto.tote_lift(1)
