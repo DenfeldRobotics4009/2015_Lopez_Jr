@@ -1,7 +1,7 @@
 __author__ = 'nikolojedison'
 from wpilib.command import Command
 
-class close_claw(Command):
+class ElevatorLower(Command):
 
     def __init__(self, robot):
         pass

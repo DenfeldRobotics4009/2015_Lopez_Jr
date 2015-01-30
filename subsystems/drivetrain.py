@@ -3,9 +3,9 @@ import math
 import wpilib
 from wpilib.command import Subsystem
 
-from commands.mecanumdrive_with_joystick import MecanumDriveWithJoystick
+from commands.MecanumDriveWithJoystick import MecanumDriveWithJoystick
 
-class drivetrain(Subsystem):
+class Drivetrain(Subsystem):
     '''Class drivetrain uses a few Talons to run a 'bot.
     '''
     

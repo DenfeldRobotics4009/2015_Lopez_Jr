@@ -1,7 +1,7 @@
 __author__ = 'nikolojedison'
 from wpilib.command import Command
 
-class mast_tilt(Command):
+class CloseGrabba(Command):
 
     def __init__(self, robot):
         pass

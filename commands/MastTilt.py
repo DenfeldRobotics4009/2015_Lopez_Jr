@@ -1,7 +1,7 @@
 __author__ = 'nikolojedison'
 from wpilib.command import Command
 
-class elevator_lower(Command):
+class MastTilt(Command):
 
     def __init__(self, robot):
         pass

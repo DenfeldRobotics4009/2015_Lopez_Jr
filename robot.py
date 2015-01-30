@@ -19,18 +19,6 @@ class Lopez_Jr(wpilib.SampleRobot):
         #want to change this to Xbox 360 controller eventually... probably sooner rather
         #than later.
         #
-        #This is for a USB camera. Uncomment it if we aren't using the Axis.
-        self.camera = wpilib.USBCamera()
-        self.camera.setExposureManual(50)
-        self.camera.setBrightness(80)
-        self.camera.updateSettings()
-        self.camera.setFPS(10)
-        self.camera.setSize(320, 240)
-        self.camera.setWhiteBalanceAuto()
-        #self.camera.setQuality(30)
-
-        server = wpilib.CameraServer.getInstance()
-        server.startAutomaticCapture(self.camera)
 
         self.drive = wpilib.RobotDrive(3, 1, 2, 0)
         self.drive.setExpiration(0.1)

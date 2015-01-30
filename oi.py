@@ -45,5 +45,8 @@ class OI:
         # Connect the buttons to commands
         l2.whenPressed(Autonomous(robot))
     
-    def getJoystick(self):
-        return self.joy
+    def getJoystickLeft(self):
+        return self.stick_left
+    
+    def getJoystickRight(self):
+        return self.stick_right

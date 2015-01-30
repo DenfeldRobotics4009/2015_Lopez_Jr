@@ -1,7 +1,7 @@
 __author__ = 'nikolojedison'
 from wpilib.command import Command
 
-class elevator_lift(Command):
+class OpenGrabba(Command):
 
     def __init__(self, robot):
         pass
