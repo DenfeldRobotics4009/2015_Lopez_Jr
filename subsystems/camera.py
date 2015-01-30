@@ -13,6 +13,9 @@ class camera(Subsystem):
         self.camera.setSize(320, 240)
         self.camera.setWhiteBalanceAuto()
         #self.camera.setQuality(30)
+        
+        server = wpilib.CameraServer.getInstance()
+        server.startAutomaticCapture(self.camera)
     
     def initDefaultCommand(self):
         pass
