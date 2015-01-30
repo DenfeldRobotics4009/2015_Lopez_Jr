@@ -35,19 +35,19 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.drive = wpilib.RobotDrive(3, 1, 2, 0)
         self.drive.setExpiration(0.1)
 
-        self.stick_left = wpilib.Joystick(0)
+        self.stick_left = wpilib.Joystick(0) #already in oi
         self.stick_right = wpilib.Joystick(1)
 
-        self.drive.setInvertedMotor(self.drive.MotorType.kFrontRight, True)
+        self.drive.setInvertedMotor(self.drive.MotorType.kFrontRight, True) #already in oi
         self.drive.setInvertedMotor(self.drive.MotorType.kRearRight, True)
 
         #self.gyro = wpilib.Gyro(0)
 
-        self.aux_left = wpilib.Jaguar(6)
+        self.aux_left = wpilib.Jaguar(6) #just goes in subsys
         self.aux_right = wpilib.Jaguar(4)
         self.window_motor = wpilib.Jaguar(5)
 
-        self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
+        self.smart_dashboard = NetworkTable.getTable("SmartDashboard") #oi
 
         self.mast_pot = wpilib.AnalogPotentiometer(0)
         self.grabba_pot = wpilib.AnalogPotentiometer(1)
