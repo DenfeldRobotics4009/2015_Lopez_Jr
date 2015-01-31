@@ -1,0 +1,26 @@
+__author__ = 'nikolojedison'
+class SetGrabbaSetpoint(Command):
+
+    def __init__(self, robot, setpoint):
+        super().__init__()
+        self.robot = robot
+        
+        self.setpoint = setpoint
+        self.requires(self.robot.grabber)
+
+    def initialize(self):
+        self.robot.grabber.enable()
+        self.robot.grabber.setSetpoint(self.setpoint)
+
+    def execute(self):
+        """Called repeatedly"""
+
+    def isFinished(self):
+        return self.robot.grabber.onTarget() #Stay on target...
+
+    def end(self):
+        """Called once after isFinisherd returns true"""
+
+    def interrupted(self):
+        """Called when another thing which requires one or more of the same subsyses is 
+        scheduled to run"""

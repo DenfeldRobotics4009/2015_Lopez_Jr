@@ -15,3 +15,6 @@ class Grabber(PIDSubsystem):
 
     def initDefaultCommand(self):
         pass
+    
+    def log(self):
+        wpilib.SmartDashboard.putNumber("Grabba Pot", self.grabba_pot.get())

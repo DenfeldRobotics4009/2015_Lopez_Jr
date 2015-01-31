@@ -53,6 +53,9 @@ class Lopez_Jr(wpilib.SampleRobot):
     def test(self):
         """no tests yet, woo"""
         pass
+    
+    def log(self):
+        self.drivetrain.log
 
 if __name__ == "__main__":
     wpilib.run(Lopez_Jr)
