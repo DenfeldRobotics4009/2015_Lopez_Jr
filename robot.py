@@ -40,45 +40,13 @@ class Lopez_Jr(wpilib.SampleRobot):
             self.aux_left.pidWrite(output)
             self.aux_right.pidWrite(output)
 
-        self.grabba_pid = wpilib.PIDController(4, 0.07, 0, self.grabba_pot.pidGet, self.window_motor.pidWrite)
-        self.grabba_pid.disable()
 
-        self.lift_pid = wpilib.PIDController(4, 0.07, 0, self.lift_pot.pidGet, aux_combined)
-        self.lift_pid.disable()
-
-    def autonomous(self):
+    def autonomousInit(self):
         """Woo, auton code. Needs to be tested."""
-        auto = Auto(self)
-        three_tote = self.smart_dashboard.getBoolean("3 Tote Auto", defaultValue=False) #If the dashboard hasn't set the value, it's False by default.
-        test_switch = self.smart_dashboard.getBoolean("Test Switch", defaultValue=False)
-
-        self.drive.setSafetyEnabled(False)
-
-        if three_tote:
-            #Do the thing if the button's pushed
-            auto.tote_grabba()
-            auto.tote_lift(1)
-            auto.can_slappa()
-            auto.forward(1)
-            auto.tote_releasa()
-            auto.tote_lower(1)
-            auto.tote_grabba()
-            auto.tote_lift(1)
-            auto.can_slappa()
-            auto.forward(1)
-            auto.tote_releasa()
-            auto.tote_lower(1)
-            auto.tote_grabba()
-            auto.tote_lift(1)
-
-        elif auto_program_two: #this is the simple auton that was talked about.
-            auto.forward(5)
-        else:
-            pass
-            #Neither are pushed
+        self.autonomousCommand.start()
 
 
-    def operatorControl(self):
+    def operatorControl(self): #Should this go in oi.py?
         """Runs the drive with mecanum steering. Other motors added as needed."""
 
         self.drive.setSafetyEnabled(True)
