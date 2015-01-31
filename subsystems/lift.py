@@ -1,16 +1,24 @@
 __author__ = 'nikolojedison'
+import wpilib
 from wpilib.command import PIDSubsystem
 
 class Lift(PIDSubsystem):
 
     def __init__(self, robot)
-        super().__init__()
+        super().__init__(1, 0, 0)
         self.robot = robot
         
-        self.lift_pot = wpilib.AnalogPotentiometer(2)
-        
-        self.lift_pid = wpilib.PIDController(4, 0.07, 0, self.lift_pot.pidGet, aux_combined)
-        self.lift_pid.disable()
+        self.lift_pot = wpilib.AnalogPotentiometer(2) 
+        self.motor = wpilib.Jaguar(6)
 
     def initDefaultCommand(self):
         pass
+       
+    def log(self):
+        wpilib.SmartDashboard.putData("Lift level", self.lift_pot) #publishes to the Dash
+        
+    def returnPIDInput(self):
+        return self.lift_pot.get()
+    
+    def usePIDOutput(self, output):
+        self.motor.set(output)

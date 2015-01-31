@@ -1,20 +1,26 @@
 __author__ = 'nikolojedison'
+import wpilib
 from wpilib.command import PIDSubsystem
 
 class Grabber(PIDSubsystem):
 
     def __init__(self, robot)
-        super().__init__()
+        super().__init__(1, 0, 0)
         self.robot = robot
         
         self.grabba_pot = wpilib.AnalogPotentiometer(1)
-        
-        self.grabba_pid = wpilib.PIDController(4, 0.07, 0, self.grabba_pot.pidGet, self.window_motor.pidWrite)
-        self.grabba_pid.disable()
-
+        self.motor = wpilib.Jaguar(4)
+        self.current = wpilib.AnalogInput(3)
 
     def initDefaultCommand(self):
         pass
     
     def log(self):
-        wpilib.SmartDashboard.putNumber("Grabba Pot", self.grabba_pot.get())
+        wpilib.SmartDashboard.putData("Grabberness", self.grabba_pot) #publishes to the Dash
+        wpilib.SmartDashboard.putData("Current Current", self.current)
+        
+    def returnPIDInput(self):
+        return self.grabba_pot.get()
+    
+    def usePIDOutput(self, output):
+        self.motor.set(output)

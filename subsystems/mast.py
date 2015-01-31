@@ -1,4 +1,5 @@
 __author__ = 'nikolojedison'
+import wpilib
 from wpilib.command import PIDSubsystem
 
 class Mast(PIDSubsystem):
@@ -6,8 +7,8 @@ class Mast(PIDSubsystem):
     def __init__(self, robot)
         super().__init__(1, 0, 0) #__init__(P, I, D)
         self.robot = robot
-        self.mast_pot = wpilib.AnalogPotentiometer(0)
         
+        self.mast_pot = wpilib.AnalogPotentiometer(0)
         self.motor = wpilib.Jaguar(5)
 
     def initDefaultCommand(self):
