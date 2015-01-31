@@ -11,7 +11,7 @@ class OI:
         
         self.stick_left = wpilib.Joystick(0)
         self.stick_right = wpilib.Joystick(1)
-        
+        self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
 
         
         # Create some buttons on the left stick

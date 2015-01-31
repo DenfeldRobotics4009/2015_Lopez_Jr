@@ -12,8 +12,6 @@ class MecanumDriveWithJoystick(Command):
         
         self.robot = robot
         self.requires(self.robot.drivetrain)
-        
-    def initialize(self):
     
     def execute(self):
         self.robot.drivetrain.driveJoystick(self.robot.oi.getJoystick())
@@ -22,6 +20,7 @@ class MecanumDriveWithJoystick(Command):
         return False # Runs until interrupted
     
     def end(self):
+        self.robot.drivetrain.driveManual(0,0,0)
         pass
         
     def interrupted(self):

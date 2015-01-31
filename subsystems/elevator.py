@@ -1,7 +1,7 @@
 __author__ = 'nikolojedison'
-from wpilib.command import Subsystem
+from wpilib.command import PIDSubsystem
 
-class Elevator(Subsystem):
+class Elevator(PIDSubsystem):
     
     def initDefaultCommand(self):
         pass

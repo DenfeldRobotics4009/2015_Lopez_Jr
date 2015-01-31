@@ -1,7 +1,7 @@
 __author__ = 'nikolojedison'
-from wpilib.command import Subsystem
+from wpilib.command import PIDSubsystem
 
-class Grabber(Subsystem):
+class Grabber(PIDSubsystem):
     
     def initDefaultCommand(self):
         pass
