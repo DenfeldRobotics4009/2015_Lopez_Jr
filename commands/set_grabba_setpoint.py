@@ -1,4 +1,7 @@
 __author__ = 'nikolojedison'
+
+from wpilib.command import Command
+
 class SetGrabbaSetpoint(Command):
 
     def __init__(self, robot, setpoint):
