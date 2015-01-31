@@ -1,8 +1,8 @@
 __author__ = 'nikolojedison'
 from wpilib.command import Subsystem
 
-class camera(Subsystem):
-    
+class Camera(Subsystem):
+
     def __init__(self, robot):
         #This is for a USB camera. Uncomment it if we aren't using the Axis.
         self.camera = wpilib.USBCamera()
@@ -13,11 +13,11 @@ class camera(Subsystem):
         self.camera.setSize(320, 240)
         self.camera.setWhiteBalanceAuto()
         #self.camera.setQuality(30)
-        
+
         server = wpilib.CameraServer.getInstance()
         server.startAutomaticCapture(self.camera)
-    
+
     def initDefaultCommand(self):
         pass
-    
- 
+
+

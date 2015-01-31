@@ -11,6 +11,13 @@ import logging
 from autonomous_utilities import Auto
 from drive_control import *
 
+from subsystems.camera import Camera
+from subsystems.derailer import Derailer
+from subsystems.drivetrain import Drivetrain
+from subsystems.lift import Lift
+from subsystems.grabber import Grabber
+from subsystems.mast import Mast
+
 logging.basicConfig(level=logging.DEBUG)
 
 class Lopez_Jr(wpilib.SampleRobot):
@@ -18,21 +25,13 @@ class Lopez_Jr(wpilib.SampleRobot):
         """initialises robot as a mecanum drive bot w/ 2 joysticks and a camera"""
         #want to change this to Xbox 360 controller eventually... probably sooner rather
         #than later.
-        #
-
-        self.drive = wpilib.RobotDrive(3, 1, 2, 0)
-        self.drive.setExpiration(0.1)
-
-        self.drive.setInvertedMotor(self.drive.MotorType.kFrontRight, True) #already in oi
-        self.drive.setInvertedMotor(self.drive.MotorType.kRearRight, True)
 
         #self.gyro = wpilib.Gyro(0)
 
-        self.aux_left = wpilib.Jaguar(6) #just goes in subsys
+        self.aux_left = wpilib.Jaguar(6) #just goes in subsys - need to find out what they do
         self.aux_right = wpilib.Jaguar(4)
         self.window_motor = wpilib.Jaguar(5)
 
-        self.mast_pot = wpilib.AnalogPotentiometer(0)
         self.grabba_pot = wpilib.AnalogPotentiometer(1)
         self.lift_pot = wpilib.AnalogPotentiometer(2)
 

@@ -1,12 +1,12 @@
 __author__ = 'nikolojedison'
 from wpilib.command import PIDSubsystem
 
-class Mast(PIDSubsystem):
+class Lift(PIDSubsystem):
 
     def __init__(self, robot)
         super().__init__()
         self.robot = robot
-        self.mast_pot = wpilib.AnalogPotentiometer(0)
+        self.lift_pot = wpilib.AnalogPotentiometer(2)
 
     def initDefaultCommand(self):
         pass
