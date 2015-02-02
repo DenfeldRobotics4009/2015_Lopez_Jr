@@ -2,21 +2,10 @@ __author__ = 'nikolojedison'
 from wpilib.command import Command
 
 class LiftLift(Command):
-
-    def __init__(self, robot):
-        pass
-
-    def initialize(self):
-        pass
-
-    def execute(self):
-        pass
-
-    def isFinished(self):
-        pass
-
-    def end(self):
-        pass
-
-    def interrupted(self):
-        pass
+    kTopSetpoint = .9
+    def __init__(self, robot): 
+        super.__init__(robot, kTopSetpoint)
+        
+    def isFinished():
+        super.isFinished()
+    
