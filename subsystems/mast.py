@@ -3,6 +3,7 @@ import wpilib
 from wpilib.command import PIDSubsystem
 
 class Mast(PIDSubsystem):
+    kBack = 4.5
     
     def __init__(self, robot)
         super().__init__(1, 0, 0) #__init__(P, I, D)
@@ -22,3 +23,9 @@ class Mast(PIDSubsystem):
     
     def usePIDOutput(self, output):
         self.motor.set(output)
+    
+    def isBack(self):
+        self.mast_pot.get() > self.kBack
+        
+    def isForward(self):
+        not self.isBack()
