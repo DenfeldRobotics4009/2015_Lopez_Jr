@@ -44,8 +44,13 @@ class Lopez_Jr(wpilib.SampleRobot):
 
     def operatorControl(self):
         """Runs the drive with mecanum steering. Other motors added as needed."""
-        self.drive.setSafetyEnabled(True)
-        wpilib.Timer.delay(.005)    # don't burn up the cpu
+        self.drivetrain.drive.setSafetyEnabled(True)
+        while self.isAutonomous() and self.isEnabled():
+            Scheduler.getInstance().run()
+            wpilib.Timer.delay(.005)    # don't burn up the cpu
+            
+
+
 
     def disabled(self):
         pass
