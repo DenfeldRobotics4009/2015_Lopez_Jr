@@ -14,7 +14,7 @@ class MecanumDriveWithJoystick(Command):
         self.requires(self.robot.drivetrain)
 
     def execute(self):
-        self.robot.drivetrain.driveJoystick(self.robot.oi.getJoystick())
+        self.robot.drivetrain.driveJoystick(self.robot.oi.getJoystickLeft())
 
     def isFinished(self):
         return False # Runs until interrupted
