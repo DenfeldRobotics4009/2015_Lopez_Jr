@@ -34,7 +34,7 @@ class Lopez_Jr(wpilib.SampleRobot):
 
         self.autonomousCommand.start()
 
-        while self.isAutonomous() and self.isEnabled():
+        while self.isOperatorControl() and self.isEnabled():
             Scheduler.getInstance().run()
             wpilib.Timer.delay(.005)    # don't burn up the cpu
 
