@@ -6,6 +6,7 @@ __author__ = 'nikolojedison'
 #-Nik Mal
 
 import wpilib
+from wpilib.command import Scheduler
 
 from subsystems.camera import Camera
 from subsystems.derailer import Derailer
