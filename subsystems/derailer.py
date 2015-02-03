@@ -5,6 +5,6 @@ class Derailer(Subsystem):
 
     def initDefaultCommand(self):
         pass
-    
+
     def log(self):
         pass

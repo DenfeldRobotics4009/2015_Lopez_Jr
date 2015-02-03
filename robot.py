@@ -21,7 +21,7 @@ from subsystems.mast import Mast
 class Lopez_Jr(wpilib.SampleRobot):
     def robotInit(self):
         """initialises robot as a mecanum drive bot w/ 2 joysticks and a camera"""
-        
+
         self.camera = Camera(self)
         self.derailer = Derailer(self)
         self.drivetrain = Drivetrain(self)
@@ -29,14 +29,14 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.grabber = Grabber(self)
         self.mast = Mast(self)
         self.oi = OI(self)
-        
+
         self.autonomousCommand = Autonomous(self)
 
     def autonomous(self):
         """Woo, auton code. Needs to be tested."""
-        
+
         self.autonomousCommand.start()
-        
+
         while self.isAutonomous() and self.isEnabled():
             Scheduler.getInstance().run()
             wpilib.Timer.delay(.005)    # don't burn up the cpu
@@ -55,7 +55,7 @@ class Lopez_Jr(wpilib.SampleRobot):
     def test(self):
         """no tests yet, woo"""
         pass
-    
+
     def log(self):
         self.drivetrain.log
 

@@ -18,7 +18,7 @@ class Drivetrain(Subsystem):
 
         self.drive.setInvertedMotor(self.drive.MotorType.kFrontRight, True)
         self.drive.setInvertedMotor(self.drive.MotorType.kRearRight, True)
-        
+
         self.gyro = IMUSimple()
 
 
@@ -26,7 +26,7 @@ class Drivetrain(Subsystem):
         '''When no other command is running let the operator drive around
            using the joystick'''
         self.setDefaultCommand(MecanumDriveWithJoystick(self.robot))
-       
+
     def log(self):
         wpilib.SmartDashboard.putNumber("Gyro", self.gyro.getYaw())
 

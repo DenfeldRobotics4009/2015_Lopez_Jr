@@ -7,7 +7,7 @@ class SetLiftSetpoint(Command):
     def __init__(self, robot, setpoint):
         super().__init__()
         self.robot = robot
-        
+
         self.setpoint = setpoint
         self.requires(self.robot.lift)
 
@@ -17,4 +17,4 @@ class SetLiftSetpoint(Command):
 
     def isFinished(self):
         return self.robot.lift.onTarget() #Stay on target...
-    
+
