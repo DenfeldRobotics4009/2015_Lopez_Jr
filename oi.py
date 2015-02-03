@@ -1,7 +1,7 @@
 __author__ = 'nikolojedison'
 import wpilib
 
-from wpilib import SmartDashboard
+from networktables import NetworkTable
 
 
 
@@ -40,7 +40,7 @@ class OI:
         right_nine = JoystickButton(self.stick_right, 8)
         right_ten = JoystickButton(self.stick_right, 9)
         right_eleven = JoystickButton(self.stick_right, 10)
-        right_twelve = JoystickButtonself.stick_right, 11)
+        right_twelve = JoystickButton(self.stick_right, 11)
 
         # Connect the buttons to commands
         l2.whenPressed(Autonomous(robot))
