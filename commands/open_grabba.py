@@ -8,4 +8,4 @@ class OpenGrabba(SetGrabbaSetpoint):
         super.__init__(robot, kOpenSetpoint)
         
     def isFinished():
-        super.isFinished() or self.robot.grabber.current.getVoltage > kStallPoint
+        super.isFinished() or self.robot.grabber.current.getVoltage() > kStallPoint
