@@ -1,5 +1,6 @@
 __author__ = 'nikolojedison'
 from wpilib.command import Subsystem
+import wpilib
 
 class Camera(Subsystem):
 
