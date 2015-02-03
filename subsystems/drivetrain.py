@@ -46,9 +46,9 @@ class Drivetrain(Subsystem):
 
     def driveJoystick(self, joystick):
         precision = joystick.getRawButton(0)
-        x = drive_control(self.stick_right.getX(), precision)
-        y = drive_control(self.stick_right.getY(), precision)
-        z = drive_control(self.stick_right.getZ(), precision)
+        x = drive_control(joystick.getX(), precision)
+        y = drive_control(joystick.getY(), precision)
+        z = drive_control(joystick.getZ(), precision)
         self.driveManual(x,y,z)
 
     def driveManual(self, x, y , rotation):
