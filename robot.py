@@ -5,11 +5,7 @@ __author__ = 'nikolojedison'
 #needs to be changed. Will evolve as time goes on.
 #-Nik Mal
 
-from networktables import NetworkTable
 import wpilib
-import logging
-from autonomous_utilities import Auto
-from drive_control import *
 
 from subsystems.camera import Camera
 from subsystems.derailer import Derailer
