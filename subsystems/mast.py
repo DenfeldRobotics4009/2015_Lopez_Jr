@@ -5,7 +5,7 @@ from wpilib.command import PIDSubsystem
 class Mast(PIDSubsystem):
     kBack = 4.5
 
-    def __init__(self, robot)
+    def __init__(self, robot):
         super().__init__(1, 0, 0) #__init__(P, I, D)
         self.robot = robot
 
