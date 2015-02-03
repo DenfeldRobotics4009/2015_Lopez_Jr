@@ -57,7 +57,12 @@ class Lopez_Jr(wpilib.SampleRobot):
         pass
 
     def log(self):
-        self.drivetrain.log
+        self.camera.log()
+        self.derailer.log()
+        self.drivetrain.log()
+        self.lift.log()
+        self.grabber.log()
+        self.mast.log()
 
 if __name__ == "__main__":
     wpilib.run(Lopez_Jr)
