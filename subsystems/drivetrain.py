@@ -5,6 +5,17 @@ from wpilib.command import Subsystem
 from commands.mecanum_drive_with_joystick import MecanumDriveWithJoystick
 from drive_control import drive_control
 from imu_simple import IMUSimple
+
+class GyroDummy:
+    """Makes the sim happy. Written by Aux."""
+    n = 0
+    def getYaw():
+        n = n+1
+        if n > 180:
+            n = n-360
+        elif n < -180:
+            m = n+360
+        return n
 class Drivetrain(Subsystem):
     '''Class drivetrain uses a few Talons to run a 'bot.
     '''
@@ -19,7 +30,10 @@ class Drivetrain(Subsystem):
         self.drive.setInvertedMotor(self.drive.MotorType.kFrontRight, True)
         self.drive.setInvertedMotor(self.drive.MotorType.kRearRight, True)
 
-        self.gyro = IMUSimple()
+        if robot.isReal():
+            self.gyro = IMUSimple()
+        else:
+            self.gyro = GyroDummy()
 
 
     def initDefaultCommand(self):
