@@ -1,7 +1,7 @@
 __author__ = 'nikolojedison'
 import wpilib
 from networktables import NetworkTable
-from wpilib.buttons import Joystick
+from wpilib.buttons import JoystickButton
 
 
 class OI:
