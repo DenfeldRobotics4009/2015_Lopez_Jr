@@ -1,6 +1,4 @@
 __author__ = 'nikolojedison'
-#Temporary copypasta from robot.py, since I'm doing some housekeeping
-#over there. -Nik    
 #    three_tote = self.smart_dashboard.getBoolean("3 Tote Auto", defaultValue=False) 
 #    test_switch = self.smart_dashboard.getBoolean("Test Switch", defaultValue=False)
 
