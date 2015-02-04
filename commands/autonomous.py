@@ -20,20 +20,15 @@ class Autonomous(CommandGroup):
     def __init___(self, robot)
         super().__init__()
         self.addSequential(DriveStraight(robot))
-        self.addSequential(SetGrabbaSetpoint(robot, 1))
         self.addSequential(CloseGrabba(robot)) #grabs first tote
-        self.addSequential(SetLiftSetpoint(robot, 1))
         self.addSequential(LiftGoToLevel(robot))
         self.addSequential(DriveStraight(robot))
         self.addSequential(OpenGrabba(robot)) #drops first tote on second tote
-        self.addSequential(SetLiftSetpoint(robot, -1))
         self.addSequential(LiftGoToLevel(robot))
         self.addSequential(CloseGrabba(robot)) #grabs second tote
-        self.addSequential(SetLiftSetpoint(robot, 2))
         self.addSequential(LiftGoToLevel(robot))
         self.addSequential(DriveStraight(robot))
         self.addSequential(OpenGrabba(robot)) #drops first and second totes on third tote
-        self.addSequential(SetLiftSetpoint(robot, -2))
         self.addSequential(LiftGoToLevel(robot))
         self.addSequential(CloseGrabba(robot)) #grabs third tote
         self.addSequential(DriveStraight(robot)) #drives around for a bit
