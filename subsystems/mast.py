@@ -11,6 +11,7 @@ class Mast(PIDSubsystem):
 
         self.mast_pot = wpilib.AnalogPotentiometer(0)
         self.motor = wpilib.Jaguar(5)
+        self.setAbsoluteTolerance(.01)
 
     def initDefaultCommand(self):
         pass

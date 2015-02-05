@@ -11,6 +11,7 @@ class Lift(PIDSubsystem):
 
         self.lift_pot = wpilib.AnalogPotentiometer(2)
         self.motor = wpilib.Jaguar(6)
+        self.setAbsoluteTolerance(.01)
 
     def initDefaultCommand(self):
         pass

@@ -11,7 +11,7 @@ class Grabber(PIDSubsystem):
         self.grabba_pot = wpilib.AnalogPotentiometer(1)
         self.motor = wpilib.Jaguar(4)
         self.current = wpilib.AnalogInput(3)
-        self.setPercentTolerance(2)
+        self.setAbsoluteTolerance(.01)
 
     def initDefaultCommand(self):
         pass

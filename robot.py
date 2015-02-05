@@ -52,7 +52,7 @@ class Lopez_Jr(wpilib.SampleRobot):
             wpilib.Timer.delay(.005)    # don't burn up the cpu
 
     def disabled(self):
-        pass
+        self.autonomousCommand.cancel()
 
     def test(self):
         """no tests yet, woo"""

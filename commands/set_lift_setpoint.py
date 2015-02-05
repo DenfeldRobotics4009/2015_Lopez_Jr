@@ -18,3 +18,8 @@ class SetLiftSetpoint(Command):
     def isFinished(self):
         return self.robot.lift.onTarget() #Stay on target...
 
+    def end(self):
+        self.robot.lift.disable()
+
+    def interupted(self):
+        self.end()

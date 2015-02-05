@@ -22,7 +22,9 @@ class SetMastSetpoint(Command):
 
     def end(self):
         """Called once after isFinisherd returns true"""
+        self.robot.mast.disable()
 
     def interrupted(self):
         """Called when another thing which requires one or more of the same subsyses is
         scheduled to run"""
+        self.end()

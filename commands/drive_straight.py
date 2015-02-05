@@ -1,24 +1,31 @@
 __author__ = 'auxiliary-character'
 from wpilib.command import Command
 import wpilib
+import math
 
 class DriveStraight(Command):
-    def __init__(self, robot, x, y, angle, name=None, timeout=None):
+    def __init__(self, robot, x, y, timeout=None):
         super().__init__()
         self.robot = robot
         self.x = x
         self.y = y
-        self.controller = wpilib.PIDController(1, 0, 0, self.returnPIDInput, self.usePIDOutput)
-        self.controller.setSetpoint(angle)
+        self.controller = wpilib.PIDController(.01, 0, 0, self.returnPIDInput, self.usePIDOutput)
         self.requires(self.robot.drivetrain)
         self.setTimeout(timeout)
 
+    def initialize(self):
+        self.controller.enable()
+        self.controller.setSetpoint(self.robot.drivetrain.gyro.getYaw())
+
     def isFinished(self):
-        if self.isTimedOut():
-            self.robot.drivetrain.driveManual(0,0,0)
-            return True
-        else:
-            return False
+        return self.isTimedOut()
+
+    def end(self):
+        self.controller.disable()
+        self.robot.drivetrain.driveManual(0,0,0)
+
+    def interupted(self):
+        self.end()
 
     def returnPIDInput(self):
         angle = self.robot.drivetrain.gyro.getYaw()
@@ -37,4 +44,4 @@ class DriveStraight(Command):
             return angle_lesser
 
     def usePIDOutput(self, output):
-        self.robot.drivetrain.driveManual(x, y, output)
+        self.robot.drivetrain.driveManual(self.x, self.y, output)
