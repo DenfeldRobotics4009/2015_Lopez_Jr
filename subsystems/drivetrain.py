@@ -9,13 +9,16 @@ from imu_simple import IMUSimple
 class GyroDummy:
     """Makes the sim happy. Written by Aux."""
     n = 0
-    def getYaw():
+    def getYaw(self):
+        n = self.n
         n = n+1
         if n > 180:
             n = n-360
         elif n < -180:
             m = n+360
+        self.n = n
         return n
+
 class Drivetrain(Subsystem):
     '''Class drivetrain uses a few Talons to run a 'bot.
     '''

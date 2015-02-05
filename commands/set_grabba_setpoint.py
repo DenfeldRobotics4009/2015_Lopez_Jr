@@ -19,6 +19,8 @@ class SetGrabbaSetpoint(Command):
         """Called repeatedly"""
 
     def isFinished(self):
+        if not self.robot.isReal():
+            return True
         return self.robot.grabber.onTarget() #Stay on target...
 
     def end(self):

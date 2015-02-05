@@ -2,7 +2,7 @@ __author__ = 'nikolojedison'
 import wpilib
 from networktables import NetworkTable
 from wpilib.buttons import JoystickButton
-
+from commands.autonomous import Autonomous
 
 class OI:
 
@@ -42,7 +42,7 @@ class OI:
         right_twelve = JoystickButton(self.stick_right, 11)
 
         # Connect the buttons to commands, this code is an example of how to do it.
-        left_thumb.whenPressed(Autonomous(robot))
+        #left_thumb.whenPressed(Autonomous(robot))
 
     def getJoystickLeft(self):
         return self.stick_left

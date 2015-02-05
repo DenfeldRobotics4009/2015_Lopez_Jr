@@ -16,6 +16,7 @@ from subsystems.lift import Lift
 from subsystems.grabber import Grabber
 from subsystems.mast import Mast
 
+from commands.autonomous import Autonomous
 class Lopez_Jr(wpilib.SampleRobot):
     def robotInit(self):
         """initialises robot as a mecanum drive bot w/ 2 joysticks and a camera"""
@@ -33,15 +34,18 @@ class Lopez_Jr(wpilib.SampleRobot):
     def autonomous(self):
         """Woo, auton code. Needs to be tested."""
 
+        self.drivetrain.drive.setSafetyEnabled(False)
         self.autonomousCommand.start()
 
         while self.isAutonomous() and self.isEnabled():
             Scheduler.getInstance().run()
+            self.log()
             wpilib.Timer.delay(.005)    # don't burn up the cpu
 
 
     def operatorControl(self):
         """Runs the drive with mecanum steering. Other motors added as needed."""
+        self.autonomousCommand.cancel()
         self.drivetrain.drive.setSafetyEnabled(True)
         while self.isOperatorControl() and self.isEnabled():
             Scheduler.getInstance().run()
