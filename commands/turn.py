@@ -7,7 +7,7 @@ class Turn(Command):
     def __init__(self, robot, angle):
         super().__init__()
         self.robot = robot
-        self.controller = wpilib.PIDController(.01, 0, 0, self.returnPIDInput, self.usePIDOutput)
+        self.controller = wpilib.PIDController(.05, 0, 0, self.returnPIDInput, self.usePIDOutput)
         self.controller.setSetpoint(robot.drivetrain.gyro.getYaw()+angle)
         self.controller.setAbsoluteTolerance(2)
         self.requires(self.robot.drivetrain)

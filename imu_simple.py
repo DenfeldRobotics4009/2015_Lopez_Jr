@@ -5,10 +5,10 @@ import serial
 import re
 
 class IMUSimple(threading.Thread):
-    float_regex = """([\+\-]\d{3}\.\d{2})"""
+    float_regex = """([\+\-\ ]\d{3}\.\d{2})"""
     int8_regex = """([0-9A-Fa-f]{2})"""
     int16_regex = """([0-9A-Fa-f]{4})"""
-    termination_regex = int8_regex + "\n\r"
+    termination_regex = int8_regex
 
     yprc_packet_regex = re.compile("!y"+
         float_regex+ #Yaw
@@ -18,7 +18,7 @@ class IMUSimple(threading.Thread):
         termination_regex)
 
     def _parse(self, line):
-        match = yprc_packet_regex.search(line)
+        match = self.yprc_packet_regex.search(line)
         if match:
             groups = match.groups()
             yaw = float(groups[0])
@@ -28,7 +28,7 @@ class IMUSimple(threading.Thread):
             return yaw, pitch, roll, compass
 
     def __init__(self):
-        self.serial = serial.Serial(0, 57500)
+        self.serial = serial.Serial(1, 57500)
         super().__init__(name="IMU Listener", daemon=True)
         self.start()
         self.mutex = threading.RLock()
@@ -39,13 +39,18 @@ class IMUSimple(threading.Thread):
 
     def run(self):
         while True:
-            line = self.serial.readline(eol="\n\r")
-            yaw, pitch, roll, compass= self._parse(line)
-            with self.mutex:
-                self.yaw = yaw
-                self.pitch = pitch
-                self.roll = roll
-                self.compass = compass
+            try:
+                line = self.serial.readline().decode("utf8")
+            except(UnicodeDecodeError):
+                pass
+            parsed = self._parse(line)
+            if parsed:
+                yaw, pitch, roll, compass = parsed
+                with self.mutex:
+                    self.yaw = yaw
+                    self.pitch = pitch
+                    self.roll = roll
+                    self.compass = compass
 
     def getYaw(self):
         with self.mutex:

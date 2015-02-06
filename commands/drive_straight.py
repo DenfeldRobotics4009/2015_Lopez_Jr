@@ -9,7 +9,7 @@ class DriveStraight(Command):
         self.robot = robot
         self.x = x
         self.y = y
-        self.controller = wpilib.PIDController(.01, 0, 0, self.returnPIDInput, self.usePIDOutput)
+        self.controller = wpilib.PIDController(.05, 0, 0, self.returnPIDInput, self.usePIDOutput)
         self.requires(self.robot.drivetrain)
         self.setTimeout(timeout)
 

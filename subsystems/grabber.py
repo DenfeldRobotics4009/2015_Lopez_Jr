@@ -18,7 +18,7 @@ class Grabber(PIDSubsystem):
 
     def log(self):
         wpilib.SmartDashboard.putData("Grabberness", self.grabba_pot) #publishes to the Dash
-        wpilib.SmartDashboard.putData("Current Current", self.current)
+        wpilib.SmartDashboard.putNumber("Current Regulator", self.current.getVoltage())
 
     def returnPIDInput(self):
         return self.grabba_pot.get()

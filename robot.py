@@ -9,7 +9,7 @@ import wpilib
 from wpilib.command import Scheduler
 from oi import OI
 
-from subsystems.camera import Camera
+#from subsystems.camera import Camera
 from subsystems.derailer import Derailer
 from subsystems.drivetrain import Drivetrain
 from subsystems.lift import Lift
@@ -17,11 +17,12 @@ from subsystems.grabber import Grabber
 from subsystems.mast import Mast
 
 from commands.autonomous import Autonomous
+
 class Lopez_Jr(wpilib.SampleRobot):
     def robotInit(self):
         """initialises robot as a mecanum drive bot w/ 2 joysticks and a camera"""
 
-        self.camera = Camera(self)
+#        self.camera = Camera(self)
         self.derailer = Derailer(self)
         self.drivetrain = Drivetrain(self)
         self.lift = Lift(self)
@@ -48,18 +49,21 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.autonomousCommand.cancel()
         self.drivetrain.drive.setSafetyEnabled(True)
         while self.isOperatorControl() and self.isEnabled():
+            self.log()
             Scheduler.getInstance().run()
             wpilib.Timer.delay(.005)    # don't burn up the cpu
 
     def disabled(self):
         self.autonomousCommand.cancel()
+        while self.isDisabled():
+            self.log()
 
     def test(self):
         """no tests yet, woo"""
         pass
 
     def log(self):
-        self.camera.log()
+#        self.camera.log()
         self.derailer.log()
         self.drivetrain.log()
         self.lift.log()
