@@ -1,8 +1,8 @@
 __author__ = 'nikolojedison'
 from .set_grabba_setpoint import SetGrabbaSetpoint
 
-class CloseGrabba(SetGrabbaSetpoint):
-    kCloseSetpoint = .863
+class GrabTote(SetGrabbaSetpoint):
+    kCloseSetpoint = .425
     kStallPoint = 2
     def __init__(self, robot):
         super().__init__(robot, self.kCloseSetpoint)

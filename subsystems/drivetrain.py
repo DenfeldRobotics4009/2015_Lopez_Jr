@@ -27,7 +27,7 @@ class Drivetrain(Subsystem):
         super().__init__()
         self.robot = robot
 
-        self.drive = wpilib.RobotDrive(3, 1, 2, 0)
+        self.drive = wpilib.RobotDrive(0, 2, 1, 3)
         self.drive.setExpiration(0.1)
 
         self.drive.setInvertedMotor(self.drive.MotorType.kFrontRight, True)

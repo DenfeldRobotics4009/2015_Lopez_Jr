@@ -2,8 +2,8 @@ __author__ = 'nikolojedison'
 from .set_grabba_setpoint import SetGrabbaSetpoint
 
 class OpenGrabba(SetGrabbaSetpoint):
-    kOpenSetpoint = .9
-    kStallPoint = 1.1
+    kOpenSetpoint = .118
+    kStallPoint = 2
     def __init__(self, robot):
         super().__init__(robot, self.kOpenSetpoint)
 

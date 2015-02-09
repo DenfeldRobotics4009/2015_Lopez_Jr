@@ -17,6 +17,7 @@ from subsystems.grabber import Grabber
 from subsystems.mast import Mast
 
 from commands.autonomous import Autonomous
+from drive_control import dead_zone
 
 class Lopez_Jr(wpilib.SampleRobot):
     def robotInit(self):
@@ -48,10 +49,24 @@ class Lopez_Jr(wpilib.SampleRobot):
         """Runs the drive with mecanum steering. Other motors added as needed."""
         self.autonomousCommand.cancel()
         self.drivetrain.drive.setSafetyEnabled(True)
+        joystick = self.oi.getJoystickLeft()
         while self.isOperatorControl() and self.isEnabled():
             self.log()
             Scheduler.getInstance().run()
-            wpilib.Timer.delay(.005)    # don't burn up the cpu
+            #if joystick.getRawButton(7):
+            #    self.lift.motor.set(dead_zone(self.oi.getJoystickLeft().getThrottle(), .1))
+            #else:
+            #    self.lift.motor.set(0)
+            #if joystick.getRawButton(9):
+            #    self.mast.motor.set(dead_zone(self.oi.getJoystickLeft().getThrottle(), .1)*.35)
+            #else:
+            #    self.mast.motor.set(0)
+            #if joystick.getRawButton(11):
+            #    self.grabber.motor.set(dead_zone(self.oi.getJoystickLeft().getThrottle(), .1))
+            #else:
+            #    self.grabber.motor.set(0)
+        wpilib.Timer.delay(.005)    # don't burn up the cpu
+
 
     def disabled(self):
         self.autonomousCommand.cancel()
