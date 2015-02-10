@@ -2,7 +2,7 @@ __author__ = 'nikolojedison'
 import wpilib
 from wpilib.command import PIDSubsystem
 
-class Grabber(PIDSubsystem):
+class Claw(PIDSubsystem):
     kOpen = .122
     kClose = .850
     def __init__(self, robot):
