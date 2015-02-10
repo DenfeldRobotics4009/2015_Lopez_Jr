@@ -13,7 +13,7 @@ from oi import OI
 from subsystems.derailer import Derailer
 from subsystems.drivetrain import Drivetrain
 from subsystems.lift import Lift
-from subsystems.grabber import Grabber
+from subsystems.claw import Claw
 from subsystems.mast import Mast
 
 from commands.autonomous import Autonomous
@@ -27,7 +27,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.derailer = Derailer(self)
         self.drivetrain = Drivetrain(self)
         self.lift = Lift(self)
-        self.grabber = Grabber(self)
+        self.claw = Claw(self)
         self.mast = Mast(self)
         self.oi = OI(self)
 
@@ -82,7 +82,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.derailer.log()
         self.drivetrain.log()
         self.lift.log()
-        self.grabber.log()
+        self.claw.log()
         self.mast.log()
 
 if __name__ == "__main__":
