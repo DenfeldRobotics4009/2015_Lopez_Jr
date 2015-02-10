@@ -6,12 +6,12 @@ __author__ = 'nikolojedison'
 #would be useful. *shrugs*
 from wpilib.command import CommandGroup
 
-from .close_grabba import CloseGrabba
+from .close_claw import CloseClaw
 from .drive_straight import DriveStraight
 from .lift_go_to_level import LiftGoToLevel
 from .mecanum_drive_with_joystick import MecanumDriveWithJoystick
-from .open_grabba import OpenGrabba
-from .set_grabba_setpoint import SetGrabbaSetpoint
+from .open_claw import OpenClaw
+from .set_claw_setpoint import SetClawSetpoint
 from .set_lift_setpoint import SetLiftSetpoint
 from .set_mast_setpoint import SetMastSetpoint
 from .turn import Turn
@@ -22,17 +22,17 @@ class Autonomous(CommandGroup):
         super().__init__()
         self.addSequential(DriveStraight(robot, 0, 1, timeout=1))
         self.addSequential(Turn(robot, -5))
-        self.addSequential(CloseGrabba(robot)) #grabs first tote
+        self.addSequential(CloseClaw(robot)) #grabs first tote
         self.addSequential(LiftGoToLevel(robot, 1))
         self.addSequential(DriveStraight(robot, 0, 1, timeout=1))
-        self.addSequential(OpenGrabba(robot)) #drops first tote on second tote
+        self.addSequential(OpenClaw(robot)) #drops first tote on second tote
         self.addSequential(LiftGoToLevel(robot, 0))
-        self.addSequential(CloseGrabba(robot)) #grabs second tote
+        self.addSequential(CloseClaw(robot)) #grabs second tote
         self.addSequential(LiftGoToLevel(robot, 1))
         self.addSequential(DriveStraight(robot, 0, 1, timeout=1))
-        self.addSequential(OpenGrabba(robot)) #drops first and second totes on third tote
+        self.addSequential(OpenClaw(robot)) #drops first and second totes on third tote
         self.addSequential(LiftGoToLevel(robot, 0))
-        self.addSequential(CloseGrabba(robot)) #grabs third tote
+        self.addSequential(CloseClaw(robot)) #grabs third tote
         self.addSequential(LiftGoToLevel(robot, 1))
         self.addSequential(Turn(robot, 5))
         self.addSequential(DriveStraight(robot, 0, 1, timeout=1)) #drives around for a bit
