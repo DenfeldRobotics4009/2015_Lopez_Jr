@@ -1,7 +1,7 @@
 __author__ = 'nikolojedison'
-from .set_grabba_setpoint import SetGrabbaSetpoint
+from .set_claw_setpoint import SetClawSetpoint
 
-class CloseGrabba(SetGrabbaSetpoint):
+class CloseClaw(SetClawSetpoint):
     kCloseSetpoint = .863
     kStallPoint = 2
     def __init__(self, robot):
@@ -9,4 +9,4 @@ class CloseGrabba(SetGrabbaSetpoint):
 
     def isFinished(self):
         #Finishes the command if it reaches the setpoint or current draw is above kStallPoint.
-        return super().isFinished() or self.robot.grabber.current.getVoltage() > self.kStallPoint
+        return super().isFinished() or self.robot.claw.current.getVoltage() > self.kStallPoint
