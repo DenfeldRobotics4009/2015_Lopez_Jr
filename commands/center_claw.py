@@ -1,7 +1,7 @@
 __author__ = 'nikolojedison'
-from .set_grabba_setpoint import SetGrabbaSetpoint
+from .set_claw_setpoint import SetClawSetpoint
 
-class CenterGrabba(SetGrabbaSetpoint):
+class CenterClaw(SetClawSetpoint):
     kOpenSetpoint = .50
     kStallPoint = 2
     def __init__(self, robot):
