@@ -8,7 +8,7 @@ class ManualMast(Command):
         self.requires(self.robot.mast)
 
     def execute(self):
-        self.robot.mast.manualSet(dead_zone(self.robot.oi.getJoystickLeft().getThrottle(), .1) * .38)
+        self.robot.mast.manualSet(dead_zone(self.robot.oi.getJoystickLeft().getThrottle(), .1) * .33)
 
     def isFinished(self):
         return False

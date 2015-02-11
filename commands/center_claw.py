@@ -9,4 +9,4 @@ class CenterClaw(SetClawSetpoint):
         super().__init__(robot, self.kOpenSetpoint)
 
     def isFinished(self):
-        return super().isFinished() or self.robot.grabber.current.getVoltage() > self.kStallPoint
+        return super().isFinished() or self.robot.claw.current.getVoltage() > self.kStallPoint

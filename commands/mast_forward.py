@@ -1,8 +1,8 @@
 __author__ = 'nikolojedison'
-from set_mast_setpoint import SetMastSetpoint
+from .set_mast_setpoint import SetMastSetpoint
 
 class MastForward(SetMastSetpoint):
-    kForwardSetpoint = .68
+    kForwardSetpoint = .65
     def __init__(self, robot):
-        super.__init__(robot, self.kForwardSetpoint)
+        super().__init__(robot, self.kForwardSetpoint)
 

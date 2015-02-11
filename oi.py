@@ -2,13 +2,15 @@ __author__ = 'nikolojedison'
 import wpilib
 from networktables import NetworkTable
 from wpilib.buttons import JoystickButton
-from commands.autonomous import Autonomous
-from commands.open_grabba import OpenGrabba
-from commands.close_grabba import CloseGrabba
-from commands.center_grabba import CenterGrabba
-from commands.manual_grabba import ManualGrabba
+#from commands.autonomous import Autonomous
+from commands.open_claw import OpenClaw
+from commands.close_claw import CloseClaw
+from commands.center_claw import CenterClaw
+from commands.manual_claw import ManualClaw
 from commands.manual_lift import ManualLift
 from commands.manual_mast import ManualMast
+from commands.mast_back import MastBack
+from commands.mast_forward import MastForward
 from commands.grab_tote import GrabTote
 
 class OI:
@@ -50,10 +52,11 @@ class OI:
 
         # Connect the buttons to commands, this code is an example of how to do it.
         #left_thumb.whenPressed(Autonomous(robot))
-        left_eleven.whileHeld(ManualGrabba(robot))
-        left_three.whenPressed(CloseGrabba(robot))
-        left_five.whenPressed(CenterGrabba(robot))
-        left_four.whenPressed(OpenGrabba(robot))
+        left_eleven.whileHeld(ManualClaw(robot))
+        left_three.whenPressed(CloseClaw(robot))
+        left_five.whenPressed(OpenClaw(robot))
+        left_four.whenPressed(MastBack(robot))
+        left_six.whenPressed(MastForward(robot))
         left_eight.whileHeld(ManualLift(robot))
         left_nine.whileHeld(ManualMast(robot))
         left_thumb.whenPressed(GrabTote(robot))

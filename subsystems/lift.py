@@ -4,11 +4,11 @@ from wpilib.command import PIDSubsystem
 
 class Lift(PIDSubsystem):
     kUp = .240
-    kTop = .251
-    kBottom = .865
+    kTop = .252
+    kBottom = .873
 
     def __init__(self, robot):
-        super().__init__(1, 0, 0)
+        super().__init__(40, 0, 0)
         self.robot = robot
 
         self.lift_pot = wpilib.AnalogPotentiometer(1)

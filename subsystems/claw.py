@@ -10,7 +10,7 @@ class Claw(PIDSubsystem):
         self.robot = robot
 
         self.grabba_pot = wpilib.AnalogPotentiometer(2)
-        self.motor = wpilib.Jaguar(4)
+        self.motor = wpilib.Talon(5)
         self.current = wpilib.AnalogInput(3)
         self.setAbsoluteTolerance(.01)
 

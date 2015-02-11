@@ -3,12 +3,12 @@ import wpilib
 from wpilib.command import PIDSubsystem
 
 class Mast(PIDSubsystem):
-    kBack = .48
-    kBackLimit = .515
-    kForwardLimit = .68
+    kBack = .50
+    kBackLimit = .48
+    kForwardLimit = .65
 
     def __init__(self, robot):
-        super().__init__(1, 0, 0) #__init__(P, I, D)
+        super().__init__(40, 0, 0) #__init__(P, I, D)
         self.robot = robot
 
         self.mast_pot = wpilib.AnalogPotentiometer(0)
