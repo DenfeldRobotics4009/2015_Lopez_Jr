@@ -1,0 +1,7 @@
+back: lift up
+forward: lift down
+2: claw setpoints
+one button open, one close (consult Ben)
+trigger: 2" mode on lift (just adds a wee bit, should be tested thoroughly)
+sideBaseButtons: mast setpoints (as they were)
+flippyThrottle: derailer directions

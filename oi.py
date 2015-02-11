@@ -37,29 +37,33 @@ class OI:
         left_twelve = JoystickButton(self.stick_left, 12)
 
         #Create some buttons on the right stick
-#        right_trigger = JoystickButton(self.stick_right, 0)
-#        right_thumb = JoystickButton(self.stick_right, 1)
-#        right_three = JoystickButton(self.stick_right, 2)
-#        right_four = JoystickButton(self.stick_right, 3)
-#        right_five = JoystickButton(self.stick_right, 4)
-#        right_six = JoystickButton(self.stick_right, 5)
-#        right_seven = JoystickButton(self.stick_right, 6)
-#        right_eight = JoystickButton(self.stick_right, 7)
-#        right_nine = JoystickButton(self.stick_right, 8)
-#        right_ten = JoystickButton(self.stick_right, 9)
-#        right_eleven = JoystickButton(self.stick_right, 10)
-#        right_twelve = JoystickButton(self.stick_right, 11)
+        right_trigger = JoystickButton(self.stick_right, 0)
+        right_thumb = JoystickButton(self.stick_right, 1)
+        right_three = JoystickButton(self.stick_right, 2)
+        right_four = JoystickButton(self.stick_right, 3)
+        right_five = JoystickButton(self.stick_right, 4)
+        right_six = JoystickButton(self.stick_right, 5)
+        right_seven = JoystickButton(self.stick_right, 6)
+        right_eight = JoystickButton(self.stick_right, 7)
+        right_nine = JoystickButton(self.stick_right, 8)
+        right_ten = JoystickButton(self.stick_right, 9)
+        right_eleven = JoystickButton(self.stick_right, 10)
+        right_twelve = JoystickButton(self.stick_right, 11)
 
         # Connect the buttons to commands, this code is an example of how to do it.
         #left_thumb.whenPressed(Autonomous(robot))
-        left_eleven.whileHeld(ManualClaw(robot))
+        left_thumb.whenPressed(GrabTote(robot))
         left_three.whenPressed(CloseClaw(robot))
-        left_five.whenPressed(OpenClaw(robot))
         left_four.whenPressed(MastBack(robot))
+        left_five.whenPressed(OpenClaw(robot))
         left_six.whenPressed(MastForward(robot))
         left_eight.whileHeld(ManualLift(robot))
         left_nine.whileHeld(ManualMast(robot))
-        left_thumb.whenPressed(GrabTote(robot))
+        left_eleven.whileHeld(ManualClaw(robot))
+        
+        #right_trigger.whenPressed() #does some cool 2" lifting and stuff
+        #right_thumb.whenPressed() #grabs one tote width
+        #I dunno how to do axes... should look @ example code.
 
     def getJoystickLeft(self):
         return self.stick_left
