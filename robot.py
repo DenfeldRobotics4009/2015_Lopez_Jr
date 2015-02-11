@@ -16,7 +16,7 @@ from subsystems.lift import Lift
 from subsystems.claw import Claw
 from subsystems.mast import Mast
 
-from commands.autonomous import Autonomous
+from commands.three_tote_autonomous import ThreeToteAutonomous
 from drive_control import dead_zone
 
 class Lopez_Jr(wpilib.SampleRobot):
@@ -31,13 +31,21 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.mast = Mast(self)
         self.oi = OI(self)
 
-        self.autonomousCommand = Autonomous(self)
+        self.ThreeToteAutonomousCommand = ThreeToteAutonomous(self)
 
     def autonomous(self):
         """Woo, auton code. Needs to be tested."""
 
         self.drivetrain.drive.setSafetyEnabled(False)
-        self.autonomousCommand.start()
+        
+        if self.oi.smart_dashboard.getBoolean("3 Tote Auto"):
+            self.ThreeToteAutonomousCommand.start()
+        
+        elif self.oi.smart_dashboard.getBoolean("Can Auto"):
+            self.CanAutonomousCommand.start()
+            
+        else:
+            self.DriveAutonomousCommand.start()
 
         while self.isAutonomous() and self.isEnabled():
             Scheduler.getInstance().run()
@@ -47,7 +55,9 @@ class Lopez_Jr(wpilib.SampleRobot):
 
     def operatorControl(self):
         """Runs the drive with mecanum steering. Other motors added as needed."""
-        self.autonomousCommand.cancel()
+        self.ThreeToteAutonomousCommand.cancel()
+        self.CanAutonomousCommand.cancel()
+        self.DriveAutonomousCommand.cancel()
         self.drivetrain.drive.setSafetyEnabled(True)
         joystick = self.oi.getJoystickLeft()
         while self.isOperatorControl() and self.isEnabled():
@@ -69,7 +79,9 @@ class Lopez_Jr(wpilib.SampleRobot):
 
 
     def disabled(self):
-        self.autonomousCommand.cancel()
+        self.ThreeToteAutonomousCommand.cancel()
+        self.CanAutonomousCommand.cancel()
+        self.DriveAutonomousCommand.cancel()
         while self.isDisabled():
             self.log()
 
