@@ -33,6 +33,8 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.oi = OI(self)
 
         self.ThreeToteAutonomousCommand = ThreeToteAutonomous(self)
+        self.CanAutonomousCommand = CanAutonomous(self)
+        self.DriveAutonomousCommand = DriveAutonomous(self)
 
     def autonomous(self):
         """Woo, auton code. Needs to be tested."""
