@@ -10,7 +10,7 @@ class Lift(PIDSubsystem):
     def __init__(self, robot):
         super().__init__(40, 0, 0)
         self.robot = robot
-
+        self.is_two_inch = false
         self.lift_pot = wpilib.AnalogPotentiometer(1)
         self.motor = wpilib.CANTalon(0)
         self.setAbsoluteTolerance(.01)

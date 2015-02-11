@@ -18,7 +18,7 @@ class OI:
     def __init__(self, robot):
 
         self.stick_left = wpilib.Joystick(0)
-#        self.stick_right = wpilib.Joystick(1)
+        self.stick_right = wpilib.Joystick(1)
         self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
 
 
@@ -63,7 +63,6 @@ class OI:
         
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
         #right_thumb.whenPressed() #grabs one tote width
-        #I dunno how to do axes... should look @ example code.
 
     def getJoystickLeft(self):
         return self.stick_left

@@ -16,7 +16,7 @@ class Mast(PIDSubsystem):
         self.setAbsoluteTolerance(.01)
 
     def initDefaultCommand(self):
-        pass
+        self.setDefaultCommand
 
     def manualSet(self, output):
         position = self.mast_pot.get()
