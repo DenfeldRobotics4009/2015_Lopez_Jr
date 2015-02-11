@@ -23,7 +23,7 @@ from drive_control import dead_zone
 
 class Lopez_Jr(wpilib.SampleRobot):
     def robotInit(self):
-        """initialises robot as a mecanum drive bot w/ 2 joysticks and a camera"""
+        """Initialises 'bot w/ all subsystems (derailer needs testing) and joysticks"""
 
         self.derailer = Derailer(self)
         self.drivetrain = Drivetrain(self)
@@ -32,12 +32,13 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.mast = Mast(self)
         self.oi = OI(self)
 
+        #These are self-describing.
         self.ThreeToteAutonomousCommand = ThreeToteAutonomous(self)
         self.CanAutonomousCommand = CanAutonomous(self)
         self.DriveAutonomousCommand = DriveAutonomous(self)
 
     def autonomous(self):
-        """Woo, auton code. Needs to be tested."""
+        """Woo, auton code w/ 3 modes. Needs to be tested."""
 
         self.drivetrain.drive.setSafetyEnabled(False)
         
@@ -57,7 +58,7 @@ class Lopez_Jr(wpilib.SampleRobot):
 
 
     def operatorControl(self):
-        """Runs the drive with mecanum steering. Other motors added as needed."""
+        """Runs the 'bot with a joystick - dunno why we don't have both."""
         self.ThreeToteAutonomousCommand.cancel()
         self.CanAutonomousCommand.cancel()
         self.DriveAutonomousCommand.cancel()
@@ -82,6 +83,7 @@ class Lopez_Jr(wpilib.SampleRobot):
 
 
     def disabled(self):
+        """Stuff to do when the 'bot is disabled"""
         self.ThreeToteAutonomousCommand.cancel()
         self.CanAutonomousCommand.cancel()
         self.DriveAutonomousCommand.cancel()
@@ -89,7 +91,7 @@ class Lopez_Jr(wpilib.SampleRobot):
             self.log()
 
     def test(self):
-        """no tests yet, woo"""
+        """There aren't any tests."""
         pass
 
     def log(self):

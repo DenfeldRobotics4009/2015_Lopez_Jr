@@ -2,6 +2,7 @@ __author__ = 'nikolojedison'
 from .set_claw_setpoint import SetClawSetpoint
 
 class CloseClaw(SetClawSetpoint):
+    """Closes the claw."""
     kCloseSetpoint = .863
     kStallPoint = 2
     def __init__(self, robot):

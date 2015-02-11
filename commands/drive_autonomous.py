@@ -13,6 +13,7 @@ from .set_mast_setpoint import SetMastSetpoint
 from .turn import Turn
 
 class DriveAutonomous(CommandGroup):
+    """This is the simple auton."""
     def __init__(self, robot):
         super().__init__()
         auton_generator = [DriveStraight(robot, 0, .5, timeout=2)]

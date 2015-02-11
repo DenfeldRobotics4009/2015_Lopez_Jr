@@ -13,6 +13,7 @@ from .set_mast_setpoint import SetMastSetpoint
 from .turn import Turn
 
 class CanAutonomous(CommandGroup):
+    """This is the autonomous where we grab the can and drive off with it."""
     #Should really put some setpoints in. Ehhhhhhh...
     def __init__(self, robot):
         super().__init__()

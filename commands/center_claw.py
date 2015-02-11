@@ -2,6 +2,7 @@ __author__ = 'nikolojedison'
 from .set_claw_setpoint import SetClawSetpoint
 
 class CenterClaw(SetClawSetpoint):
+    """Centers the claw/grabber/thing."""
     kOpenSetpoint = .50
     kStallPoint = 2
     def __init__(self, robot):
