@@ -17,5 +17,5 @@ class DriveAutonomous(CommandGroup):
     def __init__(self, robot):
         super().__init__()
         auton_generator = [DriveStraight(robot, 0, .5, timeout=2)]
-            
+
         [self.addSequential(i) for i in auton_generator]

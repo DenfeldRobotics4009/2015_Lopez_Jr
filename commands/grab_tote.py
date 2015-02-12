@@ -2,7 +2,7 @@ __author__ = 'nikolojedison'
 from .set_claw_setpoint import SetClawSetpoint
 
 class GrabTote(SetClawSetpoint):
-    kCloseSetpoint = .425
+    kCloseSetpoint = .430
     kStallPoint = 2
     def __init__(self, robot):
         super().__init__(robot, self.kCloseSetpoint)

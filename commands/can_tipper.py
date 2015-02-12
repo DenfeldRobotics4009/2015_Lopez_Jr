@@ -15,7 +15,7 @@ class CanTipper(CommandGroup):
             Turn(robot, -45)]
 
         [self.addSequential(i) for i in tipper_generator]
-        
+
         #turn 45 deg
         #go forward x
         #turn 90 deg

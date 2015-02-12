@@ -8,6 +8,7 @@ def precision_mode(controller_input, button_state):
         return controller_input
 
 def dead_zone(controller_input, dead_zone):
+    """This is the dead zone code, essential for any 4009 'bot."""
     if controller_input <= dead_zone and controller_input >= -dead_zone:
         return 0
     elif controller_input > 0:

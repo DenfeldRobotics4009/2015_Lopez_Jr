@@ -8,7 +8,7 @@ class ManualLift(Command):
         self.requires(self.robot.lift)
 
     def execute(self):
-        self.robot.lift.manualSet(dead_zone(self.robot.oi.getJoystickLeft().getThrottle(), .1))
+        self.robot.lift.manualSet(dead_zone(-self.robot.oi.getJoystickRight().getThrottle(), .1))
 
     def isFinished(self):
         return False

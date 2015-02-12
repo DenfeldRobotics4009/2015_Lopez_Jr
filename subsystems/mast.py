@@ -3,9 +3,9 @@ import wpilib
 from wpilib.command import PIDSubsystem
 
 class Mast(PIDSubsystem):
-    kBack = .50
-    kBackLimit = .48
-    kForwardLimit = .65
+    kBack = .45
+    kBackLimit = .447
+    kForwardLimit = .63
 
     def __init__(self, robot):
         super().__init__(40, 0, 0) #__init__(P, I, D)

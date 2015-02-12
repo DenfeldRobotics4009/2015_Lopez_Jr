@@ -5,20 +5,24 @@ __author__ = 'nikolojedison'
 #needs to be changed. Will evolve as time goes on.
 #-Nik Mal
 
+#These are the WPILib section
 import wpilib
 from wpilib.command import Scheduler
 from oi import OI
 
+#This is all the subsystems
 from subsystems.derailer import Derailer
 from subsystems.drivetrain import Drivetrain
 from subsystems.lift import Lift
 from subsystems.claw import Claw
 from subsystems.mast import Mast
 
+#This is all the commands
 from commands.three_tote_autonomous import ThreeToteAutonomous
 from commands.can_autonomous import CanAutonomous
 from commands.drive_autonomous import DriveAutonomous
 
+#This is all the special drive stuff
 from drive_control import dead_zone
 
 class Lopez_Jr(wpilib.SampleRobot):
@@ -41,13 +45,13 @@ class Lopez_Jr(wpilib.SampleRobot):
         """Woo, auton code w/ 3 modes. Needs to be tested."""
 
         self.drivetrain.drive.setSafetyEnabled(False)
-        
+
         if self.oi.smart_dashboard.getBoolean("3 Tote Auto"):
             self.ThreeToteAutonomousCommand.start()
-        
+
         elif self.oi.smart_dashboard.getBoolean("Can Auto"):
             self.CanAutonomousCommand.start()
-            
+
         else:
             self.DriveAutonomousCommand.start()
 
@@ -63,7 +67,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.CanAutonomousCommand.cancel()
         self.DriveAutonomousCommand.cancel()
         self.drivetrain.drive.setSafetyEnabled(True)
-        joystick = self.oi.getJoystickLeft()
+        joystick = self.oi.getJoystickLeft() #Do we even need this?
         while self.isOperatorControl() and self.isEnabled():
             self.log()
             Scheduler.getInstance().run()
@@ -95,6 +99,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         pass
 
     def log(self):
+        """Woo, logging."""
         self.derailer.log()
         self.drivetrain.log()
         self.lift.log()

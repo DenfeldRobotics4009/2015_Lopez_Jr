@@ -4,7 +4,7 @@ from wpilib.command import PIDSubsystem
 
 class Claw(PIDSubsystem):
     kOpen = .122
-    kClose = .850
+    kClose = .848
     def __init__(self, robot):
         super().__init__(20, 0, 0)
         self.robot = robot
