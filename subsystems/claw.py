@@ -1,10 +1,10 @@
 __author__ = 'nikolojedison'
 import wpilib
 from wpilib.command import PIDSubsystem
+import setpoints
 
 class Claw(PIDSubsystem):
-    kOpen = .122
-    kClose = .848
+
     def __init__(self, robot):
         super().__init__(20, 0, 0)
         self.robot = robot
@@ -23,9 +23,9 @@ class Claw(PIDSubsystem):
 
     def manualSet(self, output):
         position = self.grabba_pot.get()
-        if position > self.kClose and output > 0:
+        if position > (setpoints.kClose-.013) and output > 0:
             self.motor.set(0)
-        elif position < self.kOpen and output < 0:
+        elif position < (setpoints.kOpen+.013) and output < 0:
             self.motor.set(0)
         else:
             self.motor.set(output)

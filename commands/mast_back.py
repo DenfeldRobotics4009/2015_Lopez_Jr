@@ -1,5 +1,6 @@
 __author__ = 'nikolojedison'
 from .set_mast_setpoint import SetMastSetpoint
+import setpoints
 
 class MastBack(SetMastSetpoint):
     def __init__(self, robot):
@@ -7,5 +8,5 @@ class MastBack(SetMastSetpoint):
         if robot.lift.isUp(): #If the lift is up:
             self.cancel() #Stop the mast tiltery
 
-        super().__init__(robot, robot.mast.kBackLimit)
+        super().__init__(robot, setpoints.kMastBackLimit+.02)
 

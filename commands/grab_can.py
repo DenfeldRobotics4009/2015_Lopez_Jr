@@ -1,13 +1,12 @@
-__author__ = 'nikolojedison'
+__author__ = "nikolojedison"
 from .set_claw_setpoint import SetClawSetpoint
 import setpoints
 
-class OpenClaw(SetClawSetpoint):
-    """Opens the claw"""
+class GrabCan(SetClawSetpoint):
+    """Needs testing, w/ and w/o the sandpapers."""
 
     def __init__(self, robot):
-        super().__init__(robot, setpoints.kOpen)
+        super().__init__(robot, setpoints.kCan)
 
     def isFinished(self):
-        """Current sensor stops the things if it gets trippin'."""
         return super().isFinished() or self.robot.claw.current.getVoltage() > setpoints.kStall

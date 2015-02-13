@@ -4,7 +4,7 @@ __author__ = 'nikolojedison'
 from wpilib.command import Command
 
 class DerailerGo(Command):
-
+    """This should work... *shrug*"""
     def __init__(self, robot):
         super().__init__()
         self.robot = robot

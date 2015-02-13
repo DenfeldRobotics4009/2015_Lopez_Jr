@@ -1,12 +1,13 @@
 __author__ = 'nikolojedison'
 from .set_claw_setpoint import SetClawSetpoint
+import setpoints
 
 class GrabTote(SetClawSetpoint):
-    kCloseSetpoint = .430
-    kStallPoint = 2
+    """Grabba da tote, man. Needs testing w. the sandpaper blocks."""
+
     def __init__(self, robot):
-        super().__init__(robot, self.kCloseSetpoint)
+        super().__init__(robot, setpoints.kTote)
 
     def isFinished(self):
         #Finishes the command if it reaches the setpoint or current draw is above kStallPoint.
-        return super().isFinished() or self.robot.claw.current.getVoltage() > self.kStallPoint
+        return super().isFinished() or self.robot.claw.current.getVoltage() > setpoints.kStall

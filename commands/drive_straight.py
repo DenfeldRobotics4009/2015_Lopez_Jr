@@ -4,6 +4,7 @@ import wpilib
 import math
 
 class DriveStraight(Command):
+    """Drives the robot straight using the navX, PIDs, and a bit of math."""
     def __init__(self, robot, x, y, timeout=None):
         super().__init__()
         self.robot = robot

@@ -1,11 +1,9 @@
 __author__ = 'nikolojedison'
 import wpilib
 from wpilib.command import PIDSubsystem
+import setpoints
 
 class Mast(PIDSubsystem):
-    kBack = .45
-    kBackLimit = .447
-    kForwardLimit = .63
 
     def __init__(self, robot):
         super().__init__(40, 0, 0) #__init__(P, I, D)
@@ -20,9 +18,9 @@ class Mast(PIDSubsystem):
 
     def manualSet(self, output):
         position = self.mast_pot.get()
-        if position < self.kBackLimit and output < 0:
+        if position < setpoints.kMastBackLimit and output < 0:
             self.motor.set(0)
-        elif position > self.kForwardLimit and output > 0:
+        elif position > setpoints.kMastForwardLimit and output > 0:
             self.motor.set(0)
         else:
             self.motor.set(output)
@@ -41,7 +39,7 @@ class Mast(PIDSubsystem):
         self.motor.set(output*.38)
 
     def isBack(self):
-        self.mast_pot.get() > self.kBack
+        self.mast_pot.get() > self.kMastBack
 
     def isForward(self):
         not self.isBack()

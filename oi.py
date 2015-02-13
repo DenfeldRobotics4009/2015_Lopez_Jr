@@ -1,14 +1,15 @@
 __author__ = 'nikolojedison'
-#**************************
-#|\    | | |  / /    /   |*
-#| \   | | | /      /    |*
-#|  \  | | |/      /     |*
-#|   \ | | |\      ---/  |*
-#|    \| | | \       /   |*
-#|     | | |  \     /     *
-#|     | | |   \   /     |*
-#**************************
-#(ascii art OP. Pls nerf.)
+#***************************
+#*|\    | | |  /   /  /   |*
+#*| \   | | | /      /    |*
+#*|  \  | | |/      /     |*
+#*|   \ | | |\      ---/  |*
+#*|    \| | | \       /   |*
+#*|     | | |  \     /    |*
+#*|     | | |   \   /     |*
+#***************************
+#(ascii art, pay no mind.)
+#2/12 21:30 - a little tired due to last night, but still going. Waiting on robot.
 import wpilib
 from networktables import NetworkTable
 from wpilib.buttons import JoystickButton
@@ -22,6 +23,7 @@ from commands.manual_mast import ManualMast
 from commands.mast_back import MastBack
 from commands.mast_forward import MastForward
 from commands.grab_tote import GrabTote
+from commands.grab_can import GrabCan
 from pov_button import POVButton
 from commands.drive_straight import DriveStraight
 
@@ -34,7 +36,7 @@ class OI:
         self.stick_right = wpilib.Joystick(1)
         self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
 
-
+        #Buttons? Aw, man, I love buttons! *bleep bloop*
         # Create some buttons on the left stick
         left_trigger = JoystickButton(self.stick_left, 1)
         left_thumb = JoystickButton(self.stick_left, 2)
@@ -51,13 +53,13 @@ class OI:
         #Create some POV stuff on the left stick, based on the cardinal directions and the hat switch - may end up being degrees,
         #with north = 0, east = 90, south = 180, west 270
         left_north = POVButton(self.stick_left, 0)
-        left_northeast = POVButton(self.stick_left, 1)
-        left_east = POVButton(self.stick_left, 2)
-        left_southeast = POVButton(self.stick_left, 3)
-        left_south = POVButton(self.stick_left, 4)
-        left_southwest = POVButton(self.stick_left, 5)
-        left_west = POVButton(self.stick_left, 6)
-        left_northwest = POVButton(self.stick_left, 7)
+        left_northeast = POVButton(self.stick_left, 45)
+        left_east = POVButton(self.stick_left, 90)
+        left_southeast = POVButton(self.stick_left, 135)
+        left_south = POVButton(self.stick_left, 180)
+        left_southwest = POVButton(self.stick_left, 225)
+        left_west = POVButton(self.stick_left, 270)
+        left_northwest = POVButton(self.stick_left, 315)
 
         #Create some buttons on the right stick
         right_trigger = JoystickButton(self.stick_right, 1)
@@ -74,30 +76,38 @@ class OI:
         right_twelve = JoystickButton(self.stick_right, 12)
         #Create some POV stuff on the right stick, see lines 39-40 for explanation
         right_north = POVButton(self.stick_right, 0)
-        right_northeast = POVButton(self.stick_right, 1)
-        right_east = POVButton(self.stick_right, 2)
-        right_southeast = POVButton(self.stick_right, 3)
-        right_south = POVButton(self.stick_right, 4)
-        right_southwest = POVButton(self.stick_right, 5)
-        right_west = POVButton(self.stick_right, 6)
-        right_northwest = POVButton(self.stick_right, 7)
+        right_northeast = POVButton(self.stick_right, 45)
+        right_east = POVButton(self.stick_right, 90)
+        right_southeast = POVButton(self.stick_right, 135)
+        right_south = POVButton(self.stick_right, 180)
+        right_southwest = POVButton(self.stick_right, 225)
+        right_west = POVButton(self.stick_right, 270)
+        right_northwest = POVButton(self.stick_right, 315)
 
-        # Connect the buttons to commands, this code is an example of how to do it.
-        #left_thumb.whenPressed(Autonomous(robot))
+        # Connect buttons & commands
         right_thumb.whenPressed(GrabTote(robot))
         right_three.whenPressed(CloseClaw(robot))
-        right_four.whenPressed(MastBack(robot))
-        right_five.whenPressed(OpenClaw(robot))
+        right_five.whenPressed(MastBack(robot))
+        right_four.whenPressed(OpenClaw(robot))
         right_six.whenPressed(MastForward(robot))
         right_eight.whileHeld(ManualLift(robot))
         right_nine.whileHeld(ManualMast(robot))
         right_eleven.whileHeld(ManualClaw(robot))
-        left_thumb.whenPressed(DriveStraight(robot, 0, .15, timeout = .25))
+        left_south.whenPressed(DriveStraight(robot, 0, .15, timeout = .25))
+        left_north.whenPressed(DriveStraight(robot, 0, -.15, timeout = .25))
+        left_east.whenPressed(DriveStraight(robot, .15, 0, timeout = .25))
+        left_west.whenPressed(DriveStraight(robot, -.15, 0, timeout = .25))
+        left_three.whenPressed(CloseClaw(robot))
+        left_four.whenPressed(OpenClaw(robot))
+        left_five.whenPressed(GrabTote(robot))
+        left_six.whenPressed(GrabCan(robot))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
-        #right_thumb.whenPressed() #grabs one tote width
 
     def getJoystickLeft(self):
+        """This is the left joystick."""
         return self.stick_left
 
     def getJoystickRight(self):
+        """This is the right joystick."""
         return self.stick_right
+

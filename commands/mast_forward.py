@@ -1,8 +1,10 @@
 __author__ = 'nikolojedison'
 from .set_mast_setpoint import SetMastSetpoint
+import setpoints
 
 class MastForward(SetMastSetpoint):
-    kForwardSetpoint = .65
+    """Sends the mast forward"""
+
     def __init__(self, robot):
-        super().__init__(robot, robot.mast.kForwardLimit)
+        super().__init__(robot, setpoints.kMastForwardLimit-.02)
 
