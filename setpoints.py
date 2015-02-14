@@ -5,7 +5,7 @@ kMastForwardLimit = .433
 kMastParallel = .416
 
 #claw setpoints - tested 2/12/15
-kOpen = .200
+kOpen = .207
 kClose = .925 #2/12/15 23.12: .771 2/13/15 16:30: .925
 kCan = .375
 kTote = .505
