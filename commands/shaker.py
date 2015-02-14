@@ -18,7 +18,7 @@ class Shaker(Command):
         self.grab_command.start()
         self.drive_right.start()
 
-    def execute():
+    def execute(self):
         if self.driving_right:
             if not self.grab_right.running:
                 self.drive_left.start()
