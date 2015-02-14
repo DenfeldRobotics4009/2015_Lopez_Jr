@@ -16,21 +16,21 @@ class ThreeToteAutonomous(CommandGroup):
     def __init__(self, robot):
         super().__init__()
         auton_generator = [
-            DriveStraight(robot, 0, -.75, timeout=1),
+            DriveStraight(robot, 0, .75, timeout=.5),
             Turn(robot, -5),
             CloseClaw(robot), #grabs first tote
             LiftGoToLevel(robot, 1),
-            DriveStraight(robot, 0, -.75, timeout=1),
+            DriveStraight(robot, 0, .75, timeout=.5),
             OpenClaw(robot), #drops first tote on second tote
             LiftGoToLevel(robot, 0),
             CloseClaw(robot), #grabs second tote
             LiftGoToLevel(robot, 1),
-            DriveStraight(robot, 0, -.75, timeout=1),
+            DriveStraight(robot, 0, .75, timeout=.5),
             OpenClaw(robot), #drops first and second totes on third tote
             LiftGoToLevel(robot, 0),
             CloseClaw(robot), #grabs third tote
             LiftGoToLevel(robot, 1),
             Turn(robot, 5),
-            DriveStraight(robot, 0, -.75, timeout=1)] #drives around for a bit
+            DriveStraight(robot, 0, .75, timeout=.5)] #drives around for a bit
 
         for i in auton_generator: self.addSequential(i)
