@@ -21,6 +21,6 @@ class CanAutonomous(CommandGroup):
             DriveStraight(robot, 0, 1, timeout=1),
             CloseClaw(robot), #grabs can
             LiftGoToLevel(robot, 1),
-            DriveStraight(robot, 0, 1, timeout=1),]
+            DriveStraight(robot, 0, 1, timeout=1)]
 
-        [self.addSequential(i) for i in auton_generator]
+        for i in auton_generator: self.addSequential(i)
