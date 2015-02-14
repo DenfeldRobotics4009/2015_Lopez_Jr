@@ -29,6 +29,7 @@ from commands.grab_tote import GrabTote
 from commands.grab_can import GrabCan
 from commands.turn import Turn
 from commands.lift_go_to_level import LiftGoToLevel
+from commands.shaker import Shaker
 from pov_button import POVButton
 from commands.drive_straight import DriveStraight
 
