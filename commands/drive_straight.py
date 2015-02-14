@@ -10,7 +10,7 @@ class DriveStraight(Command):
         self.robot = robot
         self.x = x
         self.y = y
-        self.controller = wpilib.PIDController(.05, 0, 0, self.returnPIDInput, self.usePIDOutput)
+        self.controller = wpilib.PIDController(-.05, 0, 0, self.returnPIDInput, self.usePIDOutput)
         self.requires(self.robot.drivetrain)
         self.setTimeout(timeout)
 
@@ -27,6 +27,10 @@ class DriveStraight(Command):
 
     def interupted(self):
         self.end()
+
+    def _cancel(self):
+        self.end()
+        super()._cancel()
 
     def returnPIDInput(self):
         angle = self.robot.drivetrain.gyro.getYaw()

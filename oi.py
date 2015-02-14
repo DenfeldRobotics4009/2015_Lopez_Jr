@@ -26,6 +26,7 @@ from commands.mast_back import MastBack
 from commands.mast_forward import MastForward
 from commands.grab_tote import GrabTote
 from commands.grab_can import GrabCan
+from commands.turn import Turn
 from commands.lift_go_to_level import LiftGoToLevel
 from pov_button import POVButton
 from commands.drive_straight import DriveStraight
@@ -104,7 +105,7 @@ class OI:
         left_four.whenPressed(OpenClaw(robot))
         left_five.whenPressed(GrabTote(robot))
         left_six.whenPressed(GrabCan(robot))
-        left_thumb.whenPressed(LiftGoToLevel(robot, 4))
+        left_thumb.whenPressed(Turn(robot, 90))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
     def getJoystickLeft(self):

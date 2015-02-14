@@ -22,7 +22,7 @@ class Mast(PIDSubsystem):
             self.motor.set(0)
         elif position > setpoints.kMastForwardLimit and output > 0:
             self.motor.set(0)
-            self.addSequential(LiftGoToLevel(robot, 6)
+            self.addSequential(LiftGoToLevel(robot, 6))
         else:
             self.motor.set(output)
 

@@ -16,6 +16,10 @@ class DriveAutonomous(CommandGroup):
     """This is the simple auton."""
     def __init__(self, robot):
         super().__init__()
-        auton_generator = [DriveStraight(robot, 0, .5, timeout=2)]
+        self.auton_generator = [DriveStraight(robot, 0, -.5, timeout=5)]
 
-        for i in auton_generator: self.addSequential(i)
+        for i in self.auton_generator: self.addSequential(i)
+
+    def cancel(self):
+        for i in self.auton_generator: i._cancel()
+        super().cancel()

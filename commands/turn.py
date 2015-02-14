@@ -7,12 +7,13 @@ class Turn(Command):
     def __init__(self, robot, angle):
         super().__init__()
         self.robot = robot
-        self.controller = wpilib.PIDController(.05, 0, 0, self.returnPIDInput, self.usePIDOutput)
-        self.controller.setSetpoint(robot.drivetrain.gyro.getYaw()+angle)
+        self.angle = angle
+        self.controller = wpilib.PIDController(-.008, -0.0003, -.001, 5, self.returnPIDInput, self.usePIDOutput)
         self.controller.setAbsoluteTolerance(2)
         self.requires(self.robot.drivetrain)
 
     def initialize(self):
+        self.controller.setSetpoint(self.robot.drivetrain.gyro.getYaw()+self.angle)
         self.controller.enable()
 
     def isFinished(self):
@@ -24,6 +25,10 @@ class Turn(Command):
 
     def interupted(self):
         self.end()
+
+    def _cancel(self):
+        self.end()
+        super()._cancel()
 
     def returnPIDInput(self):
         angle = self.robot.drivetrain.gyro.getYaw()
@@ -42,4 +47,4 @@ class Turn(Command):
             return angle_lesser
 
     def usePIDOutput(self, output):
-        self.robot.drivetrain.driveManual(0, 0, output)
+        self.robot.drivetrain.driveManual(0, 0, output**3)

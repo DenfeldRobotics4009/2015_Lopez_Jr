@@ -41,16 +41,16 @@ class IMUSimple(threading.Thread):
         while True:
             try:
                 line = self.serial.readline().decode("utf8")
+                parsed = self._parse(line)
+                if parsed:
+                    yaw, pitch, roll, compass = parsed
+                    with self.mutex:
+                        self.yaw = yaw
+                        self.pitch = pitch
+                        self.roll = roll
+                        self.compass = compass
             except(UnicodeDecodeError):
                 pass
-            parsed = self._parse(line)
-            if parsed:
-                yaw, pitch, roll, compass = parsed
-                with self.mutex:
-                    self.yaw = yaw
-                    self.pitch = pitch
-                    self.roll = roll
-                    self.compass = compass
 
     def getYaw(self):
         with self.mutex:

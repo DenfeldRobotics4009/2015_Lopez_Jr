@@ -47,12 +47,15 @@ class Lopez_Jr(wpilib.SampleRobot):
 
         if self.oi.smart_dashboard.getBoolean("3 Tote Auto"):
             self.ThreeToteAutonomousCommand.start()
+            print("3 tote auto started")
 
         elif self.oi.smart_dashboard.getBoolean("Can Auto"):
             self.CanAutonomousCommand.start()
+            print("Can Auto started")
 
         else:
             self.DriveAutonomousCommand.start()
+            print("Drive Auto started")
 
         while self.isAutonomous() and self.isEnabled():
             Scheduler.getInstance().run()

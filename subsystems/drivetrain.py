@@ -3,7 +3,7 @@ import math
 import wpilib
 from wpilib.command import Subsystem
 from commands.mecanum_drive_with_joystick import MecanumDriveWithJoystick
-from drive_control import drive_control
+from drive_control import *
 from imu_simple import IMUSimple
 
 class GyroDummy:
@@ -49,9 +49,9 @@ class Drivetrain(Subsystem):
 
     def driveJoystick(self, joystick):
         precision = joystick.getRawButton(1)
-        x = drive_control(joystick.getX(), precision)
+        x = drive_control(joystick.getX()*2, precision)
         y = drive_control(joystick.getY(), precision)
-        z = drive_control(joystick.getZ(), precision)
+        z = precision_mode(dead_zone(joystick.getZ()*.75, .1), precision)
         self.driveManual(x,y,z)
 
     def driveManual(self, x, y , rotation):
