@@ -13,7 +13,7 @@ kStall = 2 #This is for the current sensor.
 
 #lift setpoints - untested
 kUp = .640 #This is so the mast won't tilt when the lift is up
-kTop = .651
+kTop = .64 #was .651
 kBottom = .047
 lift_level_setpoints = [kBottom, .075, .179, .264, .362, .466, .568, kTop]
 lift_step_setpoints = [i+.009 for i in lift_level_setpoints]

@@ -18,9 +18,9 @@ class Mast(PIDSubsystem):
 
     def manualSet(self, output):
         position = self.mast_pot.get()
-        if position < setpoints.kMastBackLimit and output < 0:
+        if position < (setpoints.kMastBackLimit+.013) and output < 0:
             self.motor.set(0)
-        elif position > setpoints.kMastForwardLimit and output > 0:
+        elif position > (setpoints.kMastForwardLimit-.013) and output > 0:
             self.motor.set(0)
         else:
             self.motor.set(output)
