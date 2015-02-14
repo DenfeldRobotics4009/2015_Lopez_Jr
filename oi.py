@@ -106,7 +106,7 @@ class OI:
         left_four.whenPressed(OpenClaw(robot))
         left_five.whenPressed(GrabTote(robot))
         left_six.whenPressed(GrabCan(robot))
-        left_thumb.whenPressed(Turn(robot, 90))
+        left_thumb.whileHeld(Shaker(robot))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
     def getJoystickLeft(self):
