@@ -6,6 +6,8 @@ class ManualMast(Command):
         super().__init__()
         self.robot = robot
         self.requires(self.robot.mast)
+        if robot.lift.isUp():
+            self.cancel()
 
     def execute(self):
         self.robot.mast.manualSet(dead_zone(-self.robot.oi.getJoystickRight().getY(), .1) * .33)

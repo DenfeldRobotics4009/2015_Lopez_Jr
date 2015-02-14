@@ -6,5 +6,5 @@ class MastForward(SetMastSetpoint):
     """Sends the mast forward"""
 
     def __init__(self, robot):
-        super().__init__(robot, setpoints.kMastForwardLimit-.02)
+        super().__init__(robot, setpoints.kMastForwardLimit)
 

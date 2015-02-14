@@ -8,5 +8,5 @@ class MastBack(SetMastSetpoint):
         if robot.lift.isUp(): #If the lift is up:
             self.cancel() #Stop the mast tiltery
 
-        super().__init__(robot, setpoints.kMastBackLimit+.02)
+        super().__init__(robot, setpoints.kMastBackLimit)
 

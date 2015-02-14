@@ -11,6 +11,7 @@ __author__ = 'nikolojedison'
 #(ascii art, pay no mind.)
 #2/12 21:30 - a little tired due to last night, but still going. Waiting on robot.
 #2/13 17:53 - waiting on robot, again. Things are working fine in programming though.
+#2/13 22:00 - working on setpoints, slowly but surely.
 import wpilib
 from networktables import NetworkTable
 from wpilib.buttons import JoystickButton
@@ -25,6 +26,7 @@ from commands.mast_back import MastBack
 from commands.mast_forward import MastForward
 from commands.grab_tote import GrabTote
 from commands.grab_can import GrabCan
+from commands.lift_go_to_level import LiftGoToLevel
 from pov_button import POVButton
 from commands.drive_straight import DriveStraight
 
@@ -94,14 +96,15 @@ class OI:
         right_eight.whileHeld(ManualLift(robot))
         right_nine.whileHeld(ManualMast(robot))
         right_eleven.whileHeld(ManualClaw(robot))
-        left_south.whenPressed(DriveStraight(robot, 0, .15, timeout = .25))
-        left_north.whenPressed(DriveStraight(robot, 0, -.15, timeout = .25))
-        left_east.whenPressed(DriveStraight(robot, .15, 0, timeout = .25))
-        left_west.whenPressed(DriveStraight(robot, -.15, 0, timeout = .25))
+        left_south.whenPressed(DriveStraight(robot, 0, .25, timeout = .25))
+        left_north.whenPressed(DriveStraight(robot, 0, -.25, timeout = .25))
+        left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
+        left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
         left_three.whenPressed(CloseClaw(robot))
         left_four.whenPressed(OpenClaw(robot))
         left_five.whenPressed(GrabTote(robot))
         left_six.whenPressed(GrabCan(robot))
+        left_thumb.whenPressed(LiftGoToLevel(robot, 4))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
     def getJoystickLeft(self):
