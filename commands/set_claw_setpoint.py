@@ -7,7 +7,7 @@ class SetClawSetpoint(Command):
     def __init__(self, robot, setpoint):
         super().__init__()
         self.robot = robot
-
+        self.setTimeout(5)
         self.setpoint = setpoint
         self.requires(self.robot.claw)
 
@@ -19,7 +19,7 @@ class SetClawSetpoint(Command):
         """Called repeatedly"""
 
     def isFinished(self):
-        return self.robot.claw.onTarget() #Stay on target...
+        return self.robot.claw.onTarget() or self.isTimedOut() #Stay on target...
 
     def end(self):
         """Called once after isFinisherd returns true"""

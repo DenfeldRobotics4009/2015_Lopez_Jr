@@ -19,12 +19,12 @@ class Lift(PIDSubsystem):
 
     def manualSet(self, output):
         position = self.lift_pot.get()
-        if position > setpoints.kBottom and output < 0:
+        if position < setpoints.kBottom and output < 0:
             self.motor.set(0)
-        elif position < setpoints.kTop and output > 0:
+        elif position > setpoints.kTop and output > 0:
             self.motor.set(0)
         else:
-            self.motor.set(output*.38)
+            self.motor.set(output*.90)
 
     def log(self):
         wpilib.SmartDashboard.putNumber("Elevator Pot", self.lift_pot.get()) #publishes to the Dash
@@ -37,7 +37,7 @@ class Lift(PIDSubsystem):
             output = 1
         elif output < -1:
             ouput = -1
-        self.motor.set(output*.38)
+        self.motor.set(output*.90)
 
     def isUp(self):
         """If the lift is all the way up..."""

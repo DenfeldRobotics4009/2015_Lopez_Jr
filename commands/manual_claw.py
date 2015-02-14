@@ -1,5 +1,6 @@
 from wpilib.command import Command
 from drive_control import dead_zone
+import setpoints
 
 class ManualClaw(Command):
     def __init__(self, robot):
@@ -11,7 +12,7 @@ class ManualClaw(Command):
         self.robot.claw.manualSet(dead_zone(self.robot.oi.getJoystickRight().getThrottle(), .1))
 
     def isFinished(self):
-        return False
+        return self.robot.claw.current.getVoltage() > setpoints.kStall
 
     def cancel(self):
         self.robot.claw.manualSet(0)

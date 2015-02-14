@@ -10,6 +10,7 @@ __author__ = 'nikolojedison'
 #***************************
 #(ascii art, pay no mind.)
 #2/12 21:30 - a little tired due to last night, but still going. Waiting on robot.
+#2/13 17:53 - waiting on robot, again. Things are working fine in programming though.
 import wpilib
 from networktables import NetworkTable
 from wpilib.buttons import JoystickButton

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 __author__ = 'nikolojedison'
-#This code was written to test some things and may end up being used
-#on the robot, but I dunno. So far it seems to work fine. Change what
+#This code seems to work fine. Change what
 #needs to be changed. Will evolve as time goes on.
 #-Nik Mal
 
