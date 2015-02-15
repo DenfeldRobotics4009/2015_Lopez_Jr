@@ -30,7 +30,10 @@ class Lift(PIDSubsystem):
         elif top_limit and output > 0:
             self.motor.set(0)
         else:
-            self.motor.set(output*1)
+            if output < 0:
+                self.motor.set(output*.75)
+            else:
+                self.motor.set(output*1)
 
     def log(self):
         wpilib.SmartDashboard.putNumber("Elevator Pot", self.lift_pot.get()) #publishes to the Dash

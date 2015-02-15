@@ -1,4 +1,4 @@
-__AUThor__ = 'nikolojedison'
+_AUThor__ = 'nikolojedison'
 import wpilib
 from wpilib.command import PIDSubsystem
 import setpoints

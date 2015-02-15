@@ -90,6 +90,7 @@ class OI:
         right_three.whileHeld(MastButton(robot, .38))
         right_thumb.whileHeld(MastButton(robot, -.38))
         left_thumb.whileHeld(Shaker(robot)) #like a Polaroid picture
+        left_five.whenPressed(ToteLoader(robot))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
     def getJoystickLeft(self):
