@@ -57,8 +57,7 @@ class OI:
         left_ten = JoystickButton(self.stick_left, 10)
         left_eleven = JoystickButton(self.stick_left, 11)
         left_twelve = JoystickButton(self.stick_left, 12)
-        #Create some POV stuff on the left stick, based on the cardinal directions and the hat switch - may end up being degrees,
-        #with north = 0, east = 90, south = 180, west 270
+        #Create some POV stuff on the left stick, based on angles and the hat switch
         left_north = POVButton(self.stick_left, 0)
         left_northeast = POVButton(self.stick_left, 45)
         left_east = POVButton(self.stick_left, 90)
@@ -81,7 +80,7 @@ class OI:
         right_ten = JoystickButton(self.stick_right, 10)
         right_eleven = JoystickButton(self.stick_right, 11)
         right_twelve = JoystickButton(self.stick_right, 12)
-        #Create some POV stuff on the right stick, see lines 39-40 for explanation
+        #Create some POV stuff on the right stick, see line 60 for explanation
         right_north = POVButton(self.stick_right, 0)
         right_northeast = POVButton(self.stick_right, 45)
         right_east = POVButton(self.stick_right, 90)
