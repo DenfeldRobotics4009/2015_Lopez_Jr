@@ -1,4 +1,5 @@
 from wpilib.command import Command
+from subsystems.mast import Mast
 
 class MastButton(Command):
     def __init__(self, robot, speed):
@@ -8,16 +9,14 @@ class MastButton(Command):
         self.speed = speed
 
     def execute(self):
-        position = self.mast_pot.get()
-        if position < kMastBackLimit:
-            self.motor.set(0)
-        elif position > kMastForwardLimit:
-            self.motor.set(0)
         self.robot.mast.manualSet(self.speed)
 
     def isFinished(self):
         return False
 
+    def end(self):
+        self.robot.mast.manualSet(0)
+
     def cancel(self):
-        self.robot.lift.manualSet(0)
+        self.end()
         super().cancel()

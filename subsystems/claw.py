@@ -1,6 +1,7 @@
 __author__ = 'nikolojedison'
 import wpilib
 from wpilib.command import PIDSubsystem
+from commands.manual_claw import ManualClaw
 import setpoints
 
 class Claw(PIDSubsystem):
@@ -15,7 +16,7 @@ class Claw(PIDSubsystem):
         self.setAbsoluteTolerance(.01)
 
     def initDefaultCommand(self):
-        pass
+        self.setDefaultCommand(ManualClaw(self.robot))
 
     def log(self):
         wpilib.SmartDashboard.putNumber("Clamp Pot", self.grabba_pot.get()) #publishes to the Dash

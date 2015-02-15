@@ -98,8 +98,8 @@ class OI:
         left_north.whenPressed(DriveStraight(robot, 0, -.25, timeout = .25))
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
-        right_north.whenPressed(MastButton(robot, .33))
-        right_south.whenPressed(MastButton(robot, -.33  ))
+        right_north.whileHeld(MastButton(robot, .38))
+        right_south.whileHeld(MastButton(robot, -.38))
         right_thumb.whileHeld(Shaker(robot))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 

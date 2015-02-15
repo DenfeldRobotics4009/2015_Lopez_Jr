@@ -1,6 +1,7 @@
 __author__ = 'nikolojedison'
 import wpilib
 from wpilib.command import PIDSubsystem
+from commands.manual_lift import ManualLift
 import subsystems
 import setpoints
 
@@ -16,7 +17,7 @@ class Lift(PIDSubsystem):
         self.setAbsoluteTolerance(.01)
 
     def initDefaultCommand(self):
-        pass
+        self.setDefaultCommand(ManualLift(self.robot))
 
     def manualSet(self, output):
         position = self.lift_pot.get()
