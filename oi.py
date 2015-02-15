@@ -13,10 +13,10 @@ __author__ = 'nikolojedison'
 #2/13 17:53 - waiting on robot, again. Things are working fine in programming though.
 #2/13 22:00 - working on setpoints, slowly but surely.
 #2/14 13:40 - waiting on more things.
+#2/14 23:30 - got the mapping done on the joysticks - waiting on auton testing and a gamepad for presets
 import wpilib
 from networktables import NetworkTable
 from wpilib.buttons import JoystickButton
-#from commands.autonomous import Autonomous
 from commands.open_claw import OpenClaw
 from commands.close_claw import CloseClaw
 from commands.center_claw import CenterClaw
@@ -92,7 +92,6 @@ class OI:
         right_northwest = POVButton(self.stick_right, 315)
 
         # Connect buttons & commands
-        #Left: Driving X/Y/Twist
         #Right: 3 is tote level 4 is bottomed out
         left_south.whenPressed(DriveStraight(robot, 0, .25, timeout = .25))
         left_north.whenPressed(DriveStraight(robot, 0, -.25, timeout = .25))
@@ -100,7 +99,7 @@ class OI:
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
         right_north.whileHeld(MastButton(robot, .38))
         right_south.whileHeld(MastButton(robot, -.38))
-        left_thumb.whileHeld(Shaker(robot))
+        left_thumb.whileHeld(Shaker(robot)) #like a Polaroid picture
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
     def getJoystickLeft(self):
