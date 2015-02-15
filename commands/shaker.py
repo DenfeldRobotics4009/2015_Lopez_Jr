@@ -3,13 +3,13 @@ __author__ = 'nikolojedison'
 from wpilib.command import Command
 
 from .drive_straight import DriveStraight
-from .grab_tote import GrabTote
+from .close_claw import CloseClaw
 
 class Shaker(Command):
     """This is the simple auton."""
     def __init__(self, robot):
         super().__init__()
-        self.grab_command = GrabTote(robot)
+        self.grab_command = CloseClaw(robot)
         self.drive_left = DriveStraight(robot, .25, 0, timeout=.2)
         self.drive_right = DriveStraight(robot, -.25, 0, timeout=.2)
         self.driving_right = True
