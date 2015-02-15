@@ -70,6 +70,8 @@ class OI:
         left_northwest = POVButton(self.stick_left, 315)
 
         #Create some buttons on the ambi stick, see line 48 starting col 49 (Logitech Attack 3)
+        right_north = POVButton(self.stick_right, 0)
+        right_south = POVButton(self.stick_right, 180)
         right_trigger = JoystickButton(self.stick_right, 1)
         right_thumb = JoystickButton(self.stick_right, 2)
         right_three = JoystickButton(self.stick_right, 3)
@@ -88,8 +90,8 @@ class OI:
         left_north.whenPressed(DriveStraight(robot, 0, -.25, timeout = .25))
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
-        right_three.whileHeld(MastButton(robot, .38))
-        right_thumb.whileHeld(MastButton(robot, -.38))
+        right_north.whileHeld(MastButton(robot, .38))
+        right_south.whileHeld(MastButton(robot, -.38))
         left_thumb.whileHeld(Shaker(robot)) #like a Polaroid picture
         left_five.whenPressed(ToteLoader(robot))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
