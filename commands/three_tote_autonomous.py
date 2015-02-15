@@ -11,6 +11,7 @@ from .set_lift_setpoint import SetLiftSetpoint
 from .set_mast_setpoint import SetMastSetpoint
 from .grab_tote import GrabTote
 from .turn import Turn
+from .lift_stuff import LiftStuff
 
 class ThreeToteAutonomous(CommandGroup):
     #Should really put some setpoints in. Ehhhhhhh...
@@ -20,7 +21,7 @@ class ThreeToteAutonomous(CommandGroup):
             DriveStraight(robot, 0, -.2, timeout=.5),
             GrabTote(robot),
             Turn(robot, 45),
-            LiftStuff(robot, .75, 2),
+            LiftStuff(robot, .75, 2),]
 #            DriveStraight(robot, 0, -.75, timeout=.5),
  #           Turn(robot, 90),
   #          DriveStraight(robot, 0, -.75, timeout=.5),

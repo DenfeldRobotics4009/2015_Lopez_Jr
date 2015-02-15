@@ -1,6 +1,6 @@
 #mast setpoints - 2/13/15
-kMastBack = .275 #This is so the lift won't go up when the mast is back
-kMastBackLimit = .275
+kMastBack = .273 #This is so the lift won't go up when the mast is back
+kMastBackLimit = .276
 kMastForwardLimit = .437
 kMastParallel = .416
 

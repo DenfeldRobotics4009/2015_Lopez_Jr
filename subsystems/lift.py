@@ -12,6 +12,7 @@ class Lift(PIDSubsystem):
         self.robot = robot
         self.is_two_inch = False
         self.limit_up = wpilib.DigitalInput(7)
+        self.limit_down = wpilib.DigitalInput(6)
         self.lift_pot = wpilib.AnalogPotentiometer(1)
         self.motor = wpilib.CANTalon(0)
         self.setAbsoluteTolerance(.01)
@@ -22,9 +23,11 @@ class Lift(PIDSubsystem):
     def manualSet(self, output):
         position = self.lift_pot.get()
         top_limit = self.limit_up.get()
-       # if position < setpoints.kBottom and output < 0:
-        #    self.motor.set(0)
-        if top_limit and output > 0:
+        bottom_limit = self.limit_down.get()
+        print(position, bottom_limit)
+        if bottom_limit and output < 0:
+            self.motor.set(0)
+        elif top_limit and output > 0:
             self.motor.set(0)
         else:
             self.motor.set(output*1)
