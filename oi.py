@@ -30,6 +30,7 @@ from commands.grab_can import GrabCan
 from commands.turn import Turn
 from commands.lift_go_to_level import LiftGoToLevel
 from commands.shaker import Shaker
+from commands.mast_button import MastButton
 from pov_button import POVButton
 from commands.drive_straight import DriveStraight
 
@@ -91,23 +92,15 @@ class OI:
         right_northwest = POVButton(self.stick_right, 315)
 
         # Connect buttons & commands
-        right_thumb.whenPressed(GrabTote(robot))
-        right_three.whenPressed(CloseClaw(robot))
-        right_five.whenPressed(MastBack(robot))
-        right_four.whenPressed(OpenClaw(robot))
-        right_six.whenPressed(MastForward(robot))
-        right_eight.whileHeld(ManualLift(robot))
-        right_nine.whileHeld(ManualMast(robot))
-        right_eleven.whileHeld(ManualClaw(robot))
+        #Left: Driving X/Y/Twist
+        #Right: 3 is tote level 4 is bottomed out
         left_south.whenPressed(DriveStraight(robot, 0, .25, timeout = .25))
         left_north.whenPressed(DriveStraight(robot, 0, -.25, timeout = .25))
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
-        left_three.whenPressed(CloseClaw(robot))
-        left_four.whenPressed(OpenClaw(robot))
-        left_five.whenPressed(GrabTote(robot))
-        left_six.whenPressed(GrabCan(robot))
-        left_thumb.whileHeld(Shaker(robot))
+        right_north.whenPressed(MastButton(robot, .33))
+        right_south.whenPressed(MastButton(robot, -.33  ))
+        right_thumb.whileHeld(Shaker(robot))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
     def getJoystickLeft(self):

@@ -9,7 +9,7 @@ class ManualClaw(Command):
         self.requires(self.robot.claw)
 
     def execute(self):
-        self.robot.claw.manualSet(dead_zone(self.robot.oi.getJoystickRight().getThrottle(), .1))
+        self.robot.claw.manualSet(dead_zone(self.robot.oi.getJoystickRight().getY(), .1))
 
     def isFinished(self):
         return self.robot.claw.current.getVoltage() > setpoints.kStall

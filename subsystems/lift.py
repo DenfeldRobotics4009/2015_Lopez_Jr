@@ -22,9 +22,9 @@ class Lift(PIDSubsystem):
         position = self.lift_pot.get()
         top_limit = self.limit_up.get()
         print(position,top_limit)
-        if position < setpoints.kBottom and output < 0:
-            self.motor.set(0)
-        elif (position > setpoints.kTop or top_limit) and output > 0:
+       # if position < setpoints.kBottom and output < 0:
+        #    self.motor.set(0)
+        if top_limit and output > 0:
             self.motor.set(0)
         else:
             self.motor.set(output*1)
@@ -42,6 +42,6 @@ class Lift(PIDSubsystem):
             ouput = -1
         self.motor.set(output*1)
 
-    def isUp(self):
-        """If the lift is all the way up..."""
-        self.lift_pot.get() > setpoints.kUp
+#    def isUp(self):
+ #       """If the lift is all the way up..."""
+  #      self.lift_pot.get() > setpoints.kUp

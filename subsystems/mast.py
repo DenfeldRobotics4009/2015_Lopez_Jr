@@ -38,8 +38,8 @@ class Mast(PIDSubsystem):
             output = -1
         self.motor.set(output*.38)
 
-    def isBack(self):
-        self.mast_pot.get() > self.kMastBack
+#    def isBack(self):
+ #       self.mast_pot.get() > self.kMastBack
 
-    def isForward(self):
-        not self.isBack()
+  #  def isForward(self):
+   #     not self.isBack()

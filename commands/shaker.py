@@ -20,11 +20,11 @@ class Shaker(Command):
 
     def execute(self):
         if self.driving_right:
-            if not self.grab_right.running:
+            if not self.drive_right.running:
                 self.drive_left.start()
                 self.driving_right = False
         else:
-            if not self.grab_left.running:
+            if not self.drive_left.running:
                 self.drive_right.start()
                 self.driving_right = True
         super().execute()
@@ -34,3 +34,6 @@ class Shaker(Command):
         self.drive_left.cancel()
         self.drive_right.cancel()
         super().cancel()
+
+    def isFinished(self):
+        return False
