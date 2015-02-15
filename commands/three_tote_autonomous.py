@@ -19,10 +19,10 @@ class ThreeToteAutonomous(CommandGroup):
     def __init__(self, robot):
         super().__init__()
         self.auton_generator = [
-            DriveStraight(robot, 0, -1, timeout=.5),
+            DriveStraight(robot, 0, -1, timeout=.25),
             Turn(robot, -30),
-            DriveStraight(robot, -1, 0, timeout=.2),
-            DriveStraight(robot, 0, -1, timeout=.2),
+            DriveStraight(robot, -1, 0, timeout=.1),
+            DriveStraight(robot, 0, -1, timeout=.1),
             GrabTote(robot),
             LiftStuff(robot, 1, 1.5),
             GrabTote(robot),
