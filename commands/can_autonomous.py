@@ -2,7 +2,7 @@ __author__ = 'nikolojedison'
 
 from wpilib.command import CommandGroup
 
-from .close_claw import CloseClaw
+from .grab_tote import GrabTote
 from .drive_straight import DriveStraight
 from .lift_go_to_level import LiftGoToLevel
 from .mecanum_drive_with_joystick import MecanumDriveWithJoystick
@@ -11,16 +11,22 @@ from .set_claw_setpoint import SetClawSetpoint
 from .set_lift_setpoint import SetLiftSetpoint
 from .set_mast_setpoint import SetMastSetpoint
 from .turn import Turn
+from .lift_stuff import LiftStuff
 
 class CanAutonomous(CommandGroup):
     """This is the autonomous where we grab the can and drive off with it."""
     #Should really put some setpoints in. Ehhhhhhh...
+    #Clamp, lift up, turn 45 deg left, go forward, drop can
     def __init__(self, robot):
         super().__init__()
         auton_generator = [
-            DriveStraight(robot, 0, 1, timeout=1),
-            CloseClaw(robot), #grabs can
-            LiftGoToLevel(robot, 1),
-            DriveStraight(robot, 0, 1, timeout=1)]
+            GrabTote(robot), #grabs can
+            LiftStuff(robot, .75, 2),
+            DriveStraight(robot, 0, -.5, timeout=1),
+            Turn(robot, 45),
+            DriveStraight(robot, 0, -.5, timeout=3),
+            LiftStuff(robot, -.75, 2),
+            OpenClaw(robot), #drops can
+            DriveStraight(robot, 0, .5, timeout=.25)]
 
         for i in auton_generator: self.addSequential(i)

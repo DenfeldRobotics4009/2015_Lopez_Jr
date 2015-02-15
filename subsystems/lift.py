@@ -22,7 +22,6 @@ class Lift(PIDSubsystem):
     def manualSet(self, output):
         position = self.lift_pot.get()
         top_limit = self.limit_up.get()
-        print(position,top_limit)
        # if position < setpoints.kBottom and output < 0:
         #    self.motor.set(0)
         if top_limit and output > 0:
