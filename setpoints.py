@@ -8,7 +8,7 @@ kMastParallel = .416
 kOpen = .252
 kClose = .965 #2/12/15 23.12: .771 2/13/15 16:30: .925
 kCan = .375
-kTote = .505
+kTote = .545
 kStall = 2 #This is for the current sensor.
 
 #lift setpoints - untested

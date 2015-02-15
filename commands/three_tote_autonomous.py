@@ -10,6 +10,7 @@ from .set_claw_setpoint import SetClawSetpoint
 from .set_lift_setpoint import SetLiftSetpoint
 from .set_mast_setpoint import SetMastSetpoint
 from .grab_tote import GrabTote
+from .auto_shaker import AutoShaker
 from .turn import Turn
 from .lift_stuff import LiftStuff
 
@@ -18,10 +19,14 @@ class ThreeToteAutonomous(CommandGroup):
     def __init__(self, robot):
         super().__init__()
         self.auton_generator = [
-            DriveStraight(robot, 0, -.2, timeout=.5),
+            DriveStraight(robot, 0, -1, timeout=.75),
+            Turn(robot, -30),
+            DriveStraight(robot, -1, 0, timeout=.25),
+            DriveStraight(robot, 0, -1, timeout=.25),
             GrabTote(robot),
-            Turn(robot, 45),
-            LiftStuff(robot, .75, 2),]
+            LiftStuff(robot, 1, 1.5),
+            GrabTote(robot),
+            ]
 #            DriveStraight(robot, 0, -.75, timeout=.5),
  #           Turn(robot, 90),
   #          DriveStraight(robot, 0, -.75, timeout=.5),
