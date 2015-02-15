@@ -31,6 +31,7 @@ from commands.turn import Turn
 from commands.lift_go_to_level import LiftGoToLevel
 from commands.shaker import Shaker
 from commands.mast_button import MastButton
+from commands.tote_loader import ToteLoader
 from pov_button import POVButton
 from commands.drive_straight import DriveStraight
 
