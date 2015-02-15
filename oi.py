@@ -82,7 +82,7 @@ class OI:
         right_eleven = JoystickButton(self.stick_right, 11)
 
         # Connect buttons & commands
-        #Right: 3 is tote level 4 is bottomed out
+        #Right: 4 is tote level 5 is bottomed out
         left_south.whenPressed(DriveStraight(robot, 0, .25, timeout = .25))
         left_north.whenPressed(DriveStraight(robot, 0, -.25, timeout = .25))
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
