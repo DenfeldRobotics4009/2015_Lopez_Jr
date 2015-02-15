@@ -5,8 +5,8 @@ kMastForwardLimit = .437
 kMastParallel = .416
 
 #claw setpoints - tested 2/12/15
-kOpen = .227
-kClose = .925 #2/12/15 23.12: .771 2/13/15 16:30: .925
+kOpen = .238
+kClose = .965 #2/12/15 23.12: .771 2/13/15 16:30: .925
 kCan = .375
 kTote = .505
 kStall = 2 #This is for the current sensor.

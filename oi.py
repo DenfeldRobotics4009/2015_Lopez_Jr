@@ -100,7 +100,7 @@ class OI:
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
         right_north.whileHeld(MastButton(robot, .38))
         right_south.whileHeld(MastButton(robot, -.38))
-        right_thumb.whileHeld(Shaker(robot))
+        left_thumb.whileHeld(Shaker(robot))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
     def getJoystickLeft(self):
