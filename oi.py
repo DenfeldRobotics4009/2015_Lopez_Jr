@@ -44,7 +44,8 @@ class OI:
         self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
 
         #Buttons? Aw, man, I love buttons! *bleep bloop*
-        # Create some buttons on the left stick
+        #
+        # Create some buttons on the left stick (which is really not, but I don't wanna disturb the preexisting code).
         left_trigger = JoystickButton(self.stick_left, 1)
         left_thumb = JoystickButton(self.stick_left, 2)
         left_three = JoystickButton(self.stick_left, 3)
@@ -67,7 +68,7 @@ class OI:
         left_west = POVButton(self.stick_left, 270)
         left_northwest = POVButton(self.stick_left, 315)
 
-        #Create some buttons on the right stick
+        #Create some buttons on the ambi stick, see line 48 starting col 49 (Logitech Attack 3)
         right_trigger = JoystickButton(self.stick_right, 1)
         right_thumb = JoystickButton(self.stick_right, 2)
         right_three = JoystickButton(self.stick_right, 3)
@@ -79,16 +80,6 @@ class OI:
         right_nine = JoystickButton(self.stick_right, 9)
         right_ten = JoystickButton(self.stick_right, 10)
         right_eleven = JoystickButton(self.stick_right, 11)
-        right_twelve = JoystickButton(self.stick_right, 12)
-        #Create some POV stuff on the right stick, see line 60 for explanation
-        right_north = POVButton(self.stick_right, 0)
-        right_northeast = POVButton(self.stick_right, 45)
-        right_east = POVButton(self.stick_right, 90)
-        right_southeast = POVButton(self.stick_right, 135)
-        right_south = POVButton(self.stick_right, 180)
-        right_southwest = POVButton(self.stick_right, 225)
-        right_west = POVButton(self.stick_right, 270)
-        right_northwest = POVButton(self.stick_right, 315)
 
         # Connect buttons & commands
         #Right: 3 is tote level 4 is bottomed out
@@ -96,8 +87,8 @@ class OI:
         left_north.whenPressed(DriveStraight(robot, 0, -.25, timeout = .25))
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
-        right_north.whileHeld(MastButton(robot, .38))
-        right_south.whileHeld(MastButton(robot, -.38))
+        right_three.whileHeld(MastButton(robot, .38))
+        right_thumb.whileHeld(MastButton(robot, -.38))
         left_thumb.whileHeld(Shaker(robot)) #like a Polaroid picture
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
