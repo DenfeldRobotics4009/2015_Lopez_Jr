@@ -19,21 +19,35 @@ class ThreeToteAutonomous(CommandGroup):
         self.auton_generator = [
             DriveStraight(robot, 0, -.2, timeout=.5),
             GrabTote(robot),
-            Turn(robot, -45)]
-            #CloseClaw(robot), #grabs first tote
-            #LiftGoToLevel(robot, 1),
-            #DriveStraight(robot, 0, .75, timeout=.5),
-            #OpenClaw(robot), #drops first tote on second tote
-            #LiftGoToLevel(robot, 0),
-            #CloseClaw(robot), #grabs second tote
-            #LiftGoToLevel(robot, 1),
-            #DriveStraight(robot, 0, .75, timeout=.5),
-            #OpenClaw(robot), #drops first and second totes on third tote
-            #LiftGoToLevel(robot, 0),
-            #CloseClaw(robot), #grabs third tote
-            #LiftGoToLevel(robot, 1),
-            #Turn(robot, 5),
-            #DriveStraight(robot, 0, .75, timeout=.5)] #drives around for a bit
+            Turn(robot, 45),
+            LiftStuff(robot, .75, 2),
+#            DriveStraight(robot, 0, -.75, timeout=.5),
+ #           Turn(robot, 90),
+  #          DriveStraight(robot, 0, -.75, timeout=.5),
+   #         Turn(robot, -90),
+    #        DriveStraight(robot, 0, -.75, timeout=.5),
+     #       Turn(robot, 90),
+      #      DriveStraight(robot, 0, -.75, timeout=.5),
+       #     Turn(robot, -90),
+        #    DriveStraight(robot, 0, -.75, timeout=.25),
+         #   OpenClaw(robot), #drops first tote on second tote
+          #  LiftStuff(robot, -.75, 2),
+           # GrabTote(robot),
+            #LiftStuff(robot, .75, 2),
+#            Turn(robot, 90),
+ #           DriveStraight(robot, 0, -.75, timeout=.5),
+  #          Turn(robot, -90),
+   #         DriveStraight(robot, 0, -.75, timeout=.5),
+    #        Turn(robot, 90),
+     #       DriveStraight(robot, 0, -.75, timeout=.5),
+      #      Turn(robot, -90),
+       #     DriveStraight(robot, 0, -.75, timeout=.25),
+        #    OpenClaw(robot) #drops 1st and 2nd totes on 3rd tote
+         #   LiftStuff(robot, -.75, 2),
+          #  GrabTote(robot),
+           # LiftStuff(robot, -.75, 2),
+            #Turn(robot, 90)
+#            DriveStraight(robot, 0, .75, timeout=.5)] #drives around for a bit
 
         for i in self.auton_generator: self.addSequential(i)
 
