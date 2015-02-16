@@ -2,7 +2,7 @@
 #mast setpoints - 2/13/15
 kMastBack = .301 #This is so the lift won't go up when the mast is back - DO NOT CHANGE IN TESTING
 kMastBackLimit = .309
-kMastForwardLimit = .445
+kMastForwardLimit = .482
 kMastParallel = .416
 
 #claw setpoints - tested 2/12/15
