@@ -135,12 +135,12 @@ class OI:
         left_six.whenPressed(LiftStuff(robot, 1, .1))
         left_four.whenPressed(LiftStuff(robot, -1, .1))
         #Lift presets
-        right_twelve.whenPressed(LiftGoToLevel(robot, 1))
-        right_eleven.whenPressed(LiftGoToLevel(robot, 2))
-        right_ten.whenPressed(LiftGoToLevel(robot, 3))
-        right_seven.whenPressed(LiftGoToLevel(robot, 4))
-        right_eight.whenPressed(LiftGoToLevel(robot, 5))
-        right_nine.whenPressed(LiftGoToLevel(robot, 6))
+        right_eleven.whenPressed(LiftGoToLevel(robot, 1))
+        right_nine.whenPressed(LiftGoToLevel(robot, 2))
+        right_seven.whenPressed(LiftGoToLevel(robot, 3))
+        right_eight.whenPressed(LiftGoToLevel(robot, 4))
+        right_ten.whenPressed(LiftGoToLevel(robot, 5))
+        right_twelve.whenPressed(LiftGoToLevel(robot, 6))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
     def getJoystickLeft(self):

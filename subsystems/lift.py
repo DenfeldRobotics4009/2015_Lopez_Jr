@@ -46,8 +46,8 @@ class Lift(PIDSubsystem):
             output = 1
         elif output < -1:
             ouput = -1
-        self.motor.set(output*1)
+        self.manualSet(output*1)
 
-#    def isUp(self):
- #       """If the lift is all the way up..."""
-  #      self.lift_pot.get() > setpoints.kUp
+    def isUp(self):
+        """If the lift is all the way up..."""
+        self.lift_pot.get() > setpoints.kUp
