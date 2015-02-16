@@ -8,14 +8,12 @@ from .open_claw import OpenClaw
 from wpilib.command import WaitCommand
 
 class ToteLoader(CommandGroup):
-    """A command that takes the bottom tote, lifts it, waits a bit, then drops the tote and grabs the bottom tote."""
+    """A command that opens the arms, lowers the lift one tote level, grabs a tote, and raises the lift 1.1 levels."""
     def __init__(self, robot):
         super().__init__()
         loader_generator = [
-                GrabTote(robot),
-                LiftStuff(robot, 1, 2.5),
-                WaitCommand(3),
-                LiftStuff(robot, -1, .5),
                 OpenClaw(robot),
-                LiftStuff(robot, -1, 1.9)]
+                LiftStuff(robot, -1, 2),
+                GrabTote(robot),
+                LiftStuff(robot, 1, 2.25),
         for i in loader_generator: self.addSequential(i)
