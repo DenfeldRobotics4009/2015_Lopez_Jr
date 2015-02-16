@@ -8,7 +8,7 @@ import setpoints
 class Lift(PIDSubsystem):
 
     def __init__(self, robot):
-        super().__init__(40, 0, 0)
+        super().__init__(-40, -0, -0)
         self.robot = robot
         self.limit_up = wpilib.DigitalInput(7)
         self.limit_down = wpilib.DigitalInput(6)

@@ -15,6 +15,7 @@ __author__ = 'nikolojedison'
 #2/14 13:40 - waiting on more things.
 #2/14 23:30 - got the mapping done on the joysticks - waiting on auton testing and a gamepad for presets
 #2/15 21:05 - post-ICC. This'll prove interesting.
+#2/16
 import wpilib
 from networktables import NetworkTable
 from wpilib.buttons import JoystickButton
@@ -43,6 +44,7 @@ class OI:
 
         self.stick_left = wpilib.Joystick(0)
         self.stick_right = wpilib.Joystick(1)
+        self.pad = wpilib.Joystick(2)
         self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
 
         #Buttons? Aw, man, I love buttons! *bleep bloop*
@@ -85,6 +87,33 @@ class OI:
         right_ten = JoystickButton(self.stick_right, 10)
         right_eleven = JoystickButton(self.stick_right, 11)
 
+        #25 buttons of stuff on the wall, 25 buttons 'n stuff...
+        pad_one = JoystickButton(self.pad, 1)
+        pad_two = JoystickButton(self.pad, 2)
+        pad_three = JoystickButton(self.pad, 3)
+        pad_four = JoystickButton(self.pad, 4)
+        pad_five = JoystickButton(self.pad, 5)
+        pad_six = JoystickButton(self.pad, 6)
+        pad_seven = JoystickButton(self.pad, 7)
+        pad_eight = JoystickButton(self.pad, 8)
+        pad_nine = JoystickButton(self.pad, 9)
+        pad_ten = JoystickButton(self.pad, 10)
+        pad_eleven = JoystickButton(self.pad, 11)
+        pad_twelve = JoystickButton(self.pad, 12)
+        pad_thirteen = JoystickButton(self.pad, 13)
+        pad_fourteen = JoystickButton(self.pad, 14)
+        pad_fifteen = JoystickButton(self.pad, 15)
+        pad_sixteen = JoystickButton(self.pad, 16)
+        pad_seventeen = JoystickButton(self.pad, 17)
+        pad_eighteen = JoystickButton(self.pad, 18)
+        pad_nineteen = JoystickButton(self.pad, 19)
+        pad_twenty = JoystickButton(self.pad, 20)
+        pad_twentyone = JoystickButton(self.pad, 21)
+        pad_twentytwo = JoystickButton(self.pad, 22)
+        pad_twentythree = JoystickButton(self.pad, 23)
+        pad_twentyfour = JoystickButton(self.pad, 24)
+        pad_twentyfive = JoystickButton(self.pad, 25)
+
         # Connect buttons & commands
         #Right: 4 is tote level 5 is bottomed out
         left_south.whenPressed(DriveStraight(robot, 0, .25, timeout = .25))
@@ -107,3 +136,6 @@ class OI:
         """This is the right joystick."""
         return self.stick_right
 
+    def getPad(self):
+        """This is the pad."""
+        return self.pad
