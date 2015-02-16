@@ -35,6 +35,8 @@ class Lift(PIDSubsystem):
 
     def log(self):
         wpilib.SmartDashboard.putNumber("Elevator Pot", self.lift_pot.get()) #publishes to the Dash
+        wpilib.SmartDashboard.getBoolean("Top Limit", self.limit_up.get())
+        wpilib.SmartDashboard.getBoolean("Bottom Limit", self.limit_down.get())
 
     def returnPIDInput(self):
         return self.lift_pot.get()
