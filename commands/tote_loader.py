@@ -15,5 +15,5 @@ class ToteLoader(CommandGroup):
                 OpenClaw(robot),
                 LiftStuff(robot, -1, 2),
                 GrabTote(robot),
-                LiftStuff(robot, 1, 2.25),
+                LiftStuff(robot, 1, 2.25),]
         for i in loader_generator: self.addSequential(i)
