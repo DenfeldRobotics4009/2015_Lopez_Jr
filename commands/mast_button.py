@@ -5,7 +5,7 @@ class MastButton(Command):
     def __init__(self, robot, speed):
         super().__init__()
         self.robot = robot
-        self.requires(self.robot.lift)
+        self.requires(self.robot.mast)
         self.speed = speed
 
     def execute(self):
