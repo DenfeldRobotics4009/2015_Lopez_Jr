@@ -10,8 +10,8 @@ class Shaker(Command):
     def __init__(self, robot):
         super().__init__()
         self.grab_command = CloseClaw(robot)
-        self.drive_left = DriveStraight(robot, .25, 0, timeout=.2)
-        self.drive_right = DriveStraight(robot, -.25, 0, timeout=.2)
+        self.drive_left = DriveStraight(robot, .25, 0, timeout=.5)
+        self.drive_right = DriveStraight(robot, -.25, 0, timeout=.5)
         self.driving_right = True
 
     def initialize(self):
