@@ -13,8 +13,7 @@ class ManualClaw(Command):
 
     def isFinished(self):
         position = self.robot.claw.grabba_pot.get()
-        if position < (setpoints.kClose-.013) and output > 0:
-            return self.robot.claw.current.getVoltage() > setpoints.kStall
+        return self.robot.claw.current.getVoltage() > setpoints.kStall
 
     def cancel(self):
         self.robot.claw.manualSet(0)

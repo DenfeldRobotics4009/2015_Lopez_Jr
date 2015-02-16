@@ -1,7 +1,7 @@
 #Note to self - don't EVER disassemble the mast. Doesn't end well.
 #mast setpoints - 2/13/15
 kMastBack = .301 #This is so the lift won't go up when the mast is back - DO NOT CHANGE IN TESTING
-kMastBackLimit = .285
+kMastBackLimit = .309
 kMastForwardLimit = .445
 kMastParallel = .416
 

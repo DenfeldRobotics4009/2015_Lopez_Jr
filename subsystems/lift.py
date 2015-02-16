@@ -10,7 +10,6 @@ class Lift(PIDSubsystem):
     def __init__(self, robot):
         super().__init__(40, 0, 0)
         self.robot = robot
-        self.is_two_inch = False
         self.limit_up = wpilib.DigitalInput(7)
         self.limit_down = wpilib.DigitalInput(6)
         self.lift_pot = wpilib.AnalogPotentiometer(1)
@@ -24,7 +23,6 @@ class Lift(PIDSubsystem):
         position = self.lift_pot.get()
         top_limit = self.limit_up.get()
         bottom_limit = self.limit_down.get()
-        print(position, bottom_limit)
         if bottom_limit and output < 0:
             self.motor.set(0)
         elif top_limit and output > 0:
