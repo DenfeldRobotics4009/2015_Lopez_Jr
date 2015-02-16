@@ -29,7 +29,7 @@ from commands.mast_forward import MastForward
 from commands.grab_tote import GrabTote
 from commands.grab_can import GrabCan
 from commands.turn import Turn
-from commands.lift_go_to_level import LiftGoToLevel
+from commands.lift_stuff import LiftStuff
 from commands.shaker import Shaker
 from commands.mast_button import MastButton
 from commands.tote_loader import ToteLoader
@@ -95,8 +95,8 @@ class OI:
         right_south.whileHeld(MastButton(robot, -.38))
         left_thumb.whileHeld(Shaker(robot)) #like a Polaroid picture
         left_five.whenPressed(ToteLoader(robot))
-        left_six.whenPressed(LiftStuff(self, 1, .1))
-        left_four.whenPressed(LiftStuff(self, -1, .1))
+        left_six.whenPressed(LiftStuff(robot, 1, .1))
+        left_four.whenPressed(LiftStuff(robot, -1, .1))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
     def getJoystickLeft(self):
