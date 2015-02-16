@@ -1,5 +1,6 @@
 #Note to self - don't EVER disassemble the mast. Doesn't end well.
 #mast setpoints - 2/13/15
+#.456 - maximum parallel mast
 kMastBack = .301 #This is so the lift won't go up when the mast is back - DO NOT CHANGE IN TESTING
 kMastBackLimit = .309
 kMastForwardLimit = .482
@@ -9,7 +10,7 @@ kMastParallel = .416
 kOpen = .285
 kClose = .976 #2/12/15 23.12: .771 2/13/15 16:30: .925 2/15/15 .070
 kCan = .375
-kTote = .545
+kTote = .584
 kStall = 2 #This is for the current sensor.
 
 #lift setpoints - untested
