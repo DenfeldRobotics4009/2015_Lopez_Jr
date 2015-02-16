@@ -14,6 +14,7 @@ __author__ = 'nikolojedison'
 #2/13 22:00 - working on setpoints, slowly but surely.
 #2/14 13:40 - waiting on more things.
 #2/14 23:30 - got the mapping done on the joysticks - waiting on auton testing and a gamepad for presets
+#2/15 21:05 - post-ICC. This'll prove interesting.
 import wpilib
 from networktables import NetworkTable
 from wpilib.buttons import JoystickButton
