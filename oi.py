@@ -15,10 +15,12 @@ __author__ = 'nikolojedison'
 #2/14 13:40 - waiting on more things.
 #2/14 23:30 - got the mapping done on the joysticks - waiting on auton testing and a gamepad for presets
 #2/15 21:05 - post-ICC. This'll prove interesting.
-#2/16
+#2/16 15:06 - gamepad is finally here, recalculated setpoints. Still deciding on what is going to map where.
+
 import wpilib
 from networktables import NetworkTable
 from wpilib.buttons import JoystickButton
+from commands.lift_go_to_level import LiftGoToLevel
 from commands.open_claw import OpenClaw
 from commands.close_claw import CloseClaw
 from commands.center_claw import CenterClaw
@@ -86,6 +88,7 @@ class OI:
         right_nine = JoystickButton(self.stick_right, 9)
         right_ten = JoystickButton(self.stick_right, 10)
         right_eleven = JoystickButton(self.stick_right, 11)
+        right_twelve = JoystickButton(self.stick_right, 12)
 
         #25 buttons of stuff on the wall, 25 buttons 'n stuff...
         pad_one = JoystickButton(self.pad, 1)
@@ -115,17 +118,29 @@ class OI:
         pad_twentyfive = JoystickButton(self.pad, 25)
 
         # Connect buttons & commands
-        #Right: 4 is tote level 5 is bottomed out
+
+        #Bump commands
         left_south.whenPressed(DriveStraight(robot, 0, .25, timeout = .25))
         left_north.whenPressed(DriveStraight(robot, 0, -.25, timeout = .25))
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
+        #Mast control
         right_north.whileHeld(MastButton(robot, .38))
         right_south.whileHeld(MastButton(robot, -.38))
+
         left_thumb.whileHeld(Shaker(robot)) #like a Polaroid picture
         left_five.whenPressed(ToteLoader(robot))
+
+        #Generic lift stuff
         left_six.whenPressed(LiftStuff(robot, 1, .1))
         left_four.whenPressed(LiftStuff(robot, -1, .1))
+        #Lift presets
+        right_twelve.whenPressed(LiftGoToLevel(robot, 1))
+        right_eleven.whenPressed(LiftGoToLevel(robot, 2))
+        right_ten.whenPressed(LiftGoToLevel(robot, 3))
+        right_seven.whenPressed(LiftGoToLevel(robot, 4))
+        right_eight.whenPressed(LiftGoToLevel(robot, 5))
+        right_nine.whenPressed(LiftGoToLevel(robot, 6))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
     def getJoystickLeft(self):
