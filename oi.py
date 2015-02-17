@@ -107,10 +107,12 @@ class OI:
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
         #Mast control
-        right_north.whileHeld(MastButton(robot, .38))
-        right_south.whileHeld(MastButton(robot, -.38))
-        right_east.whenPressed(SuperStrafe64(robot, False))
-        right_west.whenPressed(SuperStrafe64(robot, True))
+        right_three.whileHeld(MastButton(robot, .38))
+        right_four.whileHeld(MastButton(robot, -.38))
+        right_east.whenPressed(SuperStrafe64(robot, SuperStrafe64.kLeft))
+        right_south.whenPressed(SuperStrafe64(robot, SuperStrafe64.kBack))
+        right_north.whenPressed(SuperStrafe64(robot, SuperStrafe64.kForward))
+        right_west.whenPressed(SuperStrafe64(robot, SuperStrafe64.kRight))
 
         left_thumb.whileHeld(Shaker(robot)) #like a Polaroid picture
         left_five.whenPressed(ToteLoader(robot))
@@ -127,15 +129,15 @@ class OI:
         right_twelve.whenPressed(LiftGoToLevel(robot, 6))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
-        #g1 - level 1
-        #g2 - level 2
-        #g3 - level 3
-        #g4 - level 4
-        #g5 - level 5
-        #g6 - level 6
-        #g7 - level 7
-        #g8 - bottom level
-        #g9 - auto
+        #g1 - lift level 1
+        #g2 - lift level 2
+        #g3 - lift level 3
+        #g4 - lift level 4
+        #g5 - lift level 5
+        #g6 - lift level 6
+        #g7 - lift level 7
+        #g8 - lift bottom level
+        #g9 - auto movement (should find out what this is)
         #g10 - "
         #g11 - "
         #g12 - "

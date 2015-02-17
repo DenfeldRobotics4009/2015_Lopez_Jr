@@ -1,5 +1,4 @@
 #Note to self - don't EVER disassemble the mast. Doesn't end well.
-#mast setpoints - 2/13/15
 #.456 - maximum parallel mast
 kMastBack = .300 #This is so the lift won't go up when the mast is back - DO NOT CHANGE IN TESTING
 kMastBackLimit = .311
@@ -16,11 +15,9 @@ kStall = 2 #This is for the current sensor.
 #lift setpoints - untested
 Tote=.104
 kUp = .189 #This is so the mast won't tilt when the lift is up
-kTop = .171 #was .651
-kBottom = .849 # was .050
+kTop = .105 #was .651
+kBottom = .785 # was .050
 kDelta = (kTop-kBottom)
-lift_level_setpoints = [kBottom, .798, .693, .576, .464, .352, .245, .621, .531]
-#lift_level_setpoints = [kBottom, (kDelta*(.115+kBottom)), (kDelta*(.275+kBottom)),
-#        (kDelta*(.435+kBottom)), (kDelta*(.594+kBottom)), (kDelta*(.753+kBottom)),
-#        (kDelta*(.913+kBottom)), kTop]
+#diff of .066
+lift_level_setpoints = [kBottom, .732, .627, .510, .398, .286, .179, .555, .465]
 lift_step_setpoints = [i-.015 for i in lift_level_setpoints]
