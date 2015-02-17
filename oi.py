@@ -19,7 +19,7 @@ __author__ = 'nikolojedison'
 
 import wpilib
 from networktables import NetworkTable
-from wpilib.buttons import JoystickButton
+from wpilib.buttons import JoystickButton, NetworkButton
 from commands.lift_go_to_level import LiftGoToLevel
 from commands.open_claw import OpenClaw
 from commands.close_claw import CloseClaw
@@ -49,8 +49,9 @@ class OI:
         self.pad = wpilib.Joystick(2)
         self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
 
-        #Buttons? Aw, man, I love buttons! *bleep bloop*
-        #
+
+        #Buttons? Aw, man, I love buttons! *bleep bloop* Key, numeric array
+
         # Create some buttons on the left stick (which is really not, but I don't wanna disturb the preexisting code).
         left_trigger = JoystickButton(self.stick_left, 1)
         left_thumb = JoystickButton(self.stick_left, 2)
@@ -91,31 +92,7 @@ class OI:
         right_twelve = JoystickButton(self.stick_right, 12)
 
         #25 buttons of stuff on the wall, 25 buttons 'n stuff...
-        pad_one = JoystickButton(self.pad, 1)
-        pad_two = JoystickButton(self.pad, 2)
-        pad_three = JoystickButton(self.pad, 3)
-        pad_four = JoystickButton(self.pad, 4)
-        pad_five = JoystickButton(self.pad, 5)
-        pad_six = JoystickButton(self.pad, 6)
-        pad_seven = JoystickButton(self.pad, 7)
-        pad_eight = JoystickButton(self.pad, 8)
-        pad_nine = JoystickButton(self.pad, 9)
-        pad_ten = JoystickButton(self.pad, 10)
-        pad_eleven = JoystickButton(self.pad, 11)
-        pad_twelve = JoystickButton(self.pad, 12)
-        pad_thirteen = JoystickButton(self.pad, 13)
-        pad_fourteen = JoystickButton(self.pad, 14)
-        pad_fifteen = JoystickButton(self.pad, 15)
-        pad_sixteen = JoystickButton(self.pad, 16)
-        pad_seventeen = JoystickButton(self.pad, 17)
-        pad_eighteen = JoystickButton(self.pad, 18)
-        pad_nineteen = JoystickButton(self.pad, 19)
-        pad_twenty = JoystickButton(self.pad, 20)
-        pad_twentyone = JoystickButton(self.pad, 21)
-        pad_twentytwo = JoystickButton(self.pad, 22)
-        pad_twentythree = JoystickButton(self.pad, 23)
-        pad_twentyfour = JoystickButton(self.pad, 24)
-        pad_twentyfive = JoystickButton(self.pad, 25)
+        #Keypresses table = smartdashboard field = Keypresses
 
         # Connect buttons & commands
 
@@ -143,6 +120,8 @@ class OI:
         right_twelve.whenPressed(LiftGoToLevel(robot, 6))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
+
+
     def getJoystickLeft(self):
         """This is the left joystick."""
         return self.stick_left
@@ -150,7 +129,3 @@ class OI:
     def getJoystickRight(self):
         """This is the right joystick."""
         return self.stick_right
-
-    def getPad(self):
-        """This is the pad."""
-        return self.pad

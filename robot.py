@@ -6,6 +6,7 @@ __author__ = 'nikolojedison'
 
 #These are the WPILib section
 import wpilib
+import networktables
 from wpilib.command import Scheduler
 from oi import OI
 
@@ -107,6 +108,12 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.lift.log()
         self.claw.log()
         self.mast.log()
+        try:
+            val = networktables.NumberArray()
+            self.oi.smart_dashboard.retrieveValue("Keys", val)
+            print(val)
+        except KeyError:
+            pass
 
 if __name__ == "__main__":
     wpilib.run(Lopez_Jr)

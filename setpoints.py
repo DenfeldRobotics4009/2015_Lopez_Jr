@@ -2,7 +2,7 @@
 #mast setpoints - 2/13/15
 #.456 - maximum parallel mast
 kMastBack = .300 #This is so the lift won't go up when the mast is back - DO NOT CHANGE IN TESTING
-kMastBackLimit = .309
+kMastBackLimit = .311
 kMastForwardLimit = .482
 kMastParallel = .416
 
