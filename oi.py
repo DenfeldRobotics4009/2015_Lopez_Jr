@@ -16,6 +16,7 @@ __author__ = 'nikolojedison'
 #2/14 23:30 - got the mapping done on the joysticks - waiting on auton testing and a gamepad for presets
 #2/15 21:05 - post-ICC. This'll prove interesting.
 #2/16 15:06 - gamepad is finally here, recalculated setpoints. Still deciding on what is going to map where.
+#2/17 09:53 - Getting close on implementing the gamepad. Noticed that this is the first dev log with only 3 digits.
 
 import wpilib
 from networktables import NetworkTable
