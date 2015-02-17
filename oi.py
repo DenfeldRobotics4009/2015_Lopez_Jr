@@ -50,6 +50,7 @@ class OI:
         self.pad = wpilib.Joystick(2)
         self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
 
+        print('Key pressed:', smart_dashboard.getNumber('Key'))
 
         #Buttons? Aw, man, I love buttons! *bleep bloop* Key, numeric array
 
