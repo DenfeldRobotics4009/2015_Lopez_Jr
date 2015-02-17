@@ -7,6 +7,7 @@ from .lift_go_to_level import LiftGoToLevel
 from .open_claw import OpenClaw
 from .shaker import Shaker
 from wpilib.command import WaitCommand
+from .drive_straight import DriveStraight
 
 class ToteLoader(CommandGroup):
     """A command that opens the arms, lowers the lift one tote level, grabs a tote, and raises the lift 1.1 levels."""
@@ -16,7 +17,9 @@ class ToteLoader(CommandGroup):
                 LiftGoToLevel(robot, 7),
                 OpenClaw(robot),
                 LiftGoToLevel(robot, 2),
-                RunFor(self.robot, Shaker, 1)
+                DriveStraight(robot, .5, 0, .5),
+                DriveStraight(robot, -.5, 0, .5),
+                GrabTote(robot),
                 LiftGoToLevel(robot, 8),
                 ]
         for i in loader_generator: self.addSequential(i)

@@ -2,6 +2,7 @@ from wpilib.command import Command
 
 class RunFor(Command):
     def __init__(self, robot, command, timeout):
+        super().__init__()
         self.robot = robot
         self.command = command
         self.setTimeout(timeout)
