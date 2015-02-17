@@ -18,6 +18,8 @@ kUp = .189 #This is so the mast won't tilt when the lift is up
 kTop = .105 #was .651
 kBottom = .785 # was .050
 kDelta = (kTop-kBottom)
+kAboveSecond = .555
+kAboveFirst = .465
 #diff of .066
 lift_level_setpoints = [kBottom, .732, .627, .510, .398, .286, .179, .555, .465]
 lift_step_setpoints = [i-.015 for i in lift_level_setpoints]
