@@ -8,7 +8,8 @@ from .open_claw import OpenClaw
 from .shaker import Shaker
 from wpilib.command import WaitCommand
 from .drive_straight import DriveStraight
-from set_lift_setpoint import SetLiftSetpoint
+from .set_lift_setpoint import SetLiftSetpoint
+import setpoints
 
 class ToteLoader(CommandGroup):
     """A command that opens the arms, lowers the lift one tote level, grabs a tote, and raises the lift 1.1 levels."""

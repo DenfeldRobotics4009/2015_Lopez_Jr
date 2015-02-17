@@ -40,11 +40,14 @@ from commands.tote_loader import ToteLoader
 from commands.super_strafe_64 import SuperStrafe64 #Only on Nintendo64.
 from pov_button import POVButton
 from commands.drive_straight import DriveStraight
+import setpoints
 
 class KeyButton(InternalButton):
     def __init__(self, table, code):
+        super().__init__()
         def listener(table, key, value, isNew):
             if isNew and key=="Keys":
+                print(value)
                 if code in value:
                     self.setPressed(True)
                 else:
@@ -145,12 +148,12 @@ class OI:
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
         #Mast control
-        right_three.whileHeld(MastButton(robot, .38))
-        right_four.whileHeld(MastButton(robot, -.38))
+        right_north.whileHeld(MastButton(robot, .38))
+        right_south.whileHeld(MastButton(robot, -.38))
         right_east.whenPressed(SuperStrafe64(robot, SuperStrafe64.kLeft))
-        right_south.whenPressed(SuperStrafe64(robot, SuperStrafe64.kBack))
-        right_north.whenPressed(SuperStrafe64(robot, SuperStrafe64.kForward))
         right_west.whenPressed(SuperStrafe64(robot, SuperStrafe64.kRight))
+        right_three.whenPressed(SuperStrafe64(robot, SuperStrafe64.kBack))
+        right_five.whenPressed(SuperStrafe64(robot, SuperStrafe64.kForward))
 
         left_thumb.whileHeld(Shaker(robot)) #like a Polaroid picture
         left_five.whenPressed(ToteLoader(robot))
@@ -167,6 +170,13 @@ class OI:
         right_twelve.whenPressed(LiftGoToLevel(robot, 6))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
+        g1.whenPressed(LiftGoToLevel(robot, 1))
+        g2.whenPressed(LiftGoToLevel(robot, 2))
+        g3.whenPressed(LiftGoToLevel(robot, 3))
+        g4.whenPressed(LiftGoToLevel(robot, 4))
+        g5.whenPressed(LiftGoToLevel(robot, 5))
+        g6.whenPressed(LiftGoToLevel(robot, 6))
+        #g7.whenPressed(LiftGoToLevel(robot, 7))
         #g1 - lift level 1
         #g2 - lift level 2
         #g3 - lift level 3
