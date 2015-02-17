@@ -60,8 +60,7 @@ class OI:
         """Warning: Metric tonnes of code here. May need to be tidied up a wee bit."""
 
         self.stick_left = wpilib.Joystick(0)
-        self.stick_right = wpilib.Joystick(1)
-        self.pad = wpilib.Joystick(2)
+        self.pad = wpilib.Joystick(1)
         self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
 
 #        print('Key pressed:', self.smart_dashboard.getNumber('Key'))
@@ -92,22 +91,18 @@ class OI:
         left_northwest = POVButton(self.stick_left, 315)
 
         #Create some buttons on the ambi stick, see line 48 starting col 49 (Logitech Attack 3)
-        right_north = POVButton(self.stick_right, 0)
-        right_south = POVButton(self.stick_right, 180)
-        right_east = POVButton(self.stick_right, 90)
-        right_west = POVButton(self.stick_right, 270)
-        right_trigger = JoystickButton(self.stick_right, 1)
-        right_thumb = JoystickButton(self.stick_right, 2)
-        right_three = JoystickButton(self.stick_right, 3)
-        right_four = JoystickButton(self.stick_right, 4)
-        right_five = JoystickButton(self.stick_right, 5)
-        right_six = JoystickButton(self.stick_right, 6)
-        right_seven = JoystickButton(self.stick_right, 7)
-        right_eight = JoystickButton(self.stick_right, 8)
-        right_nine = JoystickButton(self.stick_right, 9)
-        right_ten = JoystickButton(self.stick_right, 10)
-        right_eleven = JoystickButton(self.stick_right, 11)
-        right_twelve = JoystickButton(self.stick_right, 12)
+        right_trigger = JoystickButton(self.stick_right, 13)
+        right_thumb = JoystickButton(self.stick_right, 14)
+        right_three = JoystickButton(self.stick_right, 15)
+        right_four = JoystickButton(self.stick_right, 16)
+        right_five = JoystickButton(self.stick_right, 17)
+        right_six = JoystickButton(self.stick_right, 18)
+        right_seven = JoystickButton(self.stick_right, 19)
+        right_eight = JoystickButton(self.stick_right, 20)
+        right_nine = JoystickButton(self.stick_right, 21)
+        right_ten = JoystickButton(self.stick_right, 22)
+        right_eleven = JoystickButton(self.stick_right, 23)
+        right_twelve = JoystickButton(self.stick_right, 24)
 
         #Keypad Buttons
         g1 = KeyButton(self.smart_dashboard, 10)
@@ -140,7 +135,12 @@ class OI:
         #Keypresses table = smartdashboard field = Keypresses
 
         # Connect buttons & commands
-
+        #Throttle - lift up and down
+        #throttle trigger - clamp
+        #6 & 7 - tilt up & down respectively
+        #2 - shaker
+        #9-left super strafe 10-right super strafe
+        #5-forward super strafe 8-back super strafe
         #Bump commands
         left_south.whenPressed(DriveStraight(robot, 0, .25, timeout = .25))
         left_north.whenPressed(DriveStraight(robot, 0, -.25, timeout = .25))
@@ -149,11 +149,6 @@ class OI:
         #Mast control
         right_north.whileHeld(MastButton(robot, .38))
         right_south.whileHeld(MastButton(robot, -.38))
-        right_east.whenPressed(SuperStrafe64(robot, SuperStrafe64.kLeft))
-        right_west.whenPressed(SuperStrafe64(robot, SuperStrafe64.kRight))
-        right_three.whenPressed(SuperStrafe64(robot, SuperStrafe64.kBack))
-        right_five.whenPressed(SuperStrafe64(robot, SuperStrafe64.kForward))
-
         left_thumb.whileHeld(Shaker(robot)) #like a Polaroid picture
         left_five.whenPressed(ToteLoader(robot))
 
