@@ -45,18 +45,14 @@ import setpoints
 class KeyButton(InternalButton):
     def __init__(self, table, code):
         super().__init__()
+        self.code = code
         def listener(table, key, value, isNew):
             if key=="Keys":
-                if code in value:
+                if self.code in value:
                     self.setPressed(True)
                 else:
                     self.setPressed(False)
         table.addTableListener(listener)
-    def get(self):
-        return_value = super().get()
-        print(return_value)
-        return return_value
-
 
 class OI:
     """OI! Put yo button maps hea!"""
