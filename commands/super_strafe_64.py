@@ -16,7 +16,7 @@ class SuperStrafe64(Command):
     def execute(self):
         time = self.timeSinceInitialized()
         if time < .66:
-            self.robot.drivetrain.driveManual(time * self.kInverted, 0, 0)
+            self.robot.drivetrain.driveManual(time * self.kInverted * (3/2), 0, 0)
         else:
             self.robot.drivetrain.driveManual(-1 * self.kInverted, 0, 0)
 
