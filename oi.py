@@ -36,6 +36,7 @@ from commands.lift_stuff import LiftStuff
 from commands.shaker import Shaker
 from commands.mast_button import MastButton
 from commands.tote_loader import ToteLoader
+from commands.super_strafe_64 import SuperStrafe64 #Only on Nintendo64.
 from pov_button import POVButton
 from commands.drive_straight import DriveStraight
 
@@ -104,6 +105,8 @@ class OI:
         #Mast control
         right_north.whileHeld(MastButton(robot, .38))
         right_south.whileHeld(MastButton(robot, -.38))
+        right_east.whenPressed(SuperStrafe64(robot, False))
+        right_west.whenPressed(SuperStrafe64(robot, True))
 
         left_thumb.whileHeld(Shaker(robot)) #like a Polaroid picture
         left_five.whenPressed(ToteLoader(robot))
