@@ -17,8 +17,9 @@ class ToteLoader(CommandGroup):
                 LiftGoToLevel(robot, 7),
                 OpenClaw(robot),
                 LiftGoToLevel(robot, 2),
-                DriveStraight(robot, .5, 0, .5),
-                DriveStraight(robot, -.5, 0, .5),
+                DriveStraight(robot, .25, 0, .5),
+                GrabTote(robot),
+                DriveStraight(robot, -.25, 0, .5),
                 GrabTote(robot),
                 LiftGoToLevel(robot, 8),
                 ]
