@@ -14,10 +14,10 @@ class RunFor(Command):
         self.command.start()
 
     def end(self):
+        self.command.cancel()
         self.command.end()
 
     def interupted(self):
-        self.command.interupted()
         self.end()
 
     def cancel(self):
