@@ -3,7 +3,7 @@ __author__="nikolojedison"
 from wpilib.command import CommandGroup
 
 from .grab_tote import GrabTote
-from .lift_stuff import LiftStuff
+from .lift_go_to_level import LiftGoToLevel
 from .open_claw import OpenClaw
 from wpilib.command import WaitCommand
 
@@ -12,8 +12,10 @@ class ToteLoader(CommandGroup):
     def __init__(self, robot):
         super().__init__()
         loader_generator = [
+                LiftGoToLevel(robot, 3),
                 OpenClaw(robot),
-                LiftStuff(robot, -1, 2),
+                LiftGoToLevel(robot, 2),
                 GrabTote(robot),
-                LiftStuff(robot, 1, 2.25),]
+                LiftGoToLevel(robot, 4),
+                ]
         for i in loader_generator: self.addSequential(i)
