@@ -7,7 +7,7 @@ class SuperStrafe64(Command):
         super().__init__()
         self.robot = robot
         self.requires(robot.drivetrain)
-        self.setTimeout(.7)
+        self.setTimeout(1)
         if inverted:
             self.kInverted = -1
         else:
@@ -15,7 +15,7 @@ class SuperStrafe64(Command):
 
     def execute(self):
         time = self.timeSinceInitialized()
-        if time < .5:
+        if time < .66:
             self.robot.drivetrain.driveManual(time * self.kInverted, 0, 0)
         else:
             self.robot.drivetrain.driveManual(-1 * self.kInverted, 0, 0)
