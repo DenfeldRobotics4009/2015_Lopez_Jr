@@ -16,8 +16,8 @@ kStall = 2 #This is for the current sensor.
 #lift setpoints - untested
 Tote=.104
 kUp = .189 #This is so the mast won't tilt when the lift is up
-kTop = .176 #was .651
-kBottom = .842 # was .050
+kTop = .171 #was .651
+kBottom = .849 # was .050
 kDelta = (kTop-kBottom)
 lift_level_setpoints = [kBottom, .798, .693, .576, .464, .352, .245, .621, .531]
 #lift_level_setpoints = [kBottom, (kDelta*(.115+kBottom)), (kDelta*(.275+kBottom)),
