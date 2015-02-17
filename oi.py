@@ -79,6 +79,8 @@ class OI:
         #Create some buttons on the ambi stick, see line 48 starting col 49 (Logitech Attack 3)
         right_north = POVButton(self.stick_right, 0)
         right_south = POVButton(self.stick_right, 180)
+        right_east = POVButton(self.stick_right, 90)
+        right_west = POVButton(self.stick_right, 270)
         right_trigger = JoystickButton(self.stick_right, 1)
         right_thumb = JoystickButton(self.stick_right, 2)
         right_three = JoystickButton(self.stick_right, 3)
