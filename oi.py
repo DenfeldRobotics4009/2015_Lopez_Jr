@@ -20,7 +20,7 @@ __author__ = 'nikolojedison'
 
 import wpilib
 from networktables import NetworkTable
-from wpilib.buttons import JoystickButton, NetworkButton
+from wpilib.buttons import JoystickButton, InternalButton
 from commands.lift_go_to_level import LiftGoToLevel
 from commands.open_claw import OpenClaw
 from commands.close_claw import CloseClaw
@@ -40,6 +40,17 @@ from commands.tote_loader import ToteLoader
 from commands.super_strafe_64 import SuperStrafe64 #Only on Nintendo64.
 from pov_button import POVButton
 from commands.drive_straight import DriveStraight
+
+class KeyButton(InternalButton):
+    def __init__(self, table, code):
+        def listener(table, key, value, isNew):
+            if isNew and key=="Keys":
+                if code in value:
+                    self.setPressed(True)
+                else:
+                    self.setPressed(False)
+        table.addTableListener(listener)
+
 
 class OI:
     """OI! Put yo button maps hea!"""
@@ -96,6 +107,33 @@ class OI:
         right_eleven = JoystickButton(self.stick_right, 11)
         right_twelve = JoystickButton(self.stick_right, 12)
 
+        #Keypad Buttons
+        g1 = KeyButton(self.smart_dashboard, 10)
+        g2 = KeyButton(self.smart_dashboard, 11)
+        g3 = KeyButton(self.smart_dashboard, 12)
+        g4 = KeyButton(self.smart_dashboard, 13)
+        g5 = KeyButton(self.smart_dashboard, 14)
+        g6 = KeyButton(self.smart_dashboard, 15)
+        g7 = KeyButton(self.smart_dashboard, 16)
+        g8 = KeyButton(self.smart_dashboard, 17)
+        g9 = KeyButton(self.smart_dashboard, 18)
+        g10 = KeyButton(self.smart_dashboard, 19)
+        g11 = KeyButton(self.smart_dashboard, 20)
+        g12 = KeyButton(self.smart_dashboard, 21)
+        g13 = KeyButton(self.smart_dashboard, 22)
+        g14 = KeyButton(self.smart_dashboard, 23)
+        g15 = KeyButton(self.smart_dashboard, 24)
+        g16 = KeyButton(self.smart_dashboard, 25)
+        g17 = KeyButton(self.smart_dashboard, 26)
+        g18 = KeyButton(self.smart_dashboard, 27)
+        g19 = KeyButton(self.smart_dashboard, 28)
+        g20 = KeyButton(self.smart_dashboard, 29)
+        g21 = KeyButton(self.smart_dashboard, 30)
+        g22 = KeyButton(self.smart_dashboard, 31)
+        topshift = KeyButton(self.smart_dashboard, 32)
+        bottomshift = KeyButton(self.smart_dashboard, 33)
+        extra1 = KeyButton(self.smart_dashboard, 34)
+        extra2 = KeyButton(self.smart_dashboard, 35)
         #25 buttons of stuff on the wall, 25 buttons 'n stuff...
         #Keypresses table = smartdashboard field = Keypresses
 
