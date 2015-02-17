@@ -19,13 +19,16 @@ class CanNToteAuto(CommandGroup):
      def __init__(self, robot):
         super().__init__()
         can_n_tote_gen = [
-            GrabCan(robot),
-            LiftStuff(robot, .75, 2),
-            DriveStraight(robot, 0, -.5, timeout=.25),
-            OpenClaw(robot),
-            LiftStuff(robot, -.75, 2),
+            LiftGoToLevel(robot, 2),
             GrabTote(robot),
-            LiftStuff(robot, .75, .5),
-            Turn(robot, 90),
-            DriveStraight(robot, 0, -1, timeout=.25),
-        ]
+            LiftGoToLevel(robot, 4),
+            DriveStraight(robot, 0, -1, timeout=.4)
+            OpenClaw(robot),
+            LiftGoToLevel(robot, 1),
+            GrabTote(robot),
+            LiftGoToLevel(robot, 4),
+            Turn(robot, 60),
+            DriveStraight(robot, 0, -.75, timeout=1.5),
+            LiftGoToLevel(robot, 1),
+            OpenClaw(robot),
+                ]
