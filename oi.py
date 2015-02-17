@@ -127,7 +127,30 @@ class OI:
         right_twelve.whenPressed(LiftGoToLevel(robot, 6))
         #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
-
+        #g1 - level 1
+        #g2 - level 2
+        #g3 - level 3
+        #g4 - level 4
+        #g5 - level 5
+        #g6 - level 6
+        #g7 - level 7
+        #g8 - bottom level
+        #g9 - auto
+        #g10 - "
+        #g11 - "
+        #g12 - "
+        #g13 - "
+        #g14 - "
+        #g15 - full open clamp
+        #g16 - standing can width
+        #g17 - tote width
+        #g18 - laying down can width
+        #g19 - full closed clamp
+        #g20 - full back tilt
+        #g21 - leveled paddles
+        #g22 - full forward tilt
+        #top shift - all levels -.015 for platform stacking
+        #bottom shift - all levels +.045 for setdown
 
     def getJoystickLeft(self):
         """This is the left joystick."""
