@@ -19,7 +19,7 @@ kUp = .189 #This is so the mast won't tilt when the lift is up
 kTop = .176 #was .651
 kBottom = .842 # was .050
 kDelta = (kTop-kBottom)
-lift_level_setpoints = [kBottom, .798, .687, .576, .464, .352, .245]
+lift_level_setpoints = [kBottom, .798, .687, .576, .464, .352, .245, .621, .531]
 lift_platform_setpoints = [.783, .672, .571, .449, .337, .230] #shift of -.015
 #lift_level_setpoints = [kBottom, (kDelta*(.115+kBottom)), (kDelta*(.275+kBottom)),
 #        (kDelta*(.435+kBottom)), (kDelta*(.594+kBottom)), (kDelta*(.753+kBottom)),

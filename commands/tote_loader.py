@@ -12,10 +12,10 @@ class ToteLoader(CommandGroup):
     def __init__(self, robot):
         super().__init__()
         loader_generator = [
-                LiftGoToLevel(robot, 3),
+                LiftGoToLevel(robot, 8),
                 OpenClaw(robot),
-                LiftGoToLevel(robot, 2),
+                LiftGoToLevel(robot, 1),
                 GrabTote(robot),
-                LiftGoToLevel(robot, 4),
+                LiftGoToLevel(robot, 9),
                 ]
         for i in loader_generator: self.addSequential(i)
