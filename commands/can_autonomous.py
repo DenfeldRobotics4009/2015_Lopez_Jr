@@ -12,6 +12,7 @@ from .set_lift_setpoint import SetLiftSetpoint
 from .set_mast_setpoint import SetMastSetpoint
 from .turn import Turn
 from .lift_stuff import LiftStuff
+from .lift_go_to_level import LiftGoToLevel
 
 class CanAutonomous(CommandGroup):
     """This is the autonomous where we grab the can and drive off with it."""
@@ -21,11 +22,11 @@ class CanAutonomous(CommandGroup):
         super().__init__()
         auton_generator = [
             GrabTote(robot), #grabs can
-            LiftStuff(robot, .75, 2),
+            LiftGoToLevel(robot, 2),
             DriveStraight(robot, 0, -.5, timeout=1),
             Turn(robot, 45),
             DriveStraight(robot, 0, -.5, timeout=3),
-            LiftStuff(robot, -.75, 2),
+            LiftGoToLevel(robot, 1),
             OpenClaw(robot), #drops can
             DriveStraight(robot, 0, .5, timeout=.25)]
 
