@@ -9,7 +9,7 @@ class ManualClaw(Command):
         self.requires(self.robot.claw)
 
     def execute(self):
-        self.robot.claw.manualSet(dead_zone(self.robot.oi.getJoystickRight().getX(), .75))
+        self.robot.claw.manualSet(dead_zone(self.robot.oi.getJoystickLeft().getRawAxis(4), .75))
 
     def isFinished(self):
         position = self.robot.claw.grabba_pot.get()

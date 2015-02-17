@@ -10,8 +10,8 @@ class ManualMast(Command):
             self.cancel()
 
     def execute(self):
-        self.robot.mast.manualSet(dead_zone(self.robot.oi.getJoystickRight().getThrottle(), .1))
-
+#        self.robot.mast.manualSet(dead_zone(self.robot.oi.getJoystickRight().getThrottle(), .1))
+         pass
     def isFinished(self):
         return False
 

@@ -17,6 +17,7 @@ __author__ = 'nikolojedison'
 #2/15 21:05 - post-ICC. This'll prove interesting.
 #2/16 15:06 - gamepad is finally here, recalculated setpoints. Still deciding on what is going to map where.
 #2/17 09:53 - Getting close on implementing the gamepad. Noticed that this is the first dev log with only 3 digits.
+#2/17 16:30 - new joysticks, remapping EVERYTHING.
 
 import wpilib
 from networktables import NetworkTable
@@ -91,18 +92,18 @@ class OI:
         left_northwest = POVButton(self.stick_left, 315)
 
         #Create some buttons on the ambi stick, see line 48 starting col 49 (Logitech Attack 3)
-        right_trigger = JoystickButton(self.stick_right, 13)
-        right_thumb = JoystickButton(self.stick_right, 14)
-        right_three = JoystickButton(self.stick_right, 15)
-        right_four = JoystickButton(self.stick_right, 16)
-        right_five = JoystickButton(self.stick_right, 17)
-        right_six = JoystickButton(self.stick_right, 18)
-        right_seven = JoystickButton(self.stick_right, 19)
-        right_eight = JoystickButton(self.stick_right, 20)
-        right_nine = JoystickButton(self.stick_right, 21)
-        right_ten = JoystickButton(self.stick_right, 22)
-        right_eleven = JoystickButton(self.stick_right, 23)
-        right_twelve = JoystickButton(self.stick_right, 24)
+        right_trigger = JoystickButton(self.stick_left, 13)
+        right_thumb = JoystickButton(self.stick_left, 14)
+        right_three = JoystickButton(self.stick_left, 15)
+        right_four = JoystickButton(self.stick_left, 16)
+        right_five = JoystickButton(self.stick_left, 17)
+        right_six = JoystickButton(self.stick_left, 18)
+        right_seven = JoystickButton(self.stick_left, 19)
+        right_eight = JoystickButton(self.stick_left, 20)
+        right_nine = JoystickButton(self.stick_left, 21)
+        right_ten = JoystickButton(self.stick_left, 22)
+        right_eleven = JoystickButton(self.stick_left, 23)
+        right_twelve = JoystickButton(self.stick_left, 24)
 
         #Keypad Buttons
         g1 = KeyButton(self.smart_dashboard, 10)
@@ -135,23 +136,25 @@ class OI:
         #Keypresses table = smartdashboard field = Keypresses
 
         # Connect buttons & commands
-        #Throttle - lift up and down
-        #throttle trigger - clamp
-        #6 & 7 - tilt up & down respectively
-        #2 - shaker
-        #9-left super strafe 10-right super strafe
-        #5-forward super strafe 8-back super strafe
         #Bump commands
         left_south.whenPressed(DriveStraight(robot, 0, .25, timeout = .25))
         left_north.whenPressed(DriveStraight(robot, 0, -.25, timeout = .25))
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
         #Mast control
-        right_north.whileHeld(MastButton(robot, .38))
-        right_south.whileHeld(MastButton(robot, -.38))
+        left_six.whileHeld(MastButton(robot, .38))
+        left_seven.whileHeld(MastButton(robot, -.38))
         left_thumb.whileHeld(Shaker(robot)) #like a Polaroid picture
-        left_five.whenPressed(ToteLoader(robot))
+        left_nine.whenPressed(SuperStrafe64(robot, SuperStrafe64.kLeft))
+        left_ten.whenPressed(SuperStrafe64(robot, SuperStrafe64.kRight))
+        left_five.whenPressed(SuperStrafe64(robot, SuperStrafe64.kForward))
+        left_eight.whenPressed(SuperStrafe64(robot, SuperStrafe64.kBack))
 
+        #x - x
+        #y - y
+        #z - throttle
+        #z rotate - twist
+        #slider - axes on the throttle
         #Generic lift stuff
         left_six.whenPressed(LiftStuff(robot, 1, .1))
         left_four.whenPressed(LiftStuff(robot, -1, .1))
@@ -162,22 +165,14 @@ class OI:
         right_eight.whenPressed(LiftGoToLevel(robot, 4))
         right_ten.whenPressed(LiftGoToLevel(robot, 5))
         right_twelve.whenPressed(LiftGoToLevel(robot, 6))
-        #right_trigger.whenPressed() #does some cool 2" lifting and stuff
 
-        g1.whenPressed(LiftGoToLevel(robot, 1))
-        g2.whenPressed(LiftGoToLevel(robot, 2))
-        g3.whenPressed(LiftGoToLevel(robot, 3))
-        g4.whenPressed(LiftGoToLevel(robot, 4))
-        g5.whenPressed(LiftGoToLevel(robot, 5))
-        g6.whenPressed(LiftGoToLevel(robot, 6))
-        #g7.whenPressed(LiftGoToLevel(robot, 7))
-        #g1 - lift level 1
-        #g2 - lift level 2
-        #g3 - lift level 3
-        #g4 - lift level 4
-        #g5 - lift level 5
-        #g6 - lift level 6
-        #g7 - lift level 7
+        g1.whenPressed(LiftGoToLevel(robot, 0))
+        g2.whenPressed(LiftGoToLevel(robot, 1))
+        g3.whenPressed(LiftGoToLevel(robot, 2))
+        g4.whenPressed(LiftGoToLevel(robot, 3))
+        g5.whenPressed(LiftGoToLevel(robot, 4))
+        g6.whenPressed(LiftGoToLevel(robot, 5))
+        g7.whenPressed(LiftGoToLevel(robot, 6))
         #g8 - lift bottom level
         #g9 - auto movement (should find out what this is)
         #g10 - "
@@ -199,7 +194,3 @@ class OI:
     def getJoystickLeft(self):
         """This is the left joystick."""
         return self.stick_left
-
-    def getJoystickRight(self):
-        """This is the right joystick."""
-        return self.stick_right
