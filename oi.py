@@ -46,13 +46,16 @@ class KeyButton(InternalButton):
     def __init__(self, table, code):
         super().__init__()
         def listener(table, key, value, isNew):
-            if isNew and key=="Keys":
-                print(value)
+            if key=="Keys":
                 if code in value:
                     self.setPressed(True)
                 else:
                     self.setPressed(False)
         table.addTableListener(listener)
+    def get(self):
+        return_value = super().get()
+        print(return_value)
+        return return_value
 
 
 class OI:
