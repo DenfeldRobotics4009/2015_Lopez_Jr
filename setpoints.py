@@ -21,5 +21,6 @@ kDelta = (kTop-kBottom)
 kAboveSecond = .555
 kAboveFirst = .465
 #diff of .066
-lift_level_setpoints = [kBottom, .732, .627, .510, .398, .286, .179]
+lift_levels_reletive = [-0.0, 0.0779, 0.2323, 0.4044, 0.5691, 0.7338, 0.8911]
+lift_level_setpoints = [(i*kDelta)+kBottom for i in lift_levels_reletive]
 lift_step_setpoints = [i-.015 for i in lift_level_setpoints]
