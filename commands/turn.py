@@ -18,7 +18,7 @@ class Turn(Command):
         self.controller.enable()
 
     def isFinished(self):
-        return self.controller.onTarget() or self.isFinished()
+        return self.controller.onTarget() or self.isTimedOut()
 
     def end(self):
         self.controller.disable()
