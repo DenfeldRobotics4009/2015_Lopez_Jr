@@ -151,6 +151,7 @@ class OI:
         g19.whenPressed(CloseClaw(robot))
         g20.whenPressed(MastBack(robot))
         g22.whenPressed(MastForward(robot))
+        g17.whenPressed(GrabTote(robot))
         #g9 - auto movement (should find out what this is)
         #g10 - "
         #g11 - "
@@ -158,7 +159,6 @@ class OI:
         #g13 - "
         #g14 - "
         #g16 - standing can width
-        #g17 - tote width
         #g18 - laying down can width
         #g21 - leveled paddles
         #top shift - all levels -.015 for platform stacking
