@@ -1,9 +1,26 @@
 __author__ = 'nikolojedison'
 import wpilib
+from wpilib.command import Command
 from wpilib.command import PIDSubsystem
+from wpilib.buttons import Trigger
 from commands.manual_lift import ManualLift
 import subsystems
 import setpoints
+
+class ResetEncoder(Command):
+    def __init__(self, robot):
+        self.robot = robot
+    def initialize(self):
+        self.lift.reset()
+    def isFinised():
+        return True
+
+class EncoderLimitTrigger(Trigger):
+    def __init__(self, robot):
+        self.robot = robot
+        self.whenActive(ResetEncoder(robot))
+    def get(self):
+        return self.robot.lift.limit_down.get()
 
 class Lift(PIDSubsystem):
 
