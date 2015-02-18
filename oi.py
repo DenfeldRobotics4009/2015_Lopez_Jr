@@ -130,8 +130,8 @@ class OI:
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
         #Mast control
-        left_five.whileHeld(MastButton(robot, .38))
-        left_six.whileHeld(MastButton(robot, -.38))
+        left_six.whileHeld(MastButton(robot, .38))
+        left_five.whileHeld(MastButton(robot, -.38))
         left_thumb.whileHeld(Shaker(robot)) #like a Polaroid picture
         left_nine.whenPressed(SuperStrafe64(robot, SuperStrafe64.kLeft))
         left_ten.whenPressed(SuperStrafe64(robot, SuperStrafe64.kRight))
@@ -153,14 +153,14 @@ class OI:
         g20.whenPressed(MastBack(robot))
         g22.whenPressed(MastForward(robot))
         g17.whenPressed(GrabTote(robot))
+        g18.whenPressed(GrabCan(robot))
+        g16.whenPressed(GrabCan(robot))
         #g9 - auto movement (should find out what this is)
         #g10 - "
         #g11 - "
         #g12 - "
         #g13 - "
         #g14 - "
-        #g16 - standing can width
-        #g18 - laying down can width
         #g21 - leveled paddles
         #top shift - all levels -.015 for platform stacking
         #bottom shift - all levels +.045 for setdown
