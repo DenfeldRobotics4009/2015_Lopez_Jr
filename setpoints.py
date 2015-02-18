@@ -6,8 +6,8 @@ def scale_reletive(v, top, bottom):
 def unscale_reletive(v, top, bottom):
     return (v-bottom)/(top-bottom)
 
-kMastBack = .300 #This is so the lift won't go up when the mast is back - DO NOT CHANGE IN TESTING
-kMastBackLimit = .423
+kMastBack = .423 #This is so the lift won't go up when the mast is back - DO NOT CHANGE IN TESTING
+kMastBackLimit = .311
 kMastForwardLimit = .482
 kMastParallel = .456
 
