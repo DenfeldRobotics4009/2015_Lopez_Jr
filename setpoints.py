@@ -26,6 +26,7 @@ kDelta = (kTop-kBottom)
 kAboveSecond = scale_reletive(0.1564, kTop, kBottom)
 kAboveFirst = scale_reletive(0.2176, kTop, kBottom)
 #6.3" per rotation
-lift_levels_reletive = [0.0, 0.0925, 0.2566, 0.4173, 0.5779, 0.7385, 0.8992, 1]
-lift_level_setpoints = [scale_reletive(i, kTop, kBottom) for i in lift_levels_reletive]
+#lift_levels_reletive = [0.0, 0.0925, 0.2566, 0.4173, 0.5779, 0.7385, 0.8992, 1]
+#lift_level_setpoints = [scale_reletive(i, kTop, kBottom) for i in lift_levels_reletive]
+lift_level_setpoints = [kBottom, 216, 871, 1526, 2181, 2836, 3491, kTop]
 lift_step_setpoints = [i-.015 for i in lift_level_setpoints]
