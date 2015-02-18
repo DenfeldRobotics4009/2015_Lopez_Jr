@@ -21,13 +21,13 @@ class CanAutonomous(CommandGroup):
     def __init__(self, robot):
         super().__init__()
         auton_generator = [
-            LiftGoToLevel(robot, 2, 0, 0),
+            LiftGoToLevel(robot, 2),
             GrabTote(robot), #grabs can
-            LiftGoToLevel(robot, 4, 0, 0),
+            LiftGoToLevel(robot, 4),
             DriveStraight(robot, 0, -.5, timeout=1),
             Turn(robot, 45),
             DriveStraight(robot, 0, -.5, timeout=2.5),
-            LiftGoToLevel(robot, 2, 0, 0),
+            LiftGoToLevel(robot, 2),
             OpenClaw(robot), #drops can
             DriveStraight(robot, 0, .5, timeout=.25)]
 
