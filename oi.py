@@ -158,6 +158,7 @@ class OI:
         g18.whenPressed(GrabCan(robot))
         g16.whenPressed(GrabCan(robot))
         g9.whileHeld(Shaker(robot))
+        g10.whenPressed(ToteLoader(robot))
         #g10 - "
         #g11 - "
         #g12 - "
