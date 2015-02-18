@@ -8,7 +8,8 @@ class Turn(Command):
         super().__init__()
         self.robot = robot
         self.angle = angle
-        self.controller = wpilib.PIDController(-.008, -0.0003, -.001, 5, self.returnPIDInput, self.usePIDOutput)
+        self.controller = wpilib.PIDController(.008, 0, 0, self.returnPIDInput, self.usePIDOutput)
+        self.setTimeout(3)
         self.controller.setAbsoluteTolerance(2)
         self.requires(self.robot.drivetrain)
 
@@ -17,7 +18,7 @@ class Turn(Command):
         self.controller.enable()
 
     def isFinished(self):
-        return self.controller.onTarget()
+        return self.controller.onTarget() or self.isFinished()
 
     def end(self):
         self.controller.disable()
