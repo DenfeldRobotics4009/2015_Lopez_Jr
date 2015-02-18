@@ -91,19 +91,6 @@ class OI:
         left_west = POVButton(self.stick_left, 270)
         left_northwest = POVButton(self.stick_left, 315)
 
-        #Create some buttons on the ambi stick, see line 48 starting col 49 (Logitech Attack 3)
-        right_trigger = JoystickButton(self.stick_left, 13)
-        right_thumb = JoystickButton(self.stick_left, 14)
-        right_three = JoystickButton(self.stick_left, 15)
-        right_four = JoystickButton(self.stick_left, 16)
-        right_five = JoystickButton(self.stick_left, 17)
-        right_six = JoystickButton(self.stick_left, 18)
-        right_seven = JoystickButton(self.stick_left, 19)
-        right_eight = JoystickButton(self.stick_left, 20)
-        right_nine = JoystickButton(self.stick_left, 21)
-        right_ten = JoystickButton(self.stick_left, 22)
-        right_eleven = JoystickButton(self.stick_left, 23)
-        right_twelve = JoystickButton(self.stick_left, 24)
 
         #Keypad Buttons
         g1 = KeyButton(self.smart_dashboard, 10)
@@ -150,22 +137,7 @@ class OI:
         left_five.whenPressed(SuperStrafe64(robot, SuperStrafe64.kForward))
         left_eight.whenPressed(SuperStrafe64(robot, SuperStrafe64.kBack))
 
-        #x - x
-        #y - y
-        #z - throttle
-        #z rotate - twist
-        #slider - axes on the throttle
-        #Generic lift stuff
-        left_six.whenPressed(LiftStuff(robot, 1, .1))
-        left_four.whenPressed(LiftStuff(robot, -1, .1))
         #Lift presets
-        right_eleven.whenPressed(LiftGoToLevel(robot, 1))
-        right_nine.whenPressed(LiftGoToLevel(robot, 2))
-        right_seven.whenPressed(LiftGoToLevel(robot, 3))
-        right_eight.whenPressed(LiftGoToLevel(robot, 4))
-        right_ten.whenPressed(LiftGoToLevel(robot, 5))
-        right_twelve.whenPressed(LiftGoToLevel(robot, 6))
-
         g1.whenPressed(LiftGoToLevel(robot, 0))
         g2.whenPressed(LiftGoToLevel(robot, 1))
         g3.whenPressed(LiftGoToLevel(robot, 2))

@@ -86,7 +86,7 @@ class Lopez_Jr(wpilib.SampleRobot):
             #    self.grabber.motor.set(dead_zone(self.oi.getJoystickLeft().getThrottle(), .1))
             #else:
             #    self.grabber.motor.set(0)
-        wpilib.Timer.delay(.005)    # don't burn up the cpu
+            wpilib.Timer.delay(.005)    # don't burn up the cpu
 
 
     def disabled(self):
