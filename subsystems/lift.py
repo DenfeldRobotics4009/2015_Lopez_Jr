@@ -14,7 +14,7 @@ class ResetEncoder(Command):
         self.lift = lift
     def initialize(self):
         self.lift.reset()
-    def isFinised():
+    def isFinished():
         return True
 
 class EncoderLimitTrigger(Trigger):
