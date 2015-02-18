@@ -121,14 +121,15 @@ class OI:
         extra1 = KeyButton(self.smart_dashboard, 34)
         extra2 = KeyButton(self.smart_dashboard, 35)
         #25 buttons of stuff on the wall, 25 buttons 'n stuff...
-        #Keypresses table = smartdashboard field = Keypresses
 
         # Connect buttons & commands
+
         #Bump commands
         left_south.whenPressed(DriveStraight(robot, 0, .25, timeout = .25))
         left_north.whenPressed(DriveStraight(robot, 0, -.25, timeout = .25))
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
+
         #Mast control
         left_six.whileHeld(MastButton(robot, .38))
         left_five.whileHeld(MastButton(robot, -.38))
@@ -147,6 +148,7 @@ class OI:
         g6.whenPressed(LiftGoToLevel(robot, 6))
         g7.whenPressed(LiftGoToLevel(robot, 7))
         g8.whenPressed(LiftGoToLevel(robot, 0))
+
         g15.whenPressed(OpenClaw(robot))
         #g8 - lift bottom level
         g19.whenPressed(CloseClaw(robot))
@@ -155,7 +157,7 @@ class OI:
         g17.whenPressed(GrabTote(robot))
         g18.whenPressed(GrabCan(robot))
         g16.whenPressed(GrabCan(robot))
-        #g9 - auto movement (should find out what this is)
+        g9.whileHeld(Shaker(robot))
         #g10 - "
         #g11 - "
         #g12 - "
