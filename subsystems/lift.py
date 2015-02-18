@@ -8,19 +8,21 @@ import subsystems
 import setpoints
 
 class ResetEncoder(Command):
-    def __init__(self, robot):
+    def __init__(self, robot, lift):
         self.robot = robot
+        self.lift = lift
     def initialize(self):
         self.lift.reset()
     def isFinised():
         return True
 
 class EncoderLimitTrigger(Trigger):
-    def __init__(self, robot):
+    def __init__(self, robot, lift):
         self.robot = robot
-        self.whenActive(ResetEncoder(robot))
+        self.lift = lift
+        self.whenActive(ResetEncoder(robot, lift))
     def get(self):
-        return self.robot.lift.limit_down.get()
+        return self.lift.limit_down.get()
 
 class Lift(PIDSubsystem):
 
