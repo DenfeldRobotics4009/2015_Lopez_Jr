@@ -24,6 +24,7 @@ import wpilib
 from networktables import NetworkTable
 from wpilib.buttons import JoystickButton, InternalButton
 from commands.lift_go_to_level import LiftGoToLevel
+from commands.lift_go_to_level_shift import LiftGoToLevelShift
 from commands.open_claw import OpenClaw
 from commands.close_claw import CloseClaw
 from commands.center_claw import CenterClaw
@@ -40,7 +41,6 @@ from commands.shaker import Shaker
 from commands.mast_button import MastButton
 from commands.tote_loader import ToteLoader
 from commands.super_strafe_64 import SuperStrafe64 #Only on Nintendo64.
-from commands.mast_level import MastLevel
 from pov_button import POVButton
 from commands.drive_straight import DriveStraight
 import setpoints
@@ -93,7 +93,6 @@ class OI:
         left_west = POVButton(self.stick_left, 270)
         left_northwest = POVButton(self.stick_left, 315)
 
-
         #Keypad Buttons
         g1 = KeyButton(self.smart_dashboard, 10)
         g2 = KeyButton(self.smart_dashboard, 11)
@@ -141,20 +140,19 @@ class OI:
         left_eight.whenPressed(SuperStrafe64(robot, SuperStrafe64.kBack))
 
         #Lift presets
-        g1.whenPressed(LiftGoToLevel(robot, 1, 0, 0))
-        g2.whenPressed(LiftGoToLevel(robot, 2, 0, 0))
-        g3.whenPressed(LiftGoToLevel(robot, 3, 0, 0))
-        g4.whenPressed(LiftGoToLevel(robot, 4, 0, 0))
-        g5.whenPressed(LiftGoToLevel(robot, 5, 0, 0))
-        g6.whenPressed(LiftGoToLevel(robot, 6, 0, 0))
-        g7.whenPressed(LiftGoToLevel(robot, 7, 0, 0))
-        g8.whenPressed(LiftGoToLevel(robot, 0, 0, 0))
+        g1.whenPressed(LiftGoToLevelShift(robot, 1, g32, g33))
+        g2.whenPressed(LiftGoToLevelShift(robot, 2, g32, g33))
+        g3.whenPressed(LiftGoToLevelShift(robot, 3, g32, g33))
+        g4.whenPressed(LiftGoToLevelShift(robot, 4, g32, g33))
+        g5.whenPressed(LiftGoToLevelShift(robot, 5, g32, g33))
+        g6.whenPressed(LiftGoToLevelShift(robot, 6, g32, g33))
+        g7.whenPressed(LiftGoToLevelShift(robot, 7, g32, g33))
+        g8.whenPressed(LiftGoToLevelShift(robot, 0, g32, g33))
 
         g15.whenPressed(OpenClaw(robot))
         #g8 - lift bottom level
         g19.whenPressed(CloseClaw(robot))
         g20.whenPressed(MastBack(robot))
-        g21.whenPressed(MastLevel(robot))
         g22.whenPressed(MastForward(robot))
         g17.whenPressed(GrabTote(robot))
         g18.whenPressed(GrabCan(robot))
