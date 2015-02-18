@@ -10,7 +10,6 @@ from .set_claw_setpoint import SetClawSetpoint
 from .set_lift_setpoint import SetLiftSetpoint
 from .set_mast_setpoint import SetMastSetpoint
 from .grab_tote import GrabTote
-from .auto_shaker import AutoShaker
 from .turn import Turn
 from .lift_stuff import LiftStuff
 

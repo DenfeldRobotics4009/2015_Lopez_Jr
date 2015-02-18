@@ -18,7 +18,7 @@ class ToteLoader(CommandGroup):
         loader_generator = [
                 SetLiftSetpoint(robot, setpoints.kAboveFirst),
                 OpenClaw(robot),
-                LiftGoToLevel(robot, 2),
+                LiftGoToLevel(robot, 2, 0, 0),
                 DriveStraight(robot, .5, 0, .5),
                 GrabTote(robot),
                 DriveStraight(robot, -.5, 0, .5),

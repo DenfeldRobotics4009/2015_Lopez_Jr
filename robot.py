@@ -11,7 +11,6 @@ from wpilib.command import Scheduler
 from oi import OI
 
 #This is all the subsystems
-from subsystems.derailer import Derailer
 from subsystems.drivetrain import Drivetrain
 from subsystems.lift import Lift
 from subsystems.claw import Claw
@@ -29,7 +28,6 @@ class Lopez_Jr(wpilib.SampleRobot):
     def robotInit(self):
         """Initialises 'bot w/ all subsystems (derailer needs testing) and joysticks"""
 
-        self.derailer = Derailer(self)
         self.drivetrain = Drivetrain(self)
         self.lift = Lift(self)
         self.claw = Claw(self)
@@ -103,7 +101,6 @@ class Lopez_Jr(wpilib.SampleRobot):
 
     def log(self):
         """Woo, logging."""
-        self.derailer.log()
         self.drivetrain.log()
         self.lift.log()
         self.claw.log()
