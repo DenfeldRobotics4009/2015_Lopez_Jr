@@ -25,7 +25,7 @@ class CanAutonomous(CommandGroup):
             GrabTote(robot), #grabs can
             LiftGoToLevel(robot, 4, 0, 0),
             DriveStraight(robot, 0, -.5, timeout=1),
-            Turn(robot, 60),
+            Turn(robot, 45),
             DriveStraight(robot, 0, -.5, timeout=2.5),
             LiftGoToLevel(robot, 2, 0, 0),
             OpenClaw(robot), #drops can
