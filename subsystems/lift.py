@@ -9,6 +9,7 @@ import setpoints
 
 class ResetEncoder(Command):
     def __init__(self, robot, lift):
+        super().__init__()
         self.robot = robot
         self.lift = lift
     def initialize(self):
@@ -18,6 +19,7 @@ class ResetEncoder(Command):
 
 class EncoderLimitTrigger(Trigger):
     def __init__(self, robot, lift):
+        super().__init__()
         self.robot = robot
         self.lift = lift
         self.whenActive(ResetEncoder(robot, lift))
