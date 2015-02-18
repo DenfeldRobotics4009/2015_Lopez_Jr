@@ -24,3 +24,7 @@ class SetLiftSetpoint(Command):
 
     def interupted(self):
         self.end()
+
+    def cancel(self):
+        self.end()
+        super().cancel()
