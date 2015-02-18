@@ -3,6 +3,9 @@
 def scale_reletive(v, top, bottom):
     return v*(top-bottom)+bottom
 
+def unscale_reletive(v, top, bottom):
+    return (v-bottom)/(top-bottom)
+
 kMastBack = .300 #This is so the lift won't go up when the mast is back - DO NOT CHANGE IN TESTING
 kMastBackLimit = .311
 kMastForwardLimit = .482
@@ -23,6 +26,6 @@ kDelta = (kTop-kBottom)
 kAboveSecond = scale_reletive(0.1564, kTop, kBottom)
 kAboveFirst = scale_reletive(0.2176, kTop, kBottom)
 #6.3" per rotation
-lift_levels_reletive = [0.0, 0.0925, 0.2566, 0.4173, 0.5779, 0.7385, 0.8992]
+lift_levels_reletive = [0.0, 0.0925, 0.2566, 0.4173, 0.5779, 0.7385, 0.8992, 1]
 lift_level_setpoints = [scale_reletive(i, kTop, kBottom) for i in lift_levels_reletive]
 lift_step_setpoints = [i-.015 for i in lift_level_setpoints]

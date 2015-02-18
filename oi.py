@@ -139,13 +139,14 @@ class OI:
         left_eight.whenPressed(SuperStrafe64(robot, SuperStrafe64.kBack))
 
         #Lift presets
-        g1.whenPressed(LiftGoToLevel(robot, 0))
-        g2.whenPressed(LiftGoToLevel(robot, 1))
-        g3.whenPressed(LiftGoToLevel(robot, 2))
-        g4.whenPressed(LiftGoToLevel(robot, 3))
-        g5.whenPressed(LiftGoToLevel(robot, 4))
-        g6.whenPressed(LiftGoToLevel(robot, 5))
-        g7.whenPressed(LiftGoToLevel(robot, 6))
+        g1.whenPressed(LiftGoToLevel(robot, 1))
+        g2.whenPressed(LiftGoToLevel(robot, 2))
+        g3.whenPressed(LiftGoToLevel(robot, 3))
+        g4.whenPressed(LiftGoToLevel(robot, 4))
+        g5.whenPressed(LiftGoToLevel(robot, 5))
+        g6.whenPressed(LiftGoToLevel(robot, 6))
+        g7.whenPressed(LiftGoToLevel(robot, 7))
+        g8.whenPressed(LiftGoToLevel(robot, 0))
         g15.whenPressed(OpenClaw(robot))
         #g8 - lift bottom level
         g19.whenPressed(CloseClaw(robot))
