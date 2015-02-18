@@ -18,6 +18,7 @@ __author__ = 'nikolojedison'
 #2/16 15:06 - gamepad is finally here, recalculated setpoints. Still deciding on what is going to map where.
 #2/17 09:53 - Getting close on implementing the gamepad. Noticed that this is the first dev log with only 3 digits.
 #2/17 16:30 - new joysticks, remapping EVERYTHING.
+#2/17 19:45 - Potentiometer replaced with an encoder. Broke everything.
 
 import wpilib
 from networktables import NetworkTable
@@ -145,21 +146,21 @@ class OI:
         g5.whenPressed(LiftGoToLevel(robot, 4))
         g6.whenPressed(LiftGoToLevel(robot, 5))
         g7.whenPressed(LiftGoToLevel(robot, 6))
+        g15.whenPressed(OpenClaw(robot))
         #g8 - lift bottom level
+        g19.whenPressed(CloseClaw(robot))
+        g20.whenPressed(MastBack(robot))
+        g22.whenPressed(MastForward(robot))
         #g9 - auto movement (should find out what this is)
         #g10 - "
         #g11 - "
         #g12 - "
         #g13 - "
         #g14 - "
-        #g15 - full open clamp
         #g16 - standing can width
         #g17 - tote width
         #g18 - laying down can width
-        #g19 - full closed clamp
-        #g20 - full back tilt
         #g21 - leveled paddles
-        #g22 - full forward tilt
         #top shift - all levels -.015 for platform stacking
         #bottom shift - all levels +.045 for setdown
 
