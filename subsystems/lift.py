@@ -70,4 +70,4 @@ class Lift(PIDSubsystem):
 
     def isUp(self):
         """If the lift is all the way up..."""
-        self.encoder.get() > setpoints.kUp
+        self.lift_encoder.get() > setpoints.kUp
