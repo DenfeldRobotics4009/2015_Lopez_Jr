@@ -17,7 +17,7 @@ kStall = 2 #This is for the current sensor.
 
 #lift setpoints - untested
 kUp = .189 #This is so the mast won't tilt when the lift is up
-kTop = 11.75 #was .651
+kTop = 4009 #was .651
 kBottom = 0 # was .050
 kDelta = (kTop-kBottom)
 kAboveSecond = scale_reletive(0.1564, kTop, kBottom)
