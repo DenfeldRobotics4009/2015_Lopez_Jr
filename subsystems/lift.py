@@ -50,6 +50,9 @@ class Lift(PIDSubsystem):
             else:
                 self.motor.set(output*1)
 
+    def reset(self):
+        self.lift_encoder.reset()
+
     def log(self):
         wpilib.SmartDashboard.putNumber("Elevator Pot", self.lift_encoder.get()) #publishes to the Dash
         wpilib.SmartDashboard.putBoolean("Top Limit", self.limit_up.get())
