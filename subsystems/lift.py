@@ -47,7 +47,7 @@ class Lift(PIDSubsystem):
         bottom_limit = self.limit_down.get()
         if bottom_limit and output < 0:
             self.motor.set(0)
-        elif top_limit and output > 0:
+        elif top_limit or (self.robot.mast.isBack() and self.isUp())and output > 0:
             self.motor.set(0)
         else:
             if output < 0:
