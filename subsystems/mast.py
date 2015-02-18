@@ -8,7 +8,6 @@ class Mast(PIDSubsystem):
     def __init__(self, robot):
         super().__init__(40, 0, 0) #__init__(P, I, D)
         self.robot = robot
-        kMastBack = .3
         self.mast_pot = wpilib.AnalogPotentiometer(0)
         self.motor = wpilib.VictorSP(6)
         self.setAbsoluteTolerance(.01)
@@ -18,7 +17,7 @@ class Mast(PIDSubsystem):
 
     def manualSet(self, output):
         position = self.mast_pot.get()
-        if position < (setpoints.kMastBackLimit+.007) and output < 0:
+        if position < ((setpoints.kMastBack) if self.robot.mast.isUp() else (setpoints.kMastBackLimit+.007)) and output < 0:
             self.motor.set(0)
         elif position > (setpoints.kMastForwardLimit-.007) and output > 0:
             self.motor.set(0)
@@ -39,7 +38,7 @@ class Mast(PIDSubsystem):
         self.motor.set(output*.38)
 
     def isBack(self):
-        self.mast_pot.get() > .3
+        self.mast_pot.get() > setpoints.kMastBack
 
     def isForward(self):
-        not self.isBack()
+        return not self.isBack()

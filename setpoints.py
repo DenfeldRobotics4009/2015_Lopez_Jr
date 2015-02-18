@@ -7,9 +7,9 @@ def unscale_reletive(v, top, bottom):
     return (v-bottom)/(top-bottom)
 
 kMastBack = .300 #This is so the lift won't go up when the mast is back - DO NOT CHANGE IN TESTING
-kMastBackLimit = .311
+kMastBackLimit = .423
 kMastForwardLimit = .482
-kMastParallel = .416
+kMastParallel = .456
 
 #claw setpoints - tested 2/12/15
 kOpen = .183
@@ -19,7 +19,7 @@ kTote = .537
 kStall = 2 #This is for the current sensor.
 
 #lift setpoints - untested
-kUp = .189 #This is so the mast won't tilt when the lift is up
+kUp = 3908 #This is so the mast won't tilt when the lift is up
 kTop = 4009 #was .651
 kBottom = 0 # was .050
 kDelta = (kTop-kBottom)
