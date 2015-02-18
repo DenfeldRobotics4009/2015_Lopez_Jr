@@ -40,6 +40,7 @@ from commands.shaker import Shaker
 from commands.mast_button import MastButton
 from commands.tote_loader import ToteLoader
 from commands.super_strafe_64 import SuperStrafe64 #Only on Nintendo64.
+from commands.mast_level import MastLevel
 from pov_button import POVButton
 from commands.drive_straight import DriveStraight
 import setpoints
@@ -153,6 +154,7 @@ class OI:
         #g8 - lift bottom level
         g19.whenPressed(CloseClaw(robot))
         g20.whenPressed(MastBack(robot))
+        g21.whenPressed(MastLevel(robot))
         g22.whenPressed(MastForward(robot))
         g17.whenPressed(GrabTote(robot))
         g18.whenPressed(GrabCan(robot))
