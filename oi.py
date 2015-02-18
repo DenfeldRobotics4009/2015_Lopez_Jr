@@ -129,8 +129,8 @@ class OI:
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
         #Mast control
-        left_six.whileHeld(MastButton(robot, .38))
-        left_seven.whileHeld(MastButton(robot, -.38))
+        left_seven.whileHeld(MastButton(robot, .38))
+        left_six.whileHeld(MastButton(robot, -.38))
         left_thumb.whileHeld(Shaker(robot)) #like a Polaroid picture
         left_nine.whenPressed(SuperStrafe64(robot, SuperStrafe64.kLeft))
         left_ten.whenPressed(SuperStrafe64(robot, SuperStrafe64.kRight))
