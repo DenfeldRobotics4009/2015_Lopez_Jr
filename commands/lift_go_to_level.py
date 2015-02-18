@@ -6,5 +6,5 @@ import setpoints
 class LiftGoToLevel(SetLiftSetpoint):
     """This needs testing & the setpoints need to be properly set."""
 
-    def __init__(self, robot, level, shift_up, shift_down):
+    def __init__(self, robot, level):
         super().__init__(robot, setpoints.lift_level_setpoints[level])
