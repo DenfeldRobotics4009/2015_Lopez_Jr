@@ -12,7 +12,7 @@ class Lift(PIDSubsystem):
         self.robot = robot
         self.limit_up = wpilib.DigitalInput(7)
         self.limit_down = wpilib.DigitalInput(6)
-        self.lift_pot = wpilib.AnalogPotentiometer(1)
+        self.lift_encoder = wpilib.Encoder(0, 1)
         self.motor = wpilib.CANTalon(0)
         self.setAbsoluteTolerance(.01)
 
@@ -20,7 +20,7 @@ class Lift(PIDSubsystem):
         self.setDefaultCommand(ManualLift(self.robot))
 
     def manualSet(self, output):
-        position = self.lift_pot.get()
+        position = self.lift_encoder.get()
         top_limit = self.limit_up.get()
         bottom_limit = self.limit_down.get()
         if bottom_limit and output < 0:
@@ -34,12 +34,12 @@ class Lift(PIDSubsystem):
                 self.motor.set(output*1)
 
     def log(self):
-        wpilib.SmartDashboard.putNumber("Elevator Pot", self.lift_pot.get()) #publishes to the Dash
+        wpilib.SmartDashboard.putNumber("Elevator Pot", self.lift_encoder.get()) #publishes to the Dash
         wpilib.SmartDashboard.putBoolean("Top Limit", self.limit_up.get())
         wpilib.SmartDashboard.putBoolean("Bottom Limit", self.limit_down.get())
 
     def returnPIDInput(self):
-        return self.lift_pot.get()
+        return self.lift_encoder.get()
 
     def usePIDOutput(self, output):
         if output > 1:
@@ -50,4 +50,4 @@ class Lift(PIDSubsystem):
 
     def isUp(self):
         """If the lift is all the way up..."""
-        self.lift_pot.get() > setpoints.kUp
+        self.encoder.get() > setpoints.kUp
