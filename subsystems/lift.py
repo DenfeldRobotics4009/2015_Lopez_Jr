@@ -34,7 +34,7 @@ class Lift(PIDSubsystem):
         self.lift_encoder = wpilib.Encoder(0, 1)
         self.motor = wpilib.CANTalon(0)
         self.setAbsoluteTolerance(.01)
-        self.trigger = EncoderLimitTrigger(robot)
+        self.trigger = EncoderLimitTrigger(robot, self)
 
     def initDefaultCommand(self):
         self.setDefaultCommand(ManualLift(self.robot))
