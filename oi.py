@@ -24,6 +24,7 @@ __author__ = 'nikolojedison'
 import wpilib
 from networktables import NetworkTable
 from wpilib.buttons import JoystickButton, InternalButton
+from commands.timed_turn import TimedTurn
 from commands.lift_go_to_level import LiftGoToLevel
 from commands.lift_go_to_level_shift import LiftGoToLevelShift
 from commands.open_claw import OpenClaw
@@ -160,7 +161,7 @@ class OI:
         g16.whenPressed(GrabCan(robot))
         g9.whileHeld(Shaker(robot))
         g10.whenPressed(ToteLoader(robot))
-        #g10 - "
+        g11.whenPressed(TimedTurn(robot, .5, .5))
         #g11 - "
         #g12 - "
         #g13 - "
