@@ -1,3 +1,4 @@
+__author__ = "nikolojedison, auxiliary-character"
 #Note to self - don't EVER disassemble the mast. Doesn't end well.
 #.456 - maximum parallel mast
 def scale_reletive(v, top, bottom):

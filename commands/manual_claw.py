@@ -1,3 +1,4 @@
+__author__ = "nikolojedison"
 from wpilib.command import Command
 from drive_control import dead_zone
 import setpoints

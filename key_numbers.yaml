@@ -20,7 +20,7 @@ g19: 28
 g20: 29
 g21: 30
 g22: 31
-topshift?: 32
-bottomshift?: 33
+topshift: 32
+bottomshift: 33
 extra1: 34
 extra2: 35

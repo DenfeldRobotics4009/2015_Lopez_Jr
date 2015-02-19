@@ -1,3 +1,4 @@
+__author__ = "auxiliary-character"
 import wpilib
 from wpilib.command import Command
 

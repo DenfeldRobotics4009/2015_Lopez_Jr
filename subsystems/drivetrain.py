@@ -1,3 +1,4 @@
+__author__ = "nikolojedison"
 import math
 
 import wpilib
