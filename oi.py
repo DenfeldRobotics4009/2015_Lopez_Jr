@@ -1,14 +1,5 @@
 __author__ = 'nikolojedison'
-#***************************
-#*|\    | | |  /   /  /   |*
-#*| \   | | | /      /    |*
-#*|  \  | | |/      /     |*
-#*|   \ | | |\      ---/  |*
-#*|    \| | | \       /   |*
-#*|     | | |  \     /    |*
-#*|     | | |   \   /     |*
-#***************************
-#(ascii art, pay no mind.)
+
 #2/12 21:30 - a little tired due to last night, but still going. Waiting on robot.
 #2/13 17:53 - waiting on robot, again. Things are working fine in programming though.
 #2/13 22:00 - working on setpoints, slowly but surely.
@@ -21,9 +12,12 @@ __author__ = 'nikolojedison'
 #2/17 19:45 - Potentiometer replaced with an encoder. Broke everything.
 #2/19 16:17 - Well, robot is bagged. We'll see how this goes.
 
+#Libraries
 import wpilib
 from networktables import NetworkTable
 from wpilib.buttons import JoystickButton, InternalButton
+
+#Commands
 from commands.timed_turn import TimedTurn
 from commands.lift_go_to_level import LiftGoToLevel
 from commands.lift_go_to_level_shift import LiftGoToLevelShift
@@ -32,6 +26,7 @@ from commands.close_claw import CloseClaw
 from commands.center_claw import CenterClaw
 from commands.manual_claw import ManualClaw
 from commands.manual_lift import ManualLift
+from commands.mast_level import MastLevel
 from commands.manual_mast import ManualMast
 from commands.mast_back import MastBack
 from commands.mast_forward import MastForward
@@ -43,11 +38,14 @@ from commands.shaker import Shaker
 from commands.mast_button import MastButton
 from commands.tote_loader import ToteLoader
 from commands.super_strafe_64 import SuperStrafe64 #Only on Nintendo64.
-from pov_button import POVButton
 from commands.drive_straight import DriveStraight
+
+#Libraries we wrote
+from pov_button import POVButton
 import setpoints
 
 class KeyButton(InternalButton):
+    """This is doing the impossible right here. Don't use w/o the driver station."""
     def __init__(self, table, code):
         super().__init__()
         self.code = code
@@ -162,8 +160,7 @@ class OI:
         g9.whileHeld(Shaker(robot))
         g10.whenPressed(ToteLoader(robot))
         g11.whenPressed(TimedTurn(robot, .5, .5))
-        #g11 - "
-        #g12 - "
+        g12.whenPressed(MastLevel(robot))
         #g13 - "
         #g14 - "
         #g21 - leveled paddles

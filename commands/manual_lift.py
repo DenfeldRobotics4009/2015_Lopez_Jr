@@ -3,6 +3,7 @@ from wpilib.command import Command
 from drive_control import dead_zone
 
 class ManualLift(Command):
+    """Manually runs the lift up and down."""
     def __init__(self, robot):
         super().__init__()
         self.robot = robot

@@ -5,6 +5,7 @@ from commands.manual_claw import ManualClaw
 import setpoints
 
 class Claw(PIDSubsystem):
+    """This is a claw. It does claw things."""
 
     def __init__(self, robot):
         super().__init__(20, 0, 0)

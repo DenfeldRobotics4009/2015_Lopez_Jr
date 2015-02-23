@@ -16,7 +16,6 @@ from .lift_go_to_level import LiftGoToLevel
 
 class CanAutonomous(CommandGroup):
     """This is the autonomous where we grab the can and drive off with it."""
-    #Should really put some setpoints in. Ehhhhhhh...
     #Clamp, lift up, turn 45 deg left, go forward, drop can
     def __init__(self, robot):
         super().__init__()
@@ -31,4 +30,5 @@ class CanAutonomous(CommandGroup):
             OpenClaw(robot), #drops can
             DriveStraight(robot, 0, .5, timeout=.25)]
 
+        #generates the autonomous (reeeeeally cool command, thanks Austin!)
         for i in auton_generator: self.addSequential(i)

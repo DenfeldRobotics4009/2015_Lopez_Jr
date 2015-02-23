@@ -21,10 +21,9 @@ kTote = .468
 kStall = 2 #This is for the current sensor, which I don't think is still onboard the 'bot.
 
 #lift setpoints - untested
-kUp = 3908 #This is so the mast won't tilt when the lift is up
-kTop = 4009 #was .651
-kBottom = 0 # was .050
-kDelta = (kTop-kBottom)
+kUp = 3908 #This is so the mast won't tilt when the lift is up - needed to pass inspection.
+kTop = 4009 #IT'S A SIGN
+kBottom = 0
 kAboveSecond = scale_reletive(0.1564, kTop, kBottom)
 kAboveFirst = scale_reletive(0.2176, kTop, kBottom)
 #6.3" per rotation

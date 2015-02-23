@@ -3,7 +3,7 @@ from .set_claw_setpoint import SetClawSetpoint
 import setpoints
 
 class GrabCan(SetClawSetpoint):
-    """Needs testing, w/ and w/o the sandpapers."""
+    """This is the basic can grabbing stuff."""
 
     def __init__(self, robot):
         super().__init__(robot, setpoints.kCan)

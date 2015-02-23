@@ -4,7 +4,7 @@ from wpilib.command import Command
 import setpoints
 
 class LiftGoToLevelShift(Command):
-
+    """This is the shifting stuff. Useful."""
     def __init__(self, robot, level, shift_up_button, shift_down_button):
         super().__init__()
         self.robot = robot

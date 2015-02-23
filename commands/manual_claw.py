@@ -4,6 +4,7 @@ from drive_control import dead_zone
 import setpoints
 
 class ManualClaw(Command):
+    """Manually closes the claw."""
     def __init__(self, robot):
         super().__init__()
         self.robot = robot

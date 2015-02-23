@@ -3,6 +3,7 @@ from wpilib.command import Command
 from drive_control import dead_zone
 
 class ManualMast(Command):
+    """Manually tilts the mast."""
     def __init__(self, robot):
         super().__init__()
         self.robot = robot

@@ -3,7 +3,7 @@ from wpilib.command import Command
 import wpilib
 
 class TimedTurn(Command):
-    """Drives the robot straight using the navX, PIDs, and a bit of math."""
+    """Drives the robot straight using time and sheer luck."""
     def __init__(self, robot, speed, timeout):
         super().__init__()
         self.robot = robot

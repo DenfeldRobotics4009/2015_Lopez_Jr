@@ -32,3 +32,6 @@ class CanNToteAuto(CommandGroup):
             LiftGoToLevel(robot, 1),
             OpenClaw(robot),
                 ]
+
+        #hey, another generator. See commands/can_autonomous.py
+        for i in can_n_tote_gen: self.addSequential(i)

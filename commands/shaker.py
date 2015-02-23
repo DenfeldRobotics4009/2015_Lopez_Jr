@@ -6,7 +6,7 @@ from .drive_straight import DriveStraight
 from .close_claw import CloseClaw
 
 class Shaker(Command):
-    """This is the simple auton."""
+    """This is the shakergrab that is insanely useful."""
     def __init__(self, robot):
         super().__init__()
         self.grab_command = CloseClaw(robot)

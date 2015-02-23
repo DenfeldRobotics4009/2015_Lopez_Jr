@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 __author__ = 'nikolojedison'
-#This code seems to work fine. Change what
-#needs to be changed. Will evolve as time goes on.
-#-Nik Mal
 
 #These are the WPILib section
 import wpilib
@@ -41,6 +38,7 @@ class Lopez_Jr(wpilib.SampleRobot):
 
     def autonomous(self):
         """Woo, auton code w/ 3 modes. Needs to be tested."""
+        #hey, should add the other autons sometime & make sure they're in the Driver Station.
 
         self.drivetrain.drive.setSafetyEnabled(False)
 
@@ -64,11 +62,17 @@ class Lopez_Jr(wpilib.SampleRobot):
 
     def operatorControl(self):
         """Runs the 'bot with a joystick - dunno why we don't have both."""
+
+        #Cancel the autons - that could go badly otherwise.
         self.ThreeToteAutonomousCommand.cancel()
         self.CanAutonomousCommand.cancel()
         self.DriveAutonomousCommand.cancel()
+
+        #More stuff.
         self.drivetrain.drive.setSafetyEnabled(True)
         joystick = self.oi.getJoystickLeft() #Do we even need this?
+
+        #Run the Scheduler and the timer. Usefulness, yay.
         while self.isOperatorControl() and self.isEnabled():
             self.log()
             Scheduler.getInstance().run()
@@ -89,9 +93,12 @@ class Lopez_Jr(wpilib.SampleRobot):
 
     def disabled(self):
         """Stuff to do when the 'bot is disabled"""
+
+        #cancel the autons.
         self.ThreeToteAutonomousCommand.cancel()
         self.CanAutonomousCommand.cancel()
         self.DriveAutonomousCommand.cancel()
+
         while self.isDisabled():
             self.log()
 

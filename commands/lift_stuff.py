@@ -3,6 +3,7 @@ from wpilib.command import Command
 from subsystems.lift import Lift
 
 class LiftStuff(Command):
+    """Just some random lifting stuff."""
     def __init__(self, robot, speed, timeout):
         super().__init__()
         self.robot = robot

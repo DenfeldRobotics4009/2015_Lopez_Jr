@@ -4,6 +4,7 @@ import wpilib
 import math
 
 class Turn(Command):
+    """Does some turning based on math, the navX, and a PID controller."""
     def __init__(self, robot, angle):
         super().__init__()
         self.robot = robot

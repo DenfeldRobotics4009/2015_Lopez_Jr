@@ -3,7 +3,7 @@ from .set_claw_setpoint import SetClawSetpoint
 import setpoints
 
 class GrabTote(SetClawSetpoint):
-    """Grabba da tote, man. Needs testing w. the sandpaper blocks."""
+    """Grabba da tote, man."""
 
     def __init__(self, robot):
         super().__init__(robot, setpoints.kTote)
