@@ -14,9 +14,11 @@ from subsystems.claw import Claw
 from subsystems.mast import Mast
 
 #This is all the commands
-from commands.three_tote_autonomous import ThreeToteAutonomous
 from commands.can_autonomous import CanAutonomous
+from commands.can_n_tote_auto import CanNToteAuto
 from commands.drive_autonomous import DriveAutonomous
+from commands.three_tote_autonomous import ThreeToteAutonomous
+from commands.tote_autonomous import ToteAutonomous
 
 #This is all the special drive stuff
 from drive_control import dead_zone
@@ -34,7 +36,9 @@ class Lopez_Jr(wpilib.SampleRobot):
         #These are self-describing.
         self.ThreeToteAutonomousCommand = ThreeToteAutonomous(self)
         self.CanAutonomousCommand = CanAutonomous(self)
+        self.CanNToteAutoCommand = CanNToteAuto(self)
         self.DriveAutonomousCommand = DriveAutonomous(self)
+        self.ToteAutonomousCommand = ToteAutonomous(self)
 
     def autonomous(self):
         """Woo, auton code w/ 3 modes. Needs to be tested."""
@@ -44,12 +48,20 @@ class Lopez_Jr(wpilib.SampleRobot):
 
         if self.oi.smart_dashboard.getBoolean("3 Tote Auto"):
             self.ThreeToteAutonomousCommand.start()
-            print("3 tote auto started")
+            print("3 Tote Auto started")
 
         elif self.oi.smart_dashboard.getBoolean("Can Auto"):
             self.CanAutonomousCommand.start()
             print("Can Auto started")
-
+        
+        elif self.oi.smart_dashboard.getBoolean("Can/Tote Auto")
+            self.CanNToteAutoCommand.start()
+            print("Can and Tote Auto started")
+        
+        elif self.oi.smart_dashboard.getBoolean("Tote Auto")
+            self.ToteAutonomousCommand.start()
+            print("Tote Auto started")
+        
         else:
             self.DriveAutonomousCommand.start()
             print("Drive Auto started")
