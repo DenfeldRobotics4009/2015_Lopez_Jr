@@ -30,8 +30,7 @@ class CanNToteAuto(CommandGroup):
             Turn(robot, 60),
             DriveStraight(robot, 0, -.75, timeout=1.5),
             LiftGoToLevel(robot, 1),
-            OpenClaw(robot),
-                ]
+            OpenClaw(robot)]
 
         #hey, another generator. See commands/can_autonomous.py
         for i in can_n_tote_gen: self.addSequential(i)

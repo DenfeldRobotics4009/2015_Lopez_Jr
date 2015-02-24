@@ -21,7 +21,7 @@ class CanAutonomous(CommandGroup):
         super().__init__()
         auton_generator = [
             LiftGoToLevel(robot, 2),
-            GrabTote(robot), #grabs can
+            GrabCan(robot), #grabs can
             LiftGoToLevel(robot, 4),
             DriveStraight(robot, 0, -.5, timeout=1),
             Turn(robot, 45),

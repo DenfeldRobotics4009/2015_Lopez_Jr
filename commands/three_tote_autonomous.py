@@ -51,7 +51,7 @@ class ThreeToteAutonomous(CommandGroup):
          #   LiftStuff(robot, -.75, 2),
           #  GrabTote(robot),
            # LiftStuff(robot, -.75, 2),
-            #Turn(robot, 90)
+            #Turn(robot, 90),
 #            DriveStraight(robot, 0, .75, timeout=.5)] #drives around for a bit
 
         for i in self.auton_generator: self.addSequential(i)
