@@ -19,6 +19,7 @@ from commands.can_n_tote_auto import CanNToteAuto
 from commands.drive_autonomous import DriveAutonomous
 from commands.three_tote_autonomous import ThreeToteAutonomous
 from commands.tote_autonomous import ToteAutonomous
+from commands.play_macro import PlayMacro
 
 #This is all the special drive stuff
 from drive_control import dead_zone
@@ -39,6 +40,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.CanNToteAutoCommand = CanNToteAuto(self)
         self.DriveAutonomousCommand = DriveAutonomous(self)
         self.ToteAutonomousCommand = ToteAutonomous(self)
+        self.PlayMacroCommand = PlayMacro(self)
 
     def autonomous(self):
         """Woo, auton code w/ 3 modes. Needs to be tested."""
@@ -61,6 +63,10 @@ class Lopez_Jr(wpilib.SampleRobot):
         elif self.oi.smart_dashboard.getBoolean("Tote Auto"):
             self.ToteAutonomousCommand.start()
             print("Tote Auto started")
+
+        elif self.oi.smart_dashboard.getBoolean("Play Macro"):
+            self.PlayMacroCommand.start()
+            print("Macro replay started")
 
         else:
             self.DriveAutonomousCommand.start()
