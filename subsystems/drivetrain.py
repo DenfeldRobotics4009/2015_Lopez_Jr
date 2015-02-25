@@ -39,6 +39,10 @@ class Drivetrain(Subsystem):
         else:
             self.gyro = GyroDummy()
 
+        self.x = 0
+        self.y = 0
+        self.rotation = 0
+
 
     def initDefaultCommand(self):
         '''When no other command is running let the operator drive around
@@ -56,4 +60,5 @@ class Drivetrain(Subsystem):
         self.driveManual(x,y,z)
 
     def driveManual(self, x, y , rotation):
+        self.x, self.y, self.rotation = x, y, rotation
         self.drive.mecanumDrive_Cartesian(x, y, rotation, 0)
