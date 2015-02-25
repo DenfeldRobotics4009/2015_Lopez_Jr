@@ -88,18 +88,6 @@ class Lopez_Jr(wpilib.SampleRobot):
         while self.isOperatorControl() and self.isEnabled():
             self.log()
             Scheduler.getInstance().run()
-            #if joystick.getRawButton(7):
-            #    self.lift.motor.set(dead_zone(self.oi.getJoystickLeft().getThrottle(), .1))
-            #else:
-            #    self.lift.motor.set(0)
-            #if joystick.getRawButton(9):
-            #    self.mast.motor.set(dead_zone(self.oi.getJoystickLeft().getThrottle(), .1)*.35)
-            #else:
-            #    self.mast.motor.set(0)
-            #if joystick.getRawButton(11):
-            #    self.grabber.motor.set(dead_zone(self.oi.getJoystickLeft().getThrottle(), .1))
-            #else:
-            #    self.grabber.motor.set(0)
             wpilib.Timer.delay(.005)    # don't burn up the cpu
 
 
