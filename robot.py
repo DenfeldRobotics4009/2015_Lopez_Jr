@@ -53,15 +53,15 @@ class Lopez_Jr(wpilib.SampleRobot):
         elif self.oi.smart_dashboard.getBoolean("Can Auto"):
             self.CanAutonomousCommand.start()
             print("Can Auto started")
-        
-        elif self.oi.smart_dashboard.getBoolean("Can/Tote Auto")
+
+        elif self.oi.smart_dashboard.getBoolean("Can/Tote Auto"):
             self.CanNToteAutoCommand.start()
             print("Can and Tote Auto started")
-        
-        elif self.oi.smart_dashboard.getBoolean("Tote Auto")
+
+        elif self.oi.smart_dashboard.getBoolean("Tote Auto"):
             self.ToteAutonomousCommand.start()
             print("Tote Auto started")
-        
+
         else:
             self.DriveAutonomousCommand.start()
             print("Drive Auto started")
