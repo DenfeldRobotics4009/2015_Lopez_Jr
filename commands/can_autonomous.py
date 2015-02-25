@@ -13,6 +13,7 @@ from .set_mast_setpoint import SetMastSetpoint
 from .turn import Turn
 from .lift_stuff import LiftStuff
 from .lift_go_to_level import LiftGoToLevel
+from .grab_can import GrabCan
 
 class CanAutonomous(CommandGroup):
     """This is the autonomous where we grab the can and drive off with it."""

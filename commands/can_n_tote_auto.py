@@ -18,13 +18,13 @@ class CanNToteAuto(CommandGroup):
     """In this one, we grab a can and a tote.
     THIS ISN'T ON THE CAN BUS."""
     #Grab a can, raise lift, drive forward a little, release, lower lift, grab tote, raise lift, turn 90 deg., drive a ways
-     def __init__(self, robot):
+    def __init__(self, robot):
         super().__init__()
         can_n_tote_gen = [
             LiftGoToLevel(robot, 2),
             GrabCan(robot),
             LiftGoToLevel(robot, 4),
-            DriveStraight(robot, 0, -1, timeout=.4)
+            DriveStraight(robot, 0, -1, timeout=.4),
             LiftGoToLevel(robot, 3),
             OpenClaw(robot),
             GrabTote(robot),
