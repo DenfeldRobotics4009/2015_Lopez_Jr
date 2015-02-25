@@ -4,6 +4,7 @@ import wpilib
 import csv
 
 class RecordMacro(Command):
+    """This records robot movements and writes them to a .csv file."""
     def __init__(self, robot):
         super().__init__()
         self.robot = robot

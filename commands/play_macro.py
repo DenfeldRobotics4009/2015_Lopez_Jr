@@ -3,6 +3,7 @@ from wpilib.command import Command
 import csv
 
 class PlayMacro(Command):
+    """This plays macro movements from the .csv file."""
     def __init__(self, robot):
         super().__init__()
         self.robot = robot
