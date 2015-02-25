@@ -39,6 +39,7 @@ from commands.mast_button import MastButton
 from commands.tote_loader import ToteLoader
 from commands.super_strafe_64 import SuperStrafe64 #Only on Nintendo64.
 from commands.drive_straight import DriveStraight
+from commands.record_macro import RecordMacro
 
 #Libraries we wrote
 from pov_button import POVButton
@@ -153,11 +154,13 @@ class OI:
         g9.whileHeld(Shaker(robot))
         g10.whenPressed(ToteLoader(robot))
         g11.whenPressed(MastLevel(robot))
-        
+
         #g12 and g13 are for testing only and NOT for match use!
         g12.whenPressed(TimedTurn(robot, .5, .5))
         g13.whenPressed(TimedTurn(robot, 1, .5))
-        #g14 - "
+
+        g14.whenPressed(RecordMacro(robot))
+
         g15.whenPressed(OpenClaw(robot))
         g16.whenPressed(GrabCan(robot))
         g17.whenPressed(GrabTote(robot))
