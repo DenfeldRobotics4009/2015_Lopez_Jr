@@ -22,6 +22,7 @@ class Claw(PIDSubsystem):
     def log(self):
         wpilib.SmartDashboard.putNumber("Clamp Pot", self.grabba_pot.get()) #publishes to the Dash
         wpilib.SmartDashboard.putNumber("Current Regulator", self.current.getVoltage())
+        print({"Clamp Pot": self.grabba_pot.get()})
 
     def manualSet(self, output):
         position = self.grabba_pot.get()
