@@ -140,8 +140,6 @@ class OI:
         left_seven.whenPressed(SuperStrafe64(robot, SuperStrafe64.kForward))
         left_eight.whenPressed(SuperStrafe64(robot, SuperStrafe64.kBack))
 
-        left_three.whenPressed(RecordMacro(robot))
-
         #Lift presets
         g1.whenPressed(LiftGoToLevelShift(robot, 1, topshift, bottomshift))
         g2.whenPressed(LiftGoToLevelShift(robot, 2, topshift, bottomshift))
