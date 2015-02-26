@@ -11,6 +11,7 @@ __author__ = 'nikolojedison'
 #2/17 16:30 - new joysticks, remapping EVERYTHING.
 #2/17 19:45 - Potentiometer replaced with an encoder. Broke everything.
 #2/19 16:17 - Well, robot is bagged. We'll see how this goes.
+#2/26 09:33 - @ LSR, waiting for power to deploy newest code.
 
 #Libraries
 import wpilib
