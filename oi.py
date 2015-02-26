@@ -160,8 +160,8 @@ class OI:
         g11.whenPressed(MastLevel(robot))
 
         #g12 and g13 are for testing only and NOT for match use!
-        g12.whenPressed(TimedTurn(robot, .5, .5))
-        g13.whenPressed(TimedTurn(robot, 1, .5))
+        g12.whenPressed(GrabSpecialCan(robot))
+        g13.whenPressed(GrabSpecialTote(robot))
 
         g14.whenPressed(RecordMacro(robot))
 
