@@ -1,0 +1,5 @@
+-Need to figure out the Network Tables/pots/encoder/general dashboard issues ASAP
+-Test auton macro
+-Figure out testing framework
+-Iron out turn command & Drive Straight command configurations (speed, rate of rotation)
+-Finish commands framework
