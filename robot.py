@@ -48,29 +48,32 @@ class Lopez_Jr(wpilib.SampleRobot):
 
         self.drivetrain.drive.setSafetyEnabled(False)
 
-        if self.oi.smart_dashboard.getBoolean("3 Tote Auto"):
-            self.ThreeToteAutonomousCommand.start()
-            print("3 Tote Auto started")
+        try:
+            if self.oi.smart_dashboard.getBoolean("3 Tote Auto"):
+                self.ThreeToteAutonomousCommand.start()
+                print("3 Tote Auto started")
 
-        elif self.oi.smart_dashboard.getBoolean("Can Auto"):
-            self.CanAutonomousCommand.start()
-            print("Can Auto started")
+            elif self.oi.smart_dashboard.getBoolean("Can Auto"):
+                self.CanAutonomousCommand.start()
+                print("Can Auto started")
 
-        elif self.oi.smart_dashboard.getBoolean("Can/Tote Auto"):
-            self.CanNToteAutoCommand.start()
-            print("Can and Tote Auto started")
+            elif self.oi.smart_dashboard.getBoolean("Can/Tote Auto"):
+                self.CanNToteAutoCommand.start()
+                print("Can and Tote Auto started")
 
-        elif self.oi.smart_dashboard.getBoolean("Tote Auto"):
-            self.ToteAutonomousCommand.start()
-            print("Tote Auto started")
+            elif self.oi.smart_dashboard.getBoolean("Tote Auto"):
+                self.ToteAutonomousCommand.start()
+                print("Tote Auto started")
 
-        elif self.oi.smart_dashboard.getBoolean("Play Macro"):
-            self.PlayMacroCommand.start()
-            print("Macro replay started")
+            elif self.oi.smart_dashboard.getBoolean("Play Macro"):
+                self.PlayMacroCommand.start()
+                print("Macro replay started")
 
-        else:
-            self.DriveAutonomousCommand.start()
-            print("Drive Auto started")
+            else:
+                self.DriveAutonomousCommand.start()
+                print("Drive Auto started")
+        except KeyError:
+            pass
 
         while self.isAutonomous() and self.isEnabled():
             Scheduler.getInstance().run()
@@ -85,6 +88,9 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.ThreeToteAutonomousCommand.cancel()
         self.CanAutonomousCommand.cancel()
         self.DriveAutonomousCommand.cancel()
+        self.ToteAutonomousCommand.cancel()
+        self.PlayMacroCommand.cancel()
+        self.CanNToteAutoCommand.cancel()
 
         #More stuff.
         self.drivetrain.drive.setSafetyEnabled(True)
@@ -104,9 +110,13 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.ThreeToteAutonomousCommand.cancel()
         self.CanAutonomousCommand.cancel()
         self.DriveAutonomousCommand.cancel()
+        self.ToteAutonomousCommand.cancel()
+        self.PlayMacroCommand.cancel()
+        self.CanNToteAutoCommand.cancel()
 
         while self.isDisabled():
             self.log()
+            wpilib.Timer.delay(.005)
 
     def test(self):
         """There aren't any tests."""

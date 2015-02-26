@@ -11,20 +11,25 @@ class PlayMacro(Command):
         self.requires(robot.lift)
         self.requires(robot.claw)
         self.requires(robot.mast)
-        self.f = open("macro.csv")
-        self.reader_iterator = iter(csv.DictReader(self.f))
         self.done_yet = False
+
+    def initialize(self):
+        try:
+            self.f = open("macro.csv")
+            self.reader_iterator = iter(csv.DictReader(self.f))
+        except FileNotFoundError:
+            self.reader_iterator = iter([])
         self.setTimeout(15)
 
     def execute(self):
         try:
             line = next(self.reader_iterator)
-            self.robot.drivetrain.driveManual(line["Drive_X"],
-                                              line["Drive_Y"],
-                                              line["Drive_Rotation"])
-            self.robot.lift.setManual(line["Lift"])
-            self.robot.mast.setManual(line["Mast"])
-            self.robot.claw.setManual(line["Claw"])
+            self.robot.drivetrain.driveManual(float(line["Drive_X"]),
+                                              float(line["Drive_Y"]),
+                                              float(line["Drive_Rotation"]))
+            self.robot.lift.manualSet(float(line["Lift"]))
+            self.robot.mast.manualSet(float(line["Mast"]))
+            self.robot.claw.manualSet(float(line["Claw"]))
         except StopIteration:
             self.done_yet = True
 
@@ -32,7 +37,12 @@ class PlayMacro(Command):
         return self.isTimedOut() or self.done_yet
 
     def end(self):
-        self.f.close()
+        self.robot.drivetrain.driveManual(0,0,0)
+        self.robot.lift.manualSet(0)
+        self.robot.mast.manualSet(0)
+        self.robot.claw.manualSet(0)
+        if hasattr(self, "f"):
+            self.f.close()
 
     def interrupted(self):
         self.end()
