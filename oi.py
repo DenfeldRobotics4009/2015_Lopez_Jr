@@ -14,6 +14,7 @@ __author__ = 'nikolojedison'
 #2/26 09:33 - @ LSR, waiting for power to deploy newest code.
 #2/26 13:10 - @ LSR, code works. Time to figure out what Auton is.
 #2/26 15:26 - @ LSR, inspection passed. Drive team is practicing. Auton may come someday.
+#2/26 16:30 - @ LSR, pots have stalled. Trying to figure out what's wrong.
 
 #Libraries
 import wpilib

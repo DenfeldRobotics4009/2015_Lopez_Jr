@@ -2,4 +2,8 @@
 -Test auton macro
 -Figure out testing framework
 -Iron out turn command & Drive Straight command configurations (speed, rate of rotation)
--Finish commands framework
+-Finish commands framework:
+    -move files to folders
+    -update all commands
+    -update oi.py
+    -update robot.py
