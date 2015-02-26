@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 __author__ = 'nikolojedison'
 
-#These are the WPILib section
+#These are the WPILib libraries
 import wpilib
 import networktables
 from wpilib.command import Scheduler
