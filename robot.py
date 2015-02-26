@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 __author__ = 'nikolojedison'
 
-#These are the WPILib libraries
+#These are the WPILib libraries.
 import wpilib
 import networktables
 from wpilib.command import Scheduler
 from oi import OI
 
-#This is all the subsystems
+#These are all the subsystems.
 from subsystems.drivetrain import Drivetrain
 from subsystems.lift import Lift
 from subsystems.claw import Claw
 from subsystems.mast import Mast
 
-#This is all the commands
+#These are all the commands.
 from commands.can_autonomous import CanAutonomous
 from commands.can_n_tote_auto import CanNToteAuto
 from commands.drive_autonomous import DriveAutonomous
@@ -21,7 +21,7 @@ from commands.three_tote_autonomous import ThreeToteAutonomous
 from commands.tote_autonomous import ToteAutonomous
 from commands.play_macro import PlayMacro
 
-#This is all the special drive stuff
+#This is all the special drive stuff we need.
 from drive_control import dead_zone
 
 class Lopez_Jr(wpilib.SampleRobot):
@@ -86,7 +86,7 @@ class Lopez_Jr(wpilib.SampleRobot):
 
 
     def operatorControl(self):
-        """Runs the 'bot with a joystick - dunno why we don't have both."""
+        """Runs the 'bot with the fancy joystick and an awesome gamepad THAT IS AWESOME."""
 
         #Cancel the autons - that could go badly otherwise.
         self.ThreeToteAutonomousCommand.cancel()
