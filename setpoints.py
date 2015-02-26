@@ -20,6 +20,8 @@ kCan = .384
 kTipped = .425 #This is a tipped can.
 kTote = .468
 kStall = 2 #This is for the current sensor, which I don't think is still onboard the 'bot.
+kSpecialTote = 0
+kSpecialCan = 0
 
 #lift setpoints - untested
 kUp = 3908 #This is so the mast won't tilt when the lift is up - needed to pass inspection.
