@@ -1,6 +1,5 @@
 __author__ = "nikolojedison, auxiliary-character"
-#Note to self - don't EVER disassemble the mast. Doesn't end well.
-#.456 - maximum parallel mast
+#Note to self - don't EVER disassemble the mast when time is of the essence. Doesn't end well.
 
 def scale_reletive(v, top, bottom):
     return v*(top-bottom)+bottom
@@ -16,9 +15,9 @@ kMastParallel = .459
 #claw setpoints - tested 2/12/15, needs retesting
 kOpen = .89
 kClose = .185 #2/12/15 23.12: .771 2/13/15 16:30: .925 2/15/15 .070
-kCan = .384
-kTipped = .425 #This is a tipped can.
-kTote = .468
+kCan = .384 #need to update these.
+kTipped = .425 #This is a tipped can. Needs update
+kTote = .468 #needs update
 kStall = 2 #This is for the current sensor, which I don't think is still onboard the 'bot.
 kSpecialTote = 0
 kSpecialCan = 0

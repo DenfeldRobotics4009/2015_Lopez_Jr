@@ -42,6 +42,8 @@ from commands.tote_loader import ToteLoader
 from commands.super_strafe_64 import SuperStrafe64 #Only on Nintendo64.
 from commands.drive_straight import DriveStraight
 from commands.record_macro import RecordMacro
+from commands.grab_special_can import GrabSpecialCan
+from commands.grab_special_tote import GrabSpecialTote
 
 #Libraries we wrote
 from pov_button import POVButton
