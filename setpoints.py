@@ -9,13 +9,13 @@ def unscale_reletive(v, top, bottom):
     return (v-bottom)/(top-bottom)
 
 kMastBack = .423 #This is so the lift won't go up when the mast is back - DO NOT CHANGE IN TESTING
-kMastBackLimit = .315
+kMastBackLimit = .335
 kMastForwardLimit = .482
 kMastParallel = .459
 
 #claw setpoints - tested 2/12/15, needs retesting
-kOpen = .183
-kClose = .890 #2/12/15 23.12: .771 2/13/15 16:30: .925 2/15/15 .070
+kOpen = .89
+kClose = .185 #2/12/15 23.12: .771 2/13/15 16:30: .925 2/15/15 .070
 kCan = .384
 kTipped = .425 #This is a tipped can.
 kTote = .468

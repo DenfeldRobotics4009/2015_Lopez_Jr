@@ -8,7 +8,7 @@ class Claw(PIDSubsystem):
     """This is a claw. It does claw things."""
 
     def __init__(self, robot):
-        super().__init__(20, 0, 0)
+        super().__init__(-20, 0, 0)
         self.robot = robot
 
         self.grabba_pot = wpilib.AnalogPotentiometer(2)
@@ -25,9 +25,9 @@ class Claw(PIDSubsystem):
 
     def manualSet(self, output):
         position = self.grabba_pot.get()
-        if position > (setpoints.kClose-.013) and output > 0:
+        if position < (setpoints.kClose+.013) and output < 0:
             self.motor.set(0)
-        elif position < (setpoints.kOpen+.013) and output < 0:
+        elif position > (setpoints.kOpen-.013) and output > 0:
             self.motor.set(0)
         else:
             self.motor.set(output)
