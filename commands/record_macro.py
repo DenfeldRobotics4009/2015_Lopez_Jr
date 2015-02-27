@@ -11,7 +11,7 @@ class RecordMacro(Command):
         self.setTimeout(15)
 
     def initialize(self):
-        self.f = open("macro.csv", "w")
+        self.f = open("/home/lvuser/py/macro.csv", "w")
         fields = ["Drive_X",
                   "Drive_Y",
                   "Drive_Rotation",

@@ -26,7 +26,6 @@ class Mast(PIDSubsystem):
 
     def log(self):
         wpilib.SmartDashboard.putNumber("Angle Pot", self.mast_pot.get()) #publishes to the Dash
-        print({"Angle Pot": self.mast_pot.get()})
 
     def returnPIDInput(self):
         return self.mast_pot.get()

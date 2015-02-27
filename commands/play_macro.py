@@ -15,7 +15,7 @@ class PlayMacro(Command):
 
     def initialize(self):
         try:
-            self.f = open("macro.csv")
+            self.f = open("/home/lvuser/py/macro.csv")
             self.reader_iterator = iter(csv.DictReader(self.f))
         except FileNotFoundError:
             self.reader_iterator = iter([])

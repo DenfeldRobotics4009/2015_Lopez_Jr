@@ -1,0 +1,10 @@
+- Need to figure out the Network Tables/pots/encoder/general dashboard issues ASAP
+- Test auton macro
+- Figure out testing framework
+- Iron out turn command & Drive Straight command configurations (speed, rate of rotation)
+- Finish commands framework:
+    - move files to folders
+    - update all commands
+    - update oi.py
+    - update robot.py
+- Find out what "mDNS service is slow to respond. Check firewall settings." means.
