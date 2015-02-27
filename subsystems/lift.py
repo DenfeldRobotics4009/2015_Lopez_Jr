@@ -4,7 +4,6 @@ from wpilib.command import Command
 from wpilib.command import PIDSubsystem
 from wpilib.buttons import Trigger
 from commands.manual_lift import ManualLift
-import subsystems
 import setpoints
 
 class ResetEncoder(Command):

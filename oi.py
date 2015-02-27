@@ -184,3 +184,7 @@ class OI:
     def getJoystickLeft(self):
         """This is the left joystick."""
         return self.stick_left
+
+    def getPad(self):
+        """This is the gamepad's joystick."""
+        return self.pad
