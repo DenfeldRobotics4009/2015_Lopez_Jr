@@ -5,20 +5,20 @@ import setpoints
 
 class LiftGoToLevelShift(Command):
     """This is the shifting stuff. Useful."""
-    def __init__(self, robot, level, shift_up_button, shift_down_button):
+    def __init__(self, robot, level, top_shift, bottom_shift):
         super().__init__()
         self.robot = robot
         self.setTimeout(5)
         self.level = level
-        self.shift_up_button = shift_up_button
-        self.shift_down_button = shift_down_button
+        self.shift_up_button = top_shift
+        self.shift_down_button = bottom_shift
         self.requires(self.robot.lift)
 
     def initialize(self):
         self.robot.lift.enable()
-        if shift_up_button.get():
+        if self.shift_up_button.get():
             self.robot.lift.setSetpoint(setpoints.lift_step_setpoints[self.level])
-        elif shift_down_button.get():
+        elif self.shift_down_button.get():
             self.robot.lift.setSetpoint(setpoints.lift_drop_setpoints[self.level])
         else:
             self.robot.lift.setSetpoint(setpoints.lift_level_setpoints[self.level])
