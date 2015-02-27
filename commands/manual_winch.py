@@ -10,8 +10,8 @@ class ManualWinch(Command):
         self.requires(self.robot.winch)
 
     def execute(self):
-        self.robot.winch.manualSet(dead_zone(self.robot.oi.getPad().getY(self), .25))
-
+#        self.robot.winch.manualSet(dead_zone(self.robot.oi.getPad().getY(self), .25))
+        pass
     def isFinished(self):
         return False
 

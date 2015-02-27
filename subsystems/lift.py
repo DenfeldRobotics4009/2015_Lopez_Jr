@@ -22,7 +22,7 @@ class EncoderLimitTrigger(Trigger):
         self.robot = robot
         self.lift = lift
     def get(self):
-        return self.lift.limit_down.get()
+        return not self.lift.limit_down.get()
 
 class Lift(PIDSubsystem):
 
@@ -30,7 +30,7 @@ class Lift(PIDSubsystem):
         super().__init__(.03, 0, 0)
         self.robot = robot
         self.limit_up = wpilib.DigitalInput(7)
-        self.limit_down = wpilib.DigitalInput(6)
+        self.limit_down = wpilib.DigitalInput(5)
         self.lift_encoder = wpilib.Encoder(0, 1)
         self.motor = wpilib.CANTalon(0)
         self.setAbsoluteTolerance(8)
@@ -44,7 +44,7 @@ class Lift(PIDSubsystem):
         position = self.lift_encoder.get()
         top_limit = self.limit_up.get()
         bottom_limit = self.limit_down.get()
-        if bottom_limit and output < 0:
+        if not bottom_limit and output < 0:
             self.motor.set(0)
         elif (top_limit or (self.robot.mast.isBack() and self.isUp())) and output > 0:
             self.motor.set(0)
@@ -60,7 +60,7 @@ class Lift(PIDSubsystem):
     def log(self):
         wpilib.SmartDashboard.putNumber("Elevator Pot", self.lift_encoder.get()) #publishes to the Dash
         wpilib.SmartDashboard.putBoolean("Top Limit", self.limit_up.get())
-        wpilib.SmartDashboard.putBoolean("Bottom Limit", self.limit_down.get())
+        wpilib.SmartDashboard.putBoolean("Bottom Limit", not self.limit_down.get())
 
     def returnPIDInput(self):
         return self.lift_encoder.get()

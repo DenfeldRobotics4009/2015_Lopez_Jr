@@ -12,7 +12,7 @@ from subsystems.drivetrain import Drivetrain
 from subsystems.lift import Lift
 from subsystems.claw import Claw
 from subsystems.mast import Mast
-from subsystems.winch import Winch
+#from subsystems.winch import Winch
 
 #These are all the commands.
 from commands.can_autonomous import CanAutonomous
@@ -33,7 +33,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.lift = Lift(self)
         self.claw = Claw(self)
         self.mast = Mast(self)
-        self.winch = Winch(self)
+#        self.winch = Winch(self)
         self.oi = OI(self)
 
         #These are self-describing.
@@ -134,7 +134,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.lift.log()
         self.claw.log()
         self.mast.log()
-        self.winch.log()
+#        self.winch.log()
 
 if __name__ == "__main__":
     wpilib.run(Lopez_Jr)
