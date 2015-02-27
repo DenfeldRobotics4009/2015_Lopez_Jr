@@ -165,7 +165,7 @@ class OI:
         g12.whenPressed(GrabSpecialCan(robot))
         g13.whenPressed(GrabSpecialTote(robot))
 
-        g14.whenPressed(RecordMacro(robot))
+        g14.whenPressed(RecordMacro(robot, "macro.csv"))
 
         g15.whenPressed(OpenClaw(robot))
         g16.whenPressed(GrabCan(robot))

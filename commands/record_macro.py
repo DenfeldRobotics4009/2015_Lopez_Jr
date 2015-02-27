@@ -5,13 +5,14 @@ import csv
 
 class RecordMacro(Command):
     """This records robot movements and writes them to a .csv file."""
-    def __init__(self, robot):
+    def __init__(self, robot, name):
         super().__init__()
         self.robot = robot
         self.setTimeout(15)
+        self.name = name
 
     def initialize(self):
-        self.f = open("/home/lvuser/py/macro.csv", "w")
+        self.f = open("/home/lvuser/py/"+self.name, "w")
         fields = ["Drive_X",
                   "Drive_Y",
                   "Drive_Rotation",

@@ -4,18 +4,19 @@ import csv
 
 class PlayMacro(Command):
     """This plays macro movements from the .csv file."""
-    def __init__(self, robot):
+    def __init__(self, robot, name):
         super().__init__()
         self.robot = robot
         self.requires(robot.drivetrain)
         self.requires(robot.lift)
         self.requires(robot.claw)
         self.requires(robot.mast)
+        self.name = name
         self.done_yet = False
 
     def initialize(self):
         try:
-            self.f = open("/home/lvuser/py/macro.csv")
+            self.f = open("/home/lvuser/py/"+self.name)
             self.reader_iterator = iter(csv.DictReader(self.f))
         except FileNotFoundError:
             self.reader_iterator = iter([])
