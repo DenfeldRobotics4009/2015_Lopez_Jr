@@ -1,7 +1,7 @@
-- drive team practice?
+- drive team practice!
 - Record a bunch more macros
 - Figure out testing framework
-- Iron out turn command & Drive Straight command configurations (speed, rate of rotation)
+- Iron out turn command & Drive Straight command configurations (may not be needed b/c macros)
 - Finish commands framework (pref. after competitions so nothing permanently breaks):
     - move files to folders
     - update all commands
