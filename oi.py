@@ -17,6 +17,8 @@ __author__ = 'nikolojedison'
 #2/26 16:30 - @ LSR, pots have stalled. Trying to figure out what's wrong.
 #2/27 09:50 - @ LSR, got the Auton macro working. Queued for our first Quals match.
 #2/27 10:44 - @ LSR, MiniMatt the human player was awesome at noodle throwing. Drive team... needs practice.
+#2/27 13:07 - @ LSR, done with lunch & waiting for the afternoon match.
+#2/27 13:20 - @ LSR, prepping for afternoon match with new attachments & the Principal.
 
 #Libraries
 import wpilib
@@ -75,9 +77,7 @@ class OI:
         self.pad = wpilib.Joystick(1)
         self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
 
-#        print('Key pressed:', self.smart_dashboard.getNumber('Key'))
-
-        #Buttons? Aw, man, I love buttons! *bleep bloop* Key, numeric array
+        #Buttons? Aw, man, I love buttons! *bleep bloop*
 
         # Create some buttons on the left stick (which is really not, but I don't wanna disturb the preexisting code).
         left_trigger = JoystickButton(self.stick_left, 1)
@@ -132,6 +132,7 @@ class OI:
         #25 buttons of stuff on the wall, 25 buttons 'n stuff...
 
         # Connect buttons & commands
+        #---------------------------
 
         #Bump commands
         left_south.whenPressed(DriveStraight(robot, 0, .25, timeout = .25))
