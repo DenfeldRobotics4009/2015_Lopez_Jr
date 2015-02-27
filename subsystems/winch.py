@@ -11,7 +11,7 @@ class Winch(Subsystem):
         super().__init__()
 
         self.robot = robot
-        self.motor = wpilib.Jaguar(0)
+        self.motor = wpilib.Jaguar(4)
 
     def initDefaultCommand(self):
         self.setDefaultCommand(ManualWinch(self.robot))
