@@ -1,5 +1,4 @@
 - drive team practice?
-- Need to figure out the Network Tables/pots/encoder/general dashboard issues ASAP
 - Record a bunch more macros
 - Figure out testing framework
 - Iron out turn command & Drive Straight command configurations (speed, rate of rotation)
@@ -8,3 +7,4 @@
     - update all commands
     - update oi.py
     - update robot.py
+- Chute door?
