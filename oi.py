@@ -159,10 +159,8 @@ class OI:
         g7.whenPressed(LiftGoToLevelShift(robot, 7, topshift, bottomshift))
         g8.whenPressed(LiftGoToLevelShift(robot, 0, topshift, bottomshift))
 
-        #g8 - lift bottom level
         g9.whileHeld(Shaker(robot))
         g10.whenPressed(ToteLoader(robot))
-        g11.whenPressed(MastLevel(robot))
 
         #g12 and g13 are for testing only and NOT for match use!
         g12.whenPressed(GrabSpecialCan(robot))
@@ -171,12 +169,12 @@ class OI:
         g14.whenPressed(RecordMacro(robot, "macro.csv"))
 
         g15.whenPressed(OpenClaw(robot))
-        g16.whenPressed(GrabCan(robot))
+        g16.whenPressed(GrabCan(robot)) #tipped
         g17.whenPressed(GrabTote(robot))
         g18.whenPressed(GrabCan(robot))
         g19.whenPressed(CloseClaw(robot))
         g20.whenPressed(MastBack(robot))
-        #g21 - leveled paddles
+        g21.whenPressed(MastLevel(robot))
         g22.whenPressed(MastForward(robot))
         #top shift - all levels -.015 for platform stacking
         #bottom shift - all levels +.045 for setdown
