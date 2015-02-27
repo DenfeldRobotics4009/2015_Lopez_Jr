@@ -1,7 +1,6 @@
 - drive team practice?
 - Need to figure out the Network Tables/pots/encoder/general dashboard issues ASAP
 - Record a bunch more macros
-- Remind Drive team of the semi-auto buttons
 - Figure out testing framework
 - Iron out turn command & Drive Straight command configurations (speed, rate of rotation)
 - Finish commands framework (pref. after competitions so nothing permanently breaks):
