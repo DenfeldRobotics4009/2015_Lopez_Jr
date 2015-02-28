@@ -20,6 +20,7 @@ __author__ = 'nikolojedison'
 #2/27 13:07 - @ LSR, done with lunch & waiting for the afternoon match.
 #2/27 13:20 - @ LSR, prepping for afternoon match with new attachments & the Principal.
 #2/27 16:42 - @ LSR, went from low 40s to 8th in two matches with the first scoring 124 points (yay programmer on the field)
+#2/28 09:04 - @ LSR, our first match scored in the 70s. Working on checking wires.
 
 #Libraries
 import wpilib
