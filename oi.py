@@ -56,6 +56,7 @@ from commands.tote_loader import ToteLoader
 from commands.super_strafe_64 import SuperStrafe64 #Only on Nintendo64.
 from commands.drive_straight import DriveStraight
 from commands.record_macro import RecordMacro
+from commands.play_macro import PlayMacro
 
 #Libraries we wrote
 from pov_button import POVButton
@@ -166,19 +167,22 @@ class OI:
         g7.whenPressed(LiftGoToLevelShift(robot, 7, topshift, bottomshift))
         g8.whenPressed(LiftGoToLevelShift(robot, 0, topshift, bottomshift))
 
-        g9.whileHeld(Shaker(robot))
-        g10.whenPressed(ToteLoader(robot))
+        g9.whenPressed(RecordMacro(robot, "macro_2.csv"))
+        g10.whenPressed(PlayMacro(robot, "macro_2.csv"))
 
         #g12 and g13 are for testing only and NOT for match use!
-        g12.whenPressed(GrabSpecialCan(robot))
-        g13.whenPressed(GrabSpecialTote(robot))
+        g11.whenPressed(RecordMacro(robot, "macro_1.csv"))
+        g12.whenPressed(PlayMacro(robot, "macro_1.csv"))
 
-        g14.whenPressed(RecordMacro(robot, "macro.csv"))
+        g13.whenPressed(RecordMacro(robot, "macro.csv"))
+        g14.whenPressed(PlayMacro(robot, "macro.csv"))
 
-        g15.whenPressed(OpenClaw(robot))
-        g16.whenPressed(GrabCan(robot)) #tipped
-        g17.whenPressed(GrabTote(robot))
-        g18.whenPressed(GrabCan(robot))
+        g15.whenPressed(RecordMacro(robot, "macro_3.csv"))
+        g16.whenPressed(PlayMacro(robot, "macro_3.csv"))
+
+        g17.whenPressed(RecordMacro(robot, "macro_4.csv"))
+        g18.whenPressed(PlayMacro(robot, "macro_4.csv"))
+
         g19.whenPressed(CloseClaw(robot))
         g20.whenPressed(MastBack(robot))
         g21.whenPressed(MastLevel(robot))

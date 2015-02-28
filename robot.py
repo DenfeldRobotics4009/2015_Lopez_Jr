@@ -43,7 +43,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.CanNToteAutoCommand = CanNToteAuto(self)
         self.DriveAutonomousCommand = DriveAutonomous(self)
         self.ToteAutonomousCommand = ToteAutonomous(self)
-        self.PlayMacroCommand = PlayMacro(self, "macro.csv")
+        self.PlayMacroCommand = PlayMacro(self, "macro_1.csv")
 
     def autonomous(self):
         """Woo, auton code w/ 3 modes. Needs to be tested."""
