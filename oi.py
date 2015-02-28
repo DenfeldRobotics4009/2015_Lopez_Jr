@@ -22,6 +22,7 @@ __author__ = 'nikolojedison'
 #2/27 16:42 - @ LSR, went from low 40s to 8th in two matches with the first scoring 124 points (yay programmer on the field)
 #2/28 09:04 - @ LSR, our first match scored in the 70s. Working on checking wires.
 #2/28 09:33 - @ LSR, installing Hall Effect sensor (fully tested). All down to Build now. Also, 4th place.
+#2/28 09:38 - @ LSR, nevermind 4th, we're 3rd. Cool.
 
 #Libraries
 import wpilib
