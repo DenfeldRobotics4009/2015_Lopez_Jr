@@ -23,7 +23,8 @@ __author__ = 'nikolojedison'
 #2/28 09:04 - @ LSR, our first match scored in the 70s. Working on checking wires.
 #2/28 09:33 - @ LSR, installing Hall Effect sensor (fully tested). All down to Build now. Also, 4th place.
 #2/28 09:38 - @ LSR, nevermind 4th, we're 3rd. Cool.
-#2/28 12:50 - @ LSR, were 8th, but now we're the 6th(?) alliance. Lunch break.
+#2/28 12:50 - @ LSR, was 8th, but now we're the 6th(?) alliance. Lunch break.
+#2/28 14:07 - @ LSR, in queue.
 
 #Libraries
 import wpilib
