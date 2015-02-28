@@ -43,6 +43,8 @@ from commands.manual_mast import ManualMast
 from commands.mast_back import MastBack
 from commands.mast_forward import MastForward
 from commands.grab_tote import GrabTote
+from commands.grab_special_tote import GrabSpecialTote
+from commands.grab_special_can import GrabSpecialCan
 from commands.grab_can import GrabCan
 from commands.turn import Turn
 from commands.lift_stuff import LiftStuff
@@ -52,8 +54,6 @@ from commands.tote_loader import ToteLoader
 from commands.super_strafe_64 import SuperStrafe64 #Only on Nintendo64.
 from commands.drive_straight import DriveStraight
 from commands.record_macro import RecordMacro
-from commands.grab_special_can import GrabSpecialCan
-from commands.grab_special_tote import GrabSpecialTote
 
 #Libraries we wrote
 from pov_button import POVButton
@@ -82,6 +82,7 @@ class OI:
         self.smart_dashboard = NetworkTable.getTable("SmartDashboard")
 
         #Buttons? Aw, man, I love buttons! *bleep bloop*
+        #-----------------------------------------------
 
         # Create some buttons on the left stick (which is really not, but I don't wanna disturb the preexisting code).
         left_trigger = JoystickButton(self.stick_left, 1)
@@ -184,7 +185,7 @@ class OI:
         #bottom shift - all levels +.045 for setdown
 
     def getJoystickLeft(self):
-        """This is the left joystick."""
+        """This is the driver's joystick, v. fancy."""
         return self.stick_left
 
     def getPad(self):

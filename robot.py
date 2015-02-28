@@ -12,9 +12,9 @@ from subsystems.drivetrain import Drivetrain
 from subsystems.lift import Lift
 from subsystems.claw import Claw
 from subsystems.mast import Mast
-#from subsystems.winch import Winch
+#from subsystems.winch import Winch #still tenative
 
-#These are all the commands.
+#These are all the autons.
 from commands.can_autonomous import CanAutonomous
 from commands.can_n_tote_auto import CanNToteAuto
 from commands.drive_autonomous import DriveAutonomous
@@ -22,13 +22,14 @@ from commands.three_tote_autonomous import ThreeToteAutonomous
 from commands.tote_autonomous import ToteAutonomous
 from commands.play_macro import PlayMacro
 
-#This is all the special drive stuff we need.
+#This is all the special drive stuff we need. Yay, libraries.
 from drive_control import dead_zone
 
 class Lopez_Jr(wpilib.SampleRobot):
     def robotInit(self):
         """Initialises 'bot w/ all subsystems (derailer needs testing) and joysticks"""
 
+        #Subsystem initialisation.  Woo.
         self.drivetrain = Drivetrain(self)
         self.lift = Lift(self)
         self.claw = Claw(self)
@@ -36,7 +37,7 @@ class Lopez_Jr(wpilib.SampleRobot):
 #        self.winch = Winch(self)
         self.oi = OI(self)
 
-        #These are self-describing.
+        #These are self-describing autonomouses. Waaaaaait... Autono-mouse?
         self.ThreeToteAutonomousCommand = ThreeToteAutonomous(self)
         self.CanAutonomousCommand = CanAutonomous(self)
         self.CanNToteAutoCommand = CanNToteAuto(self)
@@ -46,8 +47,8 @@ class Lopez_Jr(wpilib.SampleRobot):
 
     def autonomous(self):
         """Woo, auton code w/ 3 modes. Needs to be tested."""
-        #hey, should add the other autons sometime & make sure they're in the Driver Station.
-
+        #Still tenative if we're using anything other than our macro.
+        #May have to consult with Drive Team and Coach.
         self.drivetrain.drive.setSafetyEnabled(False)
 
         try:
@@ -104,7 +105,7 @@ class Lopez_Jr(wpilib.SampleRobot):
 
         #Run the Scheduler and the timer. Usefulness, yay.
         while self.isOperatorControl() and self.isEnabled():
-            self.log()
+            self.log() #It's log, it's log, it's not big or heavy or wood.
             Scheduler.getInstance().run()
             wpilib.Timer.delay(.005)    # don't burn up the cpu
 
@@ -112,7 +113,7 @@ class Lopez_Jr(wpilib.SampleRobot):
     def disabled(self):
         """Stuff to do when the 'bot is disabled"""
 
-        #cancel the autons.
+        #cancel the autons IN THE NAME OF SAFETY
         self.ThreeToteAutonomousCommand.cancel()
         self.CanAutonomousCommand.cancel()
         self.DriveAutonomousCommand.cancel()
@@ -121,7 +122,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.CanNToteAutoCommand.cancel()
 
         while self.isDisabled():
-            self.log()
+            self.log() #It's log, it's log, it's better than bad, it's good.
             wpilib.Timer.delay(.005)
 
     def test(self):
