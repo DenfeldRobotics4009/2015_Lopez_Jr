@@ -1,4 +1,4 @@
-__author__ = 'nikolojedison'
+_author__ = 'nikolojedison'
 import wpilib
 from wpilib.command import PIDSubsystem
 from commands.manual_claw import ManualClaw
