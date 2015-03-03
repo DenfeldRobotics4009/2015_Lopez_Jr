@@ -53,7 +53,7 @@ class Drivetrain(Subsystem):
         wpilib.SmartDashboard.putNumber("Gyro", self.gyro.getYaw())
 
     def driveJoystick(self, joystick):
-        precision = joystick.getRawButton(1)
+        precision = not joystick.getRawButton(1)
         x = drive_control(joystick.getX()*2, precision)
         y = drive_control(joystick.getY(), precision)
         z = precision_mode(dead_zone(joystick.getRawAxis(3)*.75, .1), precision)
