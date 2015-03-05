@@ -33,28 +33,28 @@ from wpilib.buttons import JoystickButton, InternalButton
 
 #Commands
 from commands.timed_turn import TimedTurn
-from commands.lift_go_to_level import LiftGoToLevel
-from commands.lift_go_to_level_shift import LiftGoToLevelShift
-from commands.open_claw import OpenClaw
-from commands.close_claw import CloseClaw
-from commands.center_claw import CenterClaw
-from commands.manual_claw import ManualClaw
-from commands.manual_lift import ManualLift
-from commands.mast_level import MastLevel
-from commands.manual_mast import ManualMast
-from commands.mast_back import MastBack
-from commands.mast_forward import MastForward
-from commands.grab_tote import GrabTote
-from commands.grab_special_tote import GrabSpecialTote
-from commands.grab_special_can import GrabSpecialCan
-from commands.grab_can import GrabCan
-from commands.turn import Turn
-from commands.lift_stuff import LiftStuff
-from commands.shaker import Shaker
-from commands.mast_button import MastButton
-from commands.tote_loader import ToteLoader
-from commands.super_strafe_64 import SuperStrafe64 #Only on Nintendo64.
-from commands.drive_straight import DriveStraight
+from commands.setpoint_commands.lift_go_to_level import LiftGoToLevel
+from commands.setpoint_commands.lift_go_to_level_shift import LiftGoToLevelShift
+from commands.setpoint_commands.open_claw import OpenClaw
+from commands.setpoint_commandsclose_claw import CloseClaw
+from commands.setpoint_commands.center_claw import CenterClaw
+from commands.manual_commands.manual_claw import ManualClaw
+from commands.manual_commands.manual_lift import ManualLift
+from commands.setpoint_commands.mast_level import MastLevel
+from commands.manual_commands.manual_mast import ManualMast
+from commands.setpoint_commands.mast_back import MastBack
+from commands.setpoint_commands.mast_forward import MastForward
+from commands.setpoint_commands.grab_tote import GrabTote
+from commands.setpoint_commands.grab_special_tote import GrabSpecialTote
+from commands.setpoint_commands.grab_special_can import GrabSpecialCan
+from commands.setpoint_commands.grab_can import GrabCan
+from commands.semiauto_commands.turn import Turn
+from commands.setpoint_commands.lift_stuff import LiftStuff
+from commands.semiauto_commands.shaker import Shaker
+from commands.setpoint_commands.mast_button import MastButton
+from commands.semiauto_commands.tote_loader import ToteLoader
+from commands.semiauto_commands.super_strafe_64 import SuperStrafe64 #Only on Nintendo64.
+from commands.semiauto_commands.drive_straight import DriveStraight
 from commands.record_macro import RecordMacro
 from commands.play_macro import PlayMacro
 
