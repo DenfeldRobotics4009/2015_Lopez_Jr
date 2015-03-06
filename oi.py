@@ -25,6 +25,9 @@ __author__ = 'nikolojedison'
 #2/28 09:38 - @ LSR, nevermind 4th, we're 3rd. Cool.
 #2/28 12:50 - @ LSR, was 8th, but now we're the 6th(?) alliance. Lunch break.
 #2/28 14:07 - @ LSR, in queue.
+#3/06 16:58 - Working on streamlining the code over at:
+#               https://github.com/DenfeldRobotics4009/2015_Lopez_Jr/tree/clean_code_testing just to save my sanity. DON'T 
+#               USE IT WITHOUT RUNNING IT IN THE SIM FIRST
 
 #Libraries
 import wpilib
