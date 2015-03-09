@@ -36,7 +36,7 @@ from commands.semiauto_commands.timed_turn import TimedTurn
 from commands.setpoint_commands.lift_go_to_level import LiftGoToLevel
 from commands.setpoint_commands.lift_go_to_level_shift import LiftGoToLevelShift
 from commands.setpoint_commands.open_claw import OpenClaw
-from commands.setpoint_commandsclose_claw import CloseClaw
+from commands.setpoint_commands.close_claw import CloseClaw
 from commands.setpoint_commands.center_claw import CenterClaw
 from commands.manual_commands.manual_claw import ManualClaw
 from commands.manual_commands.manual_lift import ManualLift
