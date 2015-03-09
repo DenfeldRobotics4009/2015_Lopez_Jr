@@ -1,5 +1,5 @@
 __author__ = "nikolojedison"
-from .set_claw_setpoint import SetClawSetpoint
+from .commands.set_claw_setpoint import SetClawSetpoint
 import setpoints
 
 class GrabSpecialCan(SetClawSetpoint):
