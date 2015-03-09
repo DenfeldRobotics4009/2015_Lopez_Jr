@@ -32,7 +32,7 @@ from networktables import NetworkTable
 from wpilib.buttons import JoystickButton, InternalButton
 
 #Commands
-from commands.timed_turn import TimedTurn
+from commands.semiauto_commands.timed_turn import TimedTurn
 from commands.setpoint_commands.lift_go_to_level import LiftGoToLevel
 from commands.setpoint_commands.lift_go_to_level_shift import LiftGoToLevelShift
 from commands.setpoint_commands.open_claw import OpenClaw
