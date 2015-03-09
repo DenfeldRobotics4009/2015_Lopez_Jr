@@ -1,5 +1,5 @@
 __author__ = 'nikolojedison'
-from .commands.set_mast_setpoint import SetMastSetpoint
+from commands.set_mast_setpoint import SetMastSetpoint
 import setpoints
 
 class MastLevel(SetMastSetpoint):

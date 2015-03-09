@@ -3,7 +3,7 @@ __author__ = 'nikolojedison'
 from wpilib.command import Command
 
 from .drive_straight import DriveStraight
-from .commands.setpoint_commands.close_claw import CloseClaw
+from commands.setpoint_commands.close_claw import CloseClaw
 
 class Shaker(Command):
     """This is the shakergrab that is insanely useful."""

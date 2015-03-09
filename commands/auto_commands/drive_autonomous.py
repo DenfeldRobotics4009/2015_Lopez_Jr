@@ -2,7 +2,7 @@ __author__ = 'nikolojedison'
 
 from wpilib.command import CommandGroup
 
-from .commands.semiauto_commands.drive_straight import DriveStraight
+from commands.semiauto_commands.drive_straight import DriveStraight
 
 class DriveAutonomous(CommandGroup):
     """This is the simple auton."""

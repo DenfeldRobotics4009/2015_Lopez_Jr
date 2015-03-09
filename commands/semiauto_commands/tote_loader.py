@@ -7,7 +7,7 @@ from commands.setpoint_commands.lift_go_to_level import LiftGoToLevel
 from commands.setpoint_commands.open_claw import OpenClaw
 from commands.semiauto_commands.shaker import Shaker
 from wpilib.command import WaitCommand
-from .commands.semiauto_commands.drive_straight import DriveStraight
+from commands.semiauto_commands.drive_straight import DriveStraight
 from commands.set_lift_setpoint import SetLiftSetpoint
 import setpoints
 
