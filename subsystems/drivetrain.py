@@ -3,7 +3,7 @@ import math
 
 import wpilib
 from wpilib.command import Subsystem
-from commands.mecanum_drive_with_joystick import MecanumDriveWithJoystick
+from commands.manual_commands.mecanum_drive_with_joystick import MecanumDriveWithJoystick
 from drive_control import *
 from imu_simple import IMUSimple
 
