@@ -130,8 +130,8 @@ class Lopez_Jr(wpilib.SampleRobot):
         pass
 
     def log(self):
-        """Woo, logging."""
-        self.drivetrain.log()
+        """Ev'ryone needs a log."""
+        self.drivetrain.log() #Ja, it's really fun.
         self.lift.log()
         self.claw.log()
         self.mast.log()
