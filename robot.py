@@ -24,6 +24,7 @@ from commands.play_macro import PlayMacro
 
 #This is all the special drive stuff we need. Yay, libraries.
 from drive_control import dead_zone
+from commands.manual_commands.manual_winch import ManualWinch
 
 class Lopez_Jr(wpilib.SampleRobot):
     def robotInit(self):
@@ -34,6 +35,8 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.lift = Lift(self)
         self.claw = Claw(self)
         self.mast = Mast(self)
+        self.winch = Winch(self)
+        self.lock = Lock(self)
 #        self.winch = Winch(self)
         self.oi = OI(self)
 
@@ -102,9 +105,9 @@ class Lopez_Jr(wpilib.SampleRobot):
         #More stuff.
         self.drivetrain.drive.setSafetyEnabled(True)
         joystick = self.oi.getJoystickLeft() #Do we even need this?
-
-        #Run the Scheduler and the timer. Usefulness, yay.
+        
         while self.isOperatorControl() and self.isEnabled():
+            ManualWinch(robot, .1)
             self.log() #It's log, it's log, it's not big or heavy or wood.
             Scheduler.getInstance().run()
             wpilib.Timer.delay(.005)    # don't burn up the cpu
