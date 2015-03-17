@@ -2,19 +2,19 @@ __author__ = "nikolojedison"
 from wpilib.command import Command
 from drive_control import dead_zone
 
-class ManualWinch(Command):
-    """Manually runs the winch."""
+class ManualLock(Command):
+    """Manually runs the lock."""
     def __init__(self, robot):
         super().__init__()
         self.robot = robot
-        self.requires(self.robot.winch)
+        self.requires(self.robot.lock)
 
     def execute(self):
-        self.robot.winch.manualSet(dead_zone(self.robot.oi.getPad().getX(self), .25))
+        pass
 
     def isFinished(self):
         return False
 
     def cancel(self):
-        self.robot.winch.manualSet(0)
+        self.robot.lock.manualSet(0)
         super().cancel()
