@@ -18,7 +18,9 @@ class RecordMacro(Command):
                   "Drive_Rotation",
                   "Lift",
                   "Mast",
-                  "Claw"]
+                  "Claw",
+                  "Lock",
+                  "Winch"]
         self.writer = csv.DictWriter(self.f, fieldnames=fields)
         self.writer.writeheader()
 
@@ -29,7 +31,9 @@ class RecordMacro(Command):
             "Drive_Rotation": self.robot.drivetrain.rotation,
             "Lift": self.robot.lift.motor.get(),
             "Mast": self.robot.mast.motor.get(),
-            "Claw": self.robot.claw.motor.get()})
+            "Claw": self.robot.claw.motor.get(),
+            "Lock": self.robot.lock.spike.get(),
+            "Winch": self.robot.winch.motor.get()})
 
     def isFinished(self):
         return self.isTimedOut()

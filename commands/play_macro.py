@@ -31,6 +31,9 @@ class PlayMacro(Command):
             self.robot.lift.manualSet(float(line["Lift"]))
             self.robot.mast.manualSet(float(line["Mast"]))
             self.robot.claw.manualSet(float(line["Claw"]))
+            self.robot.lock.spike.manualSet(int(line["Lock"]))
+            self.robot.winch.manualSet(float(line["Winch"]))
+            
         except StopIteration:
             self.done_yet = True
 
@@ -42,6 +45,7 @@ class PlayMacro(Command):
         self.robot.lift.manualSet(0)
         self.robot.mast.manualSet(0)
         self.robot.claw.manualSet(0)
+        self.robot.winch.manualSet(0)
         if hasattr(self, "f"):
             self.f.close()
 
