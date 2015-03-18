@@ -1,4 +1,5 @@
 __author__ = "auxiliary-character"
+from wpilib.timer import Timer
 from wpilib.command import Command
 import csv
 
@@ -11,6 +12,8 @@ class PlayMacro(Command):
         self.requires(robot.lift)
         self.requires(robot.claw)
         self.requires(robot.mast)
+        self.requires(robot.winch)
+        self.requires(robot.lock)
         self.name = name
         self.done_yet = False
 
