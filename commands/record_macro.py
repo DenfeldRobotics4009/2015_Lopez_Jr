@@ -1,5 +1,6 @@
 __author__ = "auxiliary-character"
 from wpilib.command import Command
+from wpilib.timer import Timer
 import wpilib
 import csv
 
@@ -20,7 +21,8 @@ class RecordMacro(Command):
                   "Mast",
                   "Claw",
                   "Lock",
-                  "Winch"]
+                  "Winch",
+                  "Time"]
         self.writer = csv.DictWriter(self.f, fieldnames=fields)
         self.writer.writeheader()
 
@@ -33,7 +35,8 @@ class RecordMacro(Command):
             "Mast": self.robot.mast.motor.get(),
             "Claw": self.robot.claw.motor.get(),
             "Lock": self.robot.lock.spike.get(),
-            "Winch": self.robot.winch.motor.get()})
+            "Winch": self.robot.winch.motor.get(),
+            "Time": wpilib.Timer.get()})
 
     def isFinished(self):
         return self.isTimedOut()
