@@ -11,6 +11,7 @@ class RecordMacro(Command):
         self.robot = robot
         self.setTimeout(15)
         self.name = name
+        self.initTime = wpilib.Timer.getFPGATimestamp()
 
     def initialize(self):
         self.f = open("/home/lvuser/py/"+self.name, "w")
@@ -28,6 +29,7 @@ class RecordMacro(Command):
 
     def execute(self):
         self.writer.writerow({
+            "InitTime": self.initTime
             "Drive_X": self.robot.drivetrain.x,
             "Drive_Y": self.robot.drivetrain.y,
             "Drive_Rotation": self.robot.drivetrain.rotation,
@@ -36,7 +38,7 @@ class RecordMacro(Command):
             "Claw": self.robot.claw.motor.get(),
             "Lock": self.robot.lock.spike.get(),
             "Winch": self.robot.winch.motor.get(),
-            "Time": wpilib.Timer.get()})
+            "Time": wpilib.Timer.getFPGATimestamp()})
 
     def isFinished(self):
         return self.isTimedOut()
