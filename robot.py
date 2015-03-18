@@ -134,7 +134,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         pass
 
     def log(self):
-        """Woo, logging."""
+        """It's big, it's heavy, it's wood."""
         self.drivetrain.log()
         self.lift.log()
         self.claw.log()
