@@ -20,15 +20,16 @@ class PlayMacro(Command):
 
     def initialize(self):
         try:
-            self.f = open("/home/lvuser/py/"+self.name)
+            if self.robot.isReal():
+                self.f = open("/home/lvuser/py/"+self.name)
+            else:
+                self.f = open(self.name)
             self.reader_iterator = csv.DictReader(self.f)
         except FileNotFoundError:
             self.reader_iterator = []
         self.setTimeout(15)
-        line = next(self.reader_iterator)
         start_time = Timer.getFPGATimestamp()
         for line in self.reader_iterator:
-            print(line)
             wpilib.Timer.delay(float(line["Time"]) - (Timer.getFPGATimestamp()-start_time))
             self.robot.drivetrain.driveManual(float(line["Drive_X"]),
                                             float(line["Drive_Y"]),
