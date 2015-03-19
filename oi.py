@@ -44,6 +44,7 @@ from commands.manual_commands.manual_claw import ManualClaw
 from commands.manual_commands.manual_lift import ManualLift
 from commands.manual_commands.manual_mast import ManualMast
 from commands.manual_commands.manual_lock import ManualLock
+from commands.manual_commands.manual_winch import ManualWinch
 from commands.setpoint_commands.mast_level import MastLevel
 from commands.setpoint_commands.mast_back import MastBack
 from commands.setpoint_commands.mast_forward import MastForward
@@ -185,8 +186,8 @@ class OI:
         g15.whenPressed(RecordMacro(robot, "macro_3.csv"))
         g16.whenPressed(PlayMacro(robot, "macro_3.csv"))
 
-        g17.whenPressed(RecordMacro(robot, "macro_4.csv"))
-        g18.whenPressed(PlayMacro(robot, "macro_4.csv"))
+        g17.whileHeld(ManualLock(robot))
+        g18.whileHeld(ManualWinch(robot))
 
         g19.whenPressed(CloseClaw(robot))
         g20.whenPressed(MastBack(robot))

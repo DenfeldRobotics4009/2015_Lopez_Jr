@@ -14,7 +14,7 @@ class Winch(Subsystem):
         self.motor = wpilib.Jaguar(4)
 
     def initDefaultCommand(self):
-        self.setDefaultCommand(ManualWinch(self.robot))
+        pass
 
     def manualSet(self, output):
         self.motor.set(output*.85)
