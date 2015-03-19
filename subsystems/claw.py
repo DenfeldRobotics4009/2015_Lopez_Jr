@@ -8,7 +8,7 @@ class Claw(PIDSubsystem):
     """This is a claw. It does claw things."""
 
     def __init__(self, robot):
-        super().__init__(-20, 0, 0)
+        super().__init__(20, 0, 0)
         self.robot = robot
 
         self.grabba_pot = wpilib.AnalogPotentiometer(2)

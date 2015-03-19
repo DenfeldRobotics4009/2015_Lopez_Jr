@@ -29,6 +29,7 @@ __author__ = 'nikolojedison'
 #3/19 09:00 - @ Peoria, prepping for inspection. Code fixes everywhere and maybe some better macros.
 #3/19 13:37 - @ Peoria, waiting on the robot to lose some weight. More code fixes.
 #3/19 18:01 - @ Peoria, remapped keys to operator's preference. Macro works.
+#3/19 18:33 - @ Peoria, released 1.1.1.
 
 #Libraries
 import wpilib
