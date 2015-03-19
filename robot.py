@@ -38,7 +38,6 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.mast = Mast(self)
         self.winch = Winch(self)
         self.lock = Lock(self)
-        self.winch = Winch(self)
         self.oi = OI(self)
 
         #These are self-describing autonomouses. Waaaaaait... Autono-mouse?
@@ -106,9 +105,8 @@ class Lopez_Jr(wpilib.SampleRobot):
         #More stuff.
         self.drivetrain.drive.setSafetyEnabled(True)
         joystick = self.oi.getJoystickLeft() #Do we even need this?
-        
+
         while self.isOperatorControl() and self.isEnabled():
-            ManualWinch(robot, .1)
             self.log() #It's log, it's log, it's not big or heavy or wood.
             Scheduler.getInstance().run()
             wpilib.Timer.delay(.005)    # don't burn up the cpu

@@ -41,6 +41,7 @@ from commands.setpoint_commands.center_claw import CenterClaw
 from commands.manual_commands.manual_claw import ManualClaw
 from commands.manual_commands.manual_lift import ManualLift
 from commands.manual_commands.manual_mast import ManualMast
+from commands.manual_commands.manual_lock import ManualLock
 from commands.setpoint_commands.mast_level import MastLevel
 from commands.setpoint_commands.mast_back import MastBack
 from commands.setpoint_commands.mast_forward import MastForward
