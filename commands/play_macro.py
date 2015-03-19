@@ -25,11 +25,10 @@ class PlayMacro(Command):
         except FileNotFoundError:
             self.reader_iterator = []
         self.setTimeout(15)
-
-    def execute(self):
         line = next(self.reader_iterator)
         last_time = 0
         for line in self.reader_iterator:
+            print(line)
             wpilib.Timer.delay(float(line["Time"]) - last_time)
             last_time = float(line["Time"])
             self.robot.drivetrain.driveManual(float(line["Drive_X"]),
@@ -42,6 +41,10 @@ class PlayMacro(Command):
             self.robot.winch.manualSet(float(line["Winch"]))
             if self.isTimedOut() or self.done_yet:
                 break
+
+
+    def execute(self):
+        pass
 
     def isFinished(self):
         return True
