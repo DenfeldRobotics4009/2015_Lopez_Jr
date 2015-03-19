@@ -12,8 +12,8 @@ from subsystems.drivetrain import Drivetrain
 from subsystems.lift import Lift
 from subsystems.claw import Claw
 from subsystems.mast import Mast
-from subsystems.winch import Winch
-from subsystems.lock import Lock
+#from subsystems.winch import Winch
+#from subsystems.lock import Lock
 
 #These are all the autons.
 from commands.auto_commands.can_autonomous import CanAutonomous
@@ -36,8 +36,8 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.lift = Lift(self)
         self.claw = Claw(self)
         self.mast = Mast(self)
-        self.winch = Winch(self)
-        self.lock = Lock(self)
+ #       self.winch = Winch(self)
+ #       self.lock = Lock(self)
         self.oi = OI(self)
 
         #These are self-describing autonomouses. Waaaaaait... Autono-mouse?
@@ -137,8 +137,8 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.lift.log()
         self.claw.log()
         self.mast.log()
-        self.winch.log()
-        self.lock.log()
+  #      self.winch.log()
+   #     self.lock.log()
 
 if __name__ == "__main__":
     wpilib.run(Lopez_Jr)
