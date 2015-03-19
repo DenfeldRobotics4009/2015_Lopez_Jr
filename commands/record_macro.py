@@ -11,9 +11,9 @@ class RecordMacro(Command):
         self.robot = robot
         self.setTimeout(15)
         self.name = name
-        self.initTime = wpilib.Timer.getFPGATimestamp()
 
     def initialize(self):
+        self.initTime = wpilib.Timer.getFPGATimestamp()
         self.f = open("/home/lvuser/py/"+self.name, "w")
         fields = ["Drive_X",
                   "Drive_Y",
