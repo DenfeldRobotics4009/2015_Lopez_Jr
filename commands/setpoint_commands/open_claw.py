@@ -9,4 +9,4 @@ class OpenClaw(SetClawSetpoint):
         super().__init__(robot, setpoints.kOpen)
     def isFinished(self):
         """Current sensor stops the things if it gets trippin'."""
-        return super().isFinished() or self.robot.claw.current.getVoltage() > setpoints.kStall
+        return super().isFinished() #or self.robot.claw.current.getVoltage() > setpoints.kStall

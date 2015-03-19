@@ -52,7 +52,6 @@ from commands.setpoint_commands.mast_forward import MastForward
 from commands.setpoint_commands.mast_button import MastButton
 from commands.setpoint_commands.grab_tote import GrabTote
 from commands.setpoint_commands.grab_special_tote import GrabSpecialTote
-from commands.setpoint_commands.grab_special_can import GrabSpecialCan
 from commands.setpoint_commands.grab_can import GrabCan
 from commands.semiauto_commands.turn import Turn
 from commands.setpoint_commands.lift_stuff import LiftStuff
@@ -167,30 +166,27 @@ class OI:
         #Lift presets
         g1.whileHeld(LiftGoToLevelShift(robot, 1, topshift, bottomshift))
         g2.whileHeld(LiftGoToLevelShift(robot, 2, topshift, bottomshift))
-        g3.whileHeld(LiftGoToLevelShift(robot, 3, topshift, bottomshift))
-        g4.whileHeld(LiftGoToLevelShift(robot, 4, topshift, bottomshift))
-        g5.whileHeld(LiftGoToLevelShift(robot, 5, topshift, bottomshift))
-        g6.whileHeld(LiftGoToLevelShift(robot, 6, topshift, bottomshift))
-        g7.whileHeld(LiftGoToLevelShift(robot, 7, topshift, bottomshift))
-        g8.whileHeld(LiftGoToLevelShift(robot, 0, topshift, bottomshift))
+        g3.whileHeld(LiftGoToLevelShift(robot, 4, topshift, bottomshift))
+        g4.whileHeld(LiftGoToLevelShift(robot, 0, topshift, bottomshift))
+        g5.whenPressed(OpenClaw(robot))
+        g6.whenPressed(GrabTote(robot))
+        g7.whenPressed(GrabCan(robot))
 
-        g9.whenPressed(RecordMacro(robot, "macro_2.csv"))
-        g10.whenPressed(PlayMacro(robot, "macro_2.csv"))
+        g9.whenPressed(RecordMacro(robot, "macro.csv"))
+        g10.whenPressed(PlayMacro(robot, "macro.csv"))
 
         #g12 and g13 are for testing only and NOT for match use!
         g11.whenPressed(RecordMacro(robot, "macro_1.csv"))
         g12.whenPressed(PlayMacro(robot, "macro_1.csv"))
 
-        g13.whenPressed(RecordMacro(robot, "macro.csv"))
-        g14.whenPressed(PlayMacro(robot, "macro.csv"))
+        g13.whenPressed(RecordMacro(robot, "autonomous.csv"))
+        g14.whenPressed(PlayMacro(robot, "autonomous.csv"))
 
         g15.whenPressed(RecordMacro(robot, "macro_3.csv"))
         g16.whenPressed(PlayMacro(robot, "macro_3.csv"))
 
-        #g17.whileHeld(ManualLock(robot))
-        #g18.whileHeld(ManualWinch(robot))
 
-        g19.whenPressed(CloseClaw(robot))
+        g19.whenPressed(GrabSpecialTote(robot))
         g20.whenPressed(MastBack(robot))
         g21.whenPressed(MastLevel(robot))
         g22.whenPressed(MastForward(robot))
