@@ -13,7 +13,7 @@ from commands.set_claw_setpoint import SetClawSetpoint
 from commands.set_lift_setpoint import SetLiftSetpoint
 from commands.set_mast_setpoint import SetMastSetpoint
 from commands.semiauto_commands.turn import Turn
-from commands.lift_stuff import LiftStuff
+from commands.setpoint_commands.lift_stuff import LiftStuff
 
 class CanNToteAuto(CommandGroup):
     """In this one, we grab a can and a tote.

@@ -4,7 +4,7 @@ from wpilib.command import CommandGroup
 
 #Woo, commands
 from commands.setpoint_commands.close_claw import CloseClaw
-from commands.semiauto.commands.drive_straight import DriveStraight
+from commands.semiauto_commands.drive_straight import DriveStraight
 from commands.setpoint_commands.lift_go_to_level import LiftGoToLevel
 from commands.manual_commands.mecanum_drive_with_joystick import MecanumDriveWithJoystick
 from commands.setpoint_commands.open_claw import OpenClaw

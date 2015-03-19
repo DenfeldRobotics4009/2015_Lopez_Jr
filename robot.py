@@ -16,11 +16,11 @@ from subsystems.winch import Winch
 from subsystems.lock import Lock
 
 #These are all the autons.
-from commands.can_autonomous import CanAutonomous
-from commands.can_n_tote_auto import CanNToteAuto
-from commands.drive_autonomous import DriveAutonomous
-from commands.three_tote_autonomous import ThreeToteAutonomous
-from commands.tote_autonomous import ToteAutonomous
+from commands.auto_commands.can_autonomous import CanAutonomous
+from commands.auto_commands.can_n_tote_auto import CanNToteAuto
+from commands.auto_commands.drive_autonomous import DriveAutonomous
+from commands.auto_commands.three_tote_autonomous import ThreeToteAutonomous
+from commands.auto_commands.tote_autonomous import ToteAutonomous
 from commands.play_macro import PlayMacro
 
 #This is all the special drive stuff we need. Yay, libraries.
