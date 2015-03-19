@@ -29,7 +29,6 @@ class RecordMacro(Command):
 
     def execute(self):
         self.writer.writerow({
-            "InitTime": self.initTime,
             "Drive_X": self.robot.drivetrain.x,
             "Drive_Y": self.robot.drivetrain.y,
             "Drive_Rotation": self.robot.drivetrain.rotation,

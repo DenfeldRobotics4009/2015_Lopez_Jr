@@ -139,8 +139,6 @@ class OI:
         g22 = KeyButton(self.smart_dashboard, 31)
         topshift = KeyButton(self.smart_dashboard, 32)
         bottomshift = KeyButton(self.smart_dashboard, 33)
-        extra1 = KeyButton(self.smart_dashboard, 34)
-        extra2 = KeyButton(self.smart_dashboard, 35)
         #25 buttons of stuff on the wall, 25 buttons 'n stuff...
 
         # Connect buttons & commands
