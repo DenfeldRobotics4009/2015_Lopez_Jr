@@ -44,7 +44,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.ThreeToteAutonomousCommand = ThreeToteAutonomous(self)
         self.CanAutonomousCommand = CanAutonomous(self)
         self.CanNToteAutoCommand = CanNToteAuto(self)
-        self.DriveAutonomousCommand = DriveAutonomous(self)
+        self.DriveAutonomousCommand = PlayMacro(self, "macro.csv")
         self.ToteAutonomousCommand = ToteAutonomous(self)
         self.PlayMacroCommand = PlayMacro(self, "autonomous.csv")
 
