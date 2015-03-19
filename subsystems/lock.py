@@ -2,7 +2,7 @@ __author__ = "nikolojedison"
 import wpilib
 from wpilib.command import Subsystem
 import setpoints
-from commands.manual_commands.manual_lock import ManualLock
+from commands.default_lock import DefaultLock
 
 class Lock(Subsystem):
     """Runs the lock."""
@@ -14,11 +14,11 @@ class Lock(Subsystem):
         self.spike = wpilib.Relay(1)
 
     def initDefaultCommand(self):
-        self.setDefaultCommand(ManualLock(self.robot))
+        self.setDefaultCommand(DefaultLock(self.robot))
 
     def manualSet(self, output):
         if output:
-            self.spike.set(self.spike.Value.kForward)
+            self.spike.set(self.spike.Value.kReverse)
         else:
             self.spike.set(self.spike.Value.kOn)
 

@@ -149,10 +149,10 @@ class OI:
         left_north.whenPressed(DriveStraight(robot, 0, -.25, timeout = .25))
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
-        
+
         #Winch
         g0.whileHeld(ManualLock(robot))
-        
+
         #Mast control
         left_thumb.whileHeld(Shaker(robot))
         left_five.whileHeld(MastButton(robot, .38))

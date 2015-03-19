@@ -1,10 +1,6 @@
 - more drive team practice!
-- Record a bunch more macros?
+- definitively fix the macro timing
+- Re-record a bunch more macros
 - Figure out testing framework
 - Iron out turn command & Drive Straight command configurations (may not be needed b/c macros)
-- Finish commands framework (pref. after competitions in one massive commit so nothing permanently breaks):
-    - move files to folders
-    - update all commands
-    - update oi.py
-    - update robot.py
 - Chute door?

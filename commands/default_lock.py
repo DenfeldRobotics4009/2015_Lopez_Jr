@@ -2,7 +2,7 @@ __author__ = "nikolojedison"
 from wpilib.command import Command
 from drive_control import dead_zone
 
-class ManualLock(Command):
+class DefaultLock(Command):
     """Manually runs the lock."""
     def __init__(self, robot):
         super().__init__()
@@ -11,7 +11,7 @@ class ManualLock(Command):
 
 
     def execute(self):
-        self.robot.lock.manualSet(False)
+        self.robot.lock.manualSet(True)
 
     def isFinished(self):
         return False
