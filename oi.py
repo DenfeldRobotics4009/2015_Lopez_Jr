@@ -35,29 +35,30 @@ from networktables import NetworkTable
 from wpilib.buttons import JoystickButton, InternalButton
 
 #Commands
-from commands.timed_turn import TimedTurn
-from commands.lift_go_to_level import LiftGoToLevel
-from commands.lift_go_to_level_shift import LiftGoToLevelShift
-from commands.open_claw import OpenClaw
-from commands.close_claw import CloseClaw
-from commands.center_claw import CenterClaw
-from commands.manual_claw import ManualClaw
-from commands.manual_lift import ManualLift
-from commands.mast_level import MastLevel
-from commands.manual_mast import ManualMast
-from commands.mast_back import MastBack
-from commands.mast_forward import MastForward
-from commands.grab_tote import GrabTote
-from commands.grab_special_tote import GrabSpecialTote
-from commands.grab_special_can import GrabSpecialCan
-from commands.grab_can import GrabCan
-from commands.turn import Turn
-from commands.lift_stuff import LiftStuff
-from commands.shaker import Shaker
-from commands.mast_button import MastButton
-from commands.tote_loader import ToteLoader
-from commands.super_strafe_64 import SuperStrafe64 #Only on Nintendo64.
-from commands.drive_straight import DriveStraight
+from commands.semiauto_commands.timed_turn import TimedTurn
+from commands.setpoint_commands.lift_go_to_level import LiftGoToLevel
+from commands.setpoint_commands.lift_go_to_level_shift import LiftGoToLevelShift
+from commands.setpoint_commands.open_claw import OpenClaw
+from commands.setpoint_commands.close_claw import CloseClaw
+from commands.setpoint_commands.center_claw import CenterClaw
+from commands.manual_commands.manual_claw import ManualClaw
+from commands.manual_commands.manual_lift import ManualLift
+from commands.manual_commands.manual_mast import ManualMast
+from commands.manual_commands.manual_lock import ManualLock
+from commands.setpoint_commands.mast_level import MastLevel
+from commands.setpoint_commands.mast_back import MastBack
+from commands.setpoint_commands.mast_forward import MastForward
+from commands.setpoint_commands.mast_button import MastButton
+from commands.setpoint_commands.grab_tote import GrabTote
+from commands.setpoint_commands.grab_special_tote import GrabSpecialTote
+from commands.setpoint_commands.grab_special_can import GrabSpecialCan
+from commands.setpoint_commands.grab_can import GrabCan
+from commands.semiauto_commands.turn import Turn
+from commands.setpoint_commands.lift_stuff import LiftStuff
+from commands.semiauto_commands.shaker import Shaker
+from commands.semiauto_commands.tote_loader import ToteLoader
+from commands.semiauto_commands.super_strafe_64 import SuperStrafe64 #Only on Nintendo64.
+from commands.semiauto_commands.drive_straight import DriveStraight
 from commands.record_macro import RecordMacro
 from commands.play_macro import PlayMacro
 
@@ -114,6 +115,7 @@ class OI:
         left_northwest = POVButton(self.stick_left, 315)
 
         #Keypad Buttons
+        g0 = JoystickButton(self.pad, 1)
         g1 = KeyButton(self.smart_dashboard, 10)
         g2 = KeyButton(self.smart_dashboard, 11)
         g3 = KeyButton(self.smart_dashboard, 12)
@@ -150,15 +152,18 @@ class OI:
         left_north.whenPressed(DriveStraight(robot, 0, -.25, timeout = .25))
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
-
+        
+        #Winch
+        g0.whileHeld(ManualLock(robot))
+        
         #Mast control
+        left_thumb.whileHeld(Shaker(robot))
         left_five.whileHeld(MastButton(robot, .38))
         left_six.whileHeld(MastButton(robot, -.38))
-        left_thumb.whileHeld(Shaker(robot)) #like a Polaroid picture
-        left_nine.whenPressed(SuperStrafe64(robot, SuperStrafe64.kLeft))
-        left_ten.whenPressed(SuperStrafe64(robot, SuperStrafe64.kRight))
         left_seven.whenPressed(SuperStrafe64(robot, SuperStrafe64.kForward))
         left_eight.whenPressed(SuperStrafe64(robot, SuperStrafe64.kBack))
+        left_nine.whenPressed(SuperStrafe64(robot, SuperStrafe64.kLeft))
+        left_ten.whenPressed(SuperStrafe64(robot, SuperStrafe64.kRight))
 
         #Lift presets
         g1.whenPressed(LiftGoToLevelShift(robot, 1, topshift, bottomshift))

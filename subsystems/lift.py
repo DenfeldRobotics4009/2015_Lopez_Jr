@@ -3,7 +3,7 @@ import wpilib
 from wpilib.command import Command
 from wpilib.command import PIDSubsystem
 from wpilib.buttons import Trigger
-from commands.manual_lift import ManualLift
+from commands.manual_commands.manual_lift import ManualLift
 import setpoints
 
 class ResetEncoder(Command):

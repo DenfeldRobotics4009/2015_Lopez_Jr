@@ -12,29 +12,32 @@ from subsystems.drivetrain import Drivetrain
 from subsystems.lift import Lift
 from subsystems.claw import Claw
 from subsystems.mast import Mast
-#from subsystems.winch import Winch #still tenative
+from subsystems.winch import Winch
+from subsystems.lock import Lock
 
 #These are all the autons.
-from commands.can_autonomous import CanAutonomous
-from commands.can_n_tote_auto import CanNToteAuto
-from commands.drive_autonomous import DriveAutonomous
-from commands.three_tote_autonomous import ThreeToteAutonomous
-from commands.tote_autonomous import ToteAutonomous
+from commands.auto_commands.can_autonomous import CanAutonomous
+from commands.auto_commands.can_n_tote_auto import CanNToteAuto
+from commands.auto_commands.drive_autonomous import DriveAutonomous
+from commands.auto_commands.three_tote_autonomous import ThreeToteAutonomous
+from commands.auto_commands.tote_autonomous import ToteAutonomous
 from commands.play_macro import PlayMacro
 
 #This is all the special drive stuff we need. Yay, libraries.
 from drive_control import dead_zone
+from commands.manual_commands.manual_winch import ManualWinch
 
 class Lopez_Jr(wpilib.SampleRobot):
     def robotInit(self):
-        """Initialises 'bot w/ all subsystems (derailer needs testing) and joysticks"""
+        """Initialises 'bot w/ all subsystems (winch needs testing) and joysticks"""
 
         #Subsystem initialisation.  Woo.
         self.drivetrain = Drivetrain(self)
         self.lift = Lift(self)
         self.claw = Claw(self)
         self.mast = Mast(self)
-#        self.winch = Winch(self)
+        self.winch = Winch(self)
+        self.lock = Lock(self)
         self.oi = OI(self)
 
         #These are self-describing autonomouses. Waaaaaait... Autono-mouse?
@@ -103,7 +106,6 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.drivetrain.drive.setSafetyEnabled(True)
         joystick = self.oi.getJoystickLeft() #Do we even need this?
 
-        #Run the Scheduler and the timer. Usefulness, yay.
         while self.isOperatorControl() and self.isEnabled():
             self.log() #It's log, it's log, it's not big or heavy or wood.
             Scheduler.getInstance().run()
@@ -130,12 +132,13 @@ class Lopez_Jr(wpilib.SampleRobot):
         pass
 
     def log(self):
-        """Ev'ryone needs a log."""
-        self.drivetrain.log() #Ja, it's really fun.
+        """It's big, it's heavy, it's wood."""
+        self.drivetrain.log()
         self.lift.log()
         self.claw.log()
         self.mast.log()
-#        self.winch.log()
+        self.winch.log()
+        self.lock.log()
 
 if __name__ == "__main__":
     wpilib.run(Lopez_Jr)

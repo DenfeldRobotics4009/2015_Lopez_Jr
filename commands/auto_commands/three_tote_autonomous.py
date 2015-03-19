@@ -1,17 +1,19 @@
 __author__ = 'nikolojedison'
+
 from wpilib.command import CommandGroup
 
-from .close_claw import CloseClaw
-from .drive_straight import DriveStraight
-from .lift_go_to_level import LiftGoToLevel
-from .mecanum_drive_with_joystick import MecanumDriveWithJoystick
-from .open_claw import OpenClaw
-from .set_claw_setpoint import SetClawSetpoint
-from .set_lift_setpoint import SetLiftSetpoint
-from .set_mast_setpoint import SetMastSetpoint
-from .grab_tote import GrabTote
-from .turn import Turn
-from .lift_stuff import LiftStuff
+#Woo, commands
+from commands.setpoint_commands.close_claw import CloseClaw
+from commands.semiauto_commands.drive_straight import DriveStraight
+from commands.setpoint_commands.lift_go_to_level import LiftGoToLevel
+from commands.manual_commands.mecanum_drive_with_joystick import MecanumDriveWithJoystick
+from commands.setpoint_commands.open_claw import OpenClaw
+from commands.set_claw_setpoint import SetClawSetpoint
+from commands.set_lift_setpoint import SetLiftSetpoint
+from commands.set_mast_setpoint import SetMastSetpoint
+from commands.setpoint_commands.grab_tote import GrabTote
+from commands.semiauto_commands.turn import Turn
+from commands.setpoint_commands.lift_stuff import LiftStuff
 
 class ThreeToteAutonomous(CommandGroup):
     #Should really put some setpoints in. Ehhhhhhh...

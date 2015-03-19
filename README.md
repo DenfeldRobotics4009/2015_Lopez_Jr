@@ -6,4 +6,4 @@ to our team.
 The name Lopez Jr. has originated from the eleventh season of the popular
 webseries Red v. Blue, since it's a robot & we already have a Lopez - Media
 captain Matt. It's a nice robot, and I'm glad we can run Python on it.
--Nik Mal
+-Nik

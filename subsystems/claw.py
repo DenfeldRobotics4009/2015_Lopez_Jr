@@ -1,7 +1,7 @@
 _author__ = 'nikolojedison'
 import wpilib
 from wpilib.command import PIDSubsystem
-from commands.manual_claw import ManualClaw
+from commands.manual_commands.manual_claw import ManualClaw
 import setpoints
 
 class Claw(PIDSubsystem):

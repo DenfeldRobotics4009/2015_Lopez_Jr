@@ -2,13 +2,13 @@ __author__="nikolojedison"
 
 from wpilib.command import CommandGroup
 
-from .grab_tote import GrabTote
-from .lift_go_to_level import LiftGoToLevel
-from .open_claw import OpenClaw
-from .shaker import Shaker
+from commands.setpoint_commands.grab_tote import GrabTote
+from commands.setpoint_commands.lift_go_to_level import LiftGoToLevel
+from commands.setpoint_commands.open_claw import OpenClaw
+from commands.semiauto_commands.shaker import Shaker
 from wpilib.command import WaitCommand
-from .drive_straight import DriveStraight
-from .set_lift_setpoint import SetLiftSetpoint
+from commands.semiauto_commands.drive_straight import DriveStraight
+from commands.set_lift_setpoint import SetLiftSetpoint
 import setpoints
 
 class ToteLoader(CommandGroup):
