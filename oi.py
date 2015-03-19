@@ -27,6 +27,7 @@ __author__ = 'nikolojedison'
 #2/28 14:07 - @ LSR, in queue.
 #3/06 16:58 - Working on streamlining the code.
 #3/19 09:00 - @ Peoria, prepping for inspection. Code fixes everywhere and maybe some better macros.
+#3/19 13:37 - @ Peoria, waiting on the robot to lose some weight. More code fixes.
 
 #Libraries
 import wpilib
