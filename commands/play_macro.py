@@ -26,11 +26,10 @@ class PlayMacro(Command):
             self.reader_iterator = []
         self.setTimeout(15)
         line = next(self.reader_iterator)
-        last_time = 0
+        start_time = Timer.getFPGATimestamp()
         for line in self.reader_iterator:
             print(line)
-            wpilib.Timer.delay(float(line["Time"]) - last_time)
-            last_time = float(line["Time"])
+            wpilib.Timer.delay(float(line["Time"]) - (Timer.getFPGATimestamp()-start_time))
             self.robot.drivetrain.driveManual(float(line["Drive_X"]),
                                             float(line["Drive_Y"]),
                                             float(line["Drive_Rotation"]))
