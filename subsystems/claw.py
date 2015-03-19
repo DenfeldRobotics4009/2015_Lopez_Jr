@@ -36,4 +36,4 @@ class Claw(PIDSubsystem):
         return self.grabba_pot.get()
 
     def usePIDOutput(self, output):
-        self.motor.set(output)
+        self.manualSet(output)

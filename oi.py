@@ -189,9 +189,9 @@ class OI:
 
 
         g19.whenPressed(GrabSpecialTote(robot))
-        g20.whenPressed(MastBack(robot))
-        g21.whenPressed(MastLevel(robot))
-        g22.whenPressed(MastForward(robot))
+        g20.whileHeld(MastBack(robot))
+        g21.whileHeld(MastLevel(robot))
+        g22.whileHeld(MastForward(robot))
         #top shift - all levels -.015 for platform stacking
         #bottom shift - all levels +.045 for setdown
 
