@@ -165,14 +165,14 @@ class OI:
         left_ten.whenPressed(SuperStrafe64(robot, SuperStrafe64.kRight))
 
         #Lift presets
-        g1.whileHeld(LiftGoToLevelShift(robot, 1, topshift, bottomshift))
-        g2.whileHeld(LiftGoToLevelShift(robot, 2, topshift, bottomshift))
-        g3.whileHeld(LiftGoToLevelShift(robot, 3, topshift, bottomshift))
-        g4.whileHeld(LiftGoToLevelShift(robot, 4, topshift, bottomshift))
-        g5.whileHeld(LiftGoToLevelShift(robot, 5, topshift, bottomshift))
-        g6.whileHeld(LiftGoToLevelShift(robot, 6, topshift, bottomshift))
-        g7.whileHeld(LiftGoToLevelShift(robot, 7, topshift, bottomshift))
-        g8.whileHeld(LiftGoToLevelShift(robot, 0, topshift, bottomshift))
+        g1.whenPressed(LiftGoToLevelShift(robot, 1, topshift, bottomshift))
+        g2.whenPressed(LiftGoToLevelShift(robot, 2, topshift, bottomshift))
+        g3.whenPressed(LiftGoToLevelShift(robot, 3, topshift, bottomshift))
+        g4.whenPressed(LiftGoToLevelShift(robot, 4, topshift, bottomshift))
+        g5.whenPressed(LiftGoToLevelShift(robot, 5, topshift, bottomshift))
+        g6.whenPressed(LiftGoToLevelShift(robot, 6, topshift, bottomshift))
+        g7.whenPressed(LiftGoToLevelShift(robot, 7, topshift, bottomshift))
+        g8.whenPressed(LiftGoToLevelShift(robot, 0, topshift, bottomshift))
 
         g9.whenPressed(RecordMacro(robot, "macro_2.csv"))
         g10.whenPressed(PlayMacro(robot, "macro_2.csv"))
