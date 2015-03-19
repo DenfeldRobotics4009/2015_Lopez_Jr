@@ -18,7 +18,7 @@ kClose = .185 #2/12/15 23.12: .771 2/13/15 16:30: .925 2/15/15 .070
 kCan = .384 #need to update these.
 kTipped = .425 #This is a tipped can. Needs update
 kTote = .591 #was .468 as of 16:40
-kStall = 2 #This is for the current sensor, which I don't think is still onboard the 'bot.
+kStall = 2 #This is for the current sensor.
 kSpecialTote = 0 #needs update
 kSpecialCan = 0 #needs update
 
@@ -31,8 +31,6 @@ kAboveFirst = scale_reletive(0.2176, kTop, kBottom)
 #_________________________
 #6.3" per encoder rotation
 #-------------------------
-#lift_levels_reletive = [0.0, 0.0925, 0.2566, 0.4173, 0.5779, 0.7385, 0.8992, 1]
-#lift_level_setpoints = [scale_reletive(i, kTop, kBottom) for i in lift_levels_reletive]
 lift_level_setpoints = [kBottom, 216, 871, 1526, 2181, 2836, 3491, kTop]
 lift_step_setpoints = [i-111 for i in lift_level_setpoints] #add 111 for the step
 lift_drop_setpoints = [i+333 for i in lift_level_setpoints] #subtract 333 for going down 6"
