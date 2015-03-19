@@ -152,7 +152,7 @@ class OI:
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
 
         #Winch
-        g0.whileHeld(ManualLock(robot))
+        #g0.whileHeld(ManualLock(robot))
 
         #Mast control
         left_thumb.whileHeld(Shaker(robot))
@@ -186,8 +186,8 @@ class OI:
         g15.whenPressed(RecordMacro(robot, "macro_3.csv"))
         g16.whenPressed(PlayMacro(robot, "macro_3.csv"))
 
-        g17.whileHeld(ManualLock(robot))
-        g18.whileHeld(ManualWinch(robot))
+        #g17.whileHeld(ManualLock(robot))
+        #g18.whileHeld(ManualWinch(robot))
 
         g19.whenPressed(CloseClaw(robot))
         g20.whenPressed(MastBack(robot))

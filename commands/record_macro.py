@@ -21,8 +21,8 @@ class RecordMacro(Command):
                   "Lift",
                   "Mast",
                   "Claw",
-                  "Lock",
-                  "Winch",
+                  #"Lock",
+                  #"Winch",
                   "Time"]
         self.writer = csv.DictWriter(self.f, fieldnames=fields)
         self.writer.writeheader()
@@ -35,8 +35,8 @@ class RecordMacro(Command):
             "Lift": self.robot.lift.motor.get(),
             "Mast": self.robot.mast.motor.get(),
             "Claw": self.robot.claw.motor.get(),
-            "Lock": self.robot.lock.spike.get(),
-            "Winch": self.robot.winch.motor.get(),
+            #"Lock": self.robot.lock.spike.get(),
+            #"Winch": self.robot.winch.motor.get(),
             "Time": wpilib.Timer.getFPGATimestamp() - self.initTime})
 
     def isFinished(self):
