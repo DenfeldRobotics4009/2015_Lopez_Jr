@@ -17,7 +17,7 @@ class Winch(Subsystem):
         self.setDefaultCommand(ManualWinch(self.robot))
 
     def manualSet(self, output):
-        self.motor.set(output)
+        self.motor.set(output*.85)
 
     def log(self):
         pass
