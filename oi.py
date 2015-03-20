@@ -31,6 +31,9 @@ __author__ = 'nikolojedison'
 #3/19 18:01 - @ Peoria, remapped keys to operator's preference. Macro works.
 #3/19 18:33 - @ Peoria, released 1.1.1.
 #3/20 08:12 - @ Peoria, prepping for first match of the day.
+#3/20 09:15 - @ Peoria, waiting for the robot to get back from the match. Hope they don't break anything.
+#3/20 13:06 - @ Peoria, waiting for our next match alongside 2512.
+#3/20 14:19 - @ Peoria, scored many points in ^ match.
 
 #Libraries
 import wpilib
@@ -171,17 +174,27 @@ class OI:
         g7.whenPressed(GrabCan(robot))
 
         #Never, under ANY circumstances, run these during a match.
-        g9.whenPressed(RecordMacro(robot, "macro.csv"))
-        g10.whenPressed(PlayMacro(robot, "macro.csv"))
+        #g9.whenPressed(RecordMacro(robot, "macro.csv"))
+        #g10.whenPressed(PlayMacro(robot, "macro.csv"))
+        #RecordMacro(robot, "macro.csv")
+        #PlayMacro(robot, "macro.csv")
 
-        g11.whenPressed(RecordMacro(robot, "macro_1.csv"))
-        g12.whenPressed(PlayMacro(robot, "macro_1.csv"))
+        #g11.whenPressed(RecordMacro(robot, "macro_1.csv"))
+        #g12.whenPressed(PlayMacro(robot, "macro_1.csv"))
+        #RecordMacro(robot, "macro_1.csv")
+        #PlayMacro(robot, "macro_1.csv")
 
-        g13.whenPressed(RecordMacro(robot, "autonomous.csv"))
-        g14.whenPressed(PlayMacro(robot, "autonomous.csv"))
+        #g13.whenPressed(RecordMacro(robot, "autonomous.csv"))
+        #g14.whenPressed(PlayMacro(robot, "autonomous.csv"))
+        #RecordMacro(robot, "autonomous.csv")
+        #PlayMacro(robot, "autonomous.csv")
 
-        g15.whenPressed(RecordMacro(robot, "macro_3.csv"))
-        g16.whenPressed(PlayMacro(robot, "macro_3.csv"))
+
+        #g15.whenPressed(RecordMacro(robot, "macro_3.csv"))
+        #g16.whenPressed(PlayMacro(robot, "macro_3.csv"))
+        RecordMacro(robot, "macro_3.csv")
+        PlayMacro(robot, "macro_3.csv")
+
 
 
         g19.whenPressed(GrabSpecialTote(robot))

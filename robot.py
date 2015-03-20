@@ -12,8 +12,6 @@ from subsystems.drivetrain import Drivetrain
 from subsystems.lift import Lift
 from subsystems.claw import Claw
 from subsystems.mast import Mast
-#from subsystems.winch import Winch
-#from subsystems.lock import Lock
 
 #These are all the autons.
 from commands.auto_commands.can_autonomous import CanAutonomous
@@ -36,8 +34,6 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.lift = Lift(self)
         self.claw = Claw(self)
         self.mast = Mast(self)
- #       self.winch = Winch(self)
- #       self.lock = Lock(self)
         self.oi = OI(self)
 
         #These are self-describing autonomouses. Waaaaaait... Autono-mouse?
@@ -82,7 +78,8 @@ class Lopez_Jr(wpilib.SampleRobot):
                 pass
 
         except KeyError:
-            pass
+            self.PlayMacroCommand.start()
+            #pass
 
         while self.isAutonomous() and self.isEnabled():
             Scheduler.getInstance().run()

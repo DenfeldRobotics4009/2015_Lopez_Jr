@@ -18,7 +18,7 @@ kCan = .384
 kTipped = .425 #This is a tipped can. Needs update
 kTote = .591
 kStall = 2 #This is for the current sensor.
-kSpecialTote = 0 #needs update
+kSpecialTote = .574 #needs update
 
 #lift setpoints
 kUp = 3908 #This is so the mast won't tilt when the lift is up - needed to pass inspection.
