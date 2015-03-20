@@ -144,7 +144,6 @@ class OI:
         g22 = KeyButton(self.smart_dashboard, 31)
         topshift = KeyButton(self.smart_dashboard, 32)
         bottomshift = KeyButton(self.smart_dashboard, 33)
-        #25 buttons of stuff on the wall, 25 buttons 'n stuff...
 
         # Connect buttons & commands
         #---------------------------
@@ -179,8 +178,8 @@ class OI:
         #RecordMacro(robot, "macro.csv")
         #PlayMacro(robot, "macro.csv")
 
-        #g11.whenPressed(RecordMacro(robot, "macro_1.csv"))
-        #g12.whenPressed(PlayMacro(robot, "macro_1.csv"))
+        g11.whenPressed(RecordMacro(robot, "macro_1.csv"))
+        g12.whenPressed(PlayMacro(robot, "macro_1.csv"))
         #RecordMacro(robot, "macro_1.csv")
         #PlayMacro(robot, "macro_1.csv")
 
@@ -205,9 +204,9 @@ class OI:
         #bottom shift - all levels +.045 for setdown
 
     def getJoystickLeft(self):
-        """This is the driver's joystick, v. fancy."""
+        """This is the driver's joystick, v. fancy. Many buttons to press."""
         return self.stick_left
 
     def getPad(self):
-        """This is the gamepad's joystick."""
+        """This is the gamepad's joystick and the clicky-stick button."""
         return self.pad

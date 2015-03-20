@@ -15,8 +15,6 @@ from subsystems.mast import Mast
 
 #These are all the autons.
 from commands.auto_commands.can_autonomous import CanAutonomous
-from commands.auto_commands.can_n_tote_auto import CanNToteAuto
-from commands.auto_commands.drive_autonomous import DriveAutonomous
 from commands.auto_commands.three_tote_autonomous import ThreeToteAutonomous
 from commands.auto_commands.tote_autonomous import ToteAutonomous
 from commands.play_macro import PlayMacro
@@ -39,7 +37,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         #These are self-describing autonomouses. Waaaaaait... Autono-mouse?
         self.ThreeToteAutonomousCommand = ThreeToteAutonomous(self)
         self.CanAutonomousCommand = CanAutonomous(self)
-        self.CanNToteAutoCommand = CanNToteAuto(self)
+        self.CanNToteAutoCommand = PlayMacro(self, "macro_1.csv")
         self.DriveAutonomousCommand = PlayMacro(self, "macro.csv")
         self.ToteAutonomousCommand = ToteAutonomous(self)
         self.PlayMacroCommand = PlayMacro(self, "autonomous.csv")
@@ -128,7 +126,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         pass
 
     def log(self):
-        """It's big, it's heavy, it's wood."""
+        """It's big, it's heavy, it's wood. Needs to be bigger."""
         self.drivetrain.log()
         self.lift.log()
         self.claw.log()
