@@ -76,7 +76,7 @@ class Lopez_Jr(wpilib.SampleRobot):
                 print("Macro replay started")
 
             elif self.oi.smart_dashboard.getBoolean("Drive Auto"):
-                self.DriveAutoCommand.start()
+                self.DriveAutonomousCommand.start()
                 print("Drive Auto started")
 
             else:
