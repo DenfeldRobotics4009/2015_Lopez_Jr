@@ -50,8 +50,7 @@ class Lopez_Jr(wpilib.SampleRobot):
 
     def autonomous(self):
         """Woo, auton code w/ 3 modes. Needs to be tested."""
-        #Still tenative if we're using anything other than our macro.
-        #May have to consult with Drive Team and Coach.
+        #I'll probably change these out to different macro commands.
         self.drivetrain.drive.setSafetyEnabled(False)
 
         try:
@@ -104,10 +103,10 @@ class Lopez_Jr(wpilib.SampleRobot):
 
         #More stuff.
         self.drivetrain.drive.setSafetyEnabled(True)
-        joystick = self.oi.getJoystickLeft() #Do we even need this?
+        joystick = self.oi.getJoystickLeft()
 
         while self.isOperatorControl() and self.isEnabled():
-            self.log() #It's log, it's log, it's not big or heavy or wood.
+            self.log()
             Scheduler.getInstance().run()
             wpilib.Timer.delay(.005)    # don't burn up the cpu
 
@@ -124,7 +123,7 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.CanNToteAutoCommand.cancel()
 
         while self.isDisabled():
-            self.log() #It's log, it's log, it's better than bad, it's good.
+            self.log()
             wpilib.Timer.delay(.005)
 
     def test(self):
@@ -137,8 +136,6 @@ class Lopez_Jr(wpilib.SampleRobot):
         self.lift.log()
         self.claw.log()
         self.mast.log()
-  #      self.winch.log()
-   #     self.lock.log()
 
 if __name__ == "__main__":
     wpilib.run(Lopez_Jr)

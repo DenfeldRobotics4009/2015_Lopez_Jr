@@ -1,5 +1,4 @@
 __author__ = "nikolojedison, auxiliary-character"
-#Note to self - don't EVER disassemble the mast when time is of the essence. Doesn't end well.
 
 def scale_reletive(v, top, bottom):
     return v*(top-bottom)+bottom
@@ -14,13 +13,12 @@ kMastParallel = .459
 
 #claw setpoints - tested in the heat of battle at the LSR
 kOpen = .89
-kClose = .185 #2/12/15 23.12: .771 2/13/15 16:30: .925 2/15/15 .070
-kCan = .384 #need to update these.
+kClose = .185
+kCan = .384
 kTipped = .425 #This is a tipped can. Needs update
-kTote = .591 #was .468 as of 16:40
+kTote = .591
 kStall = 2 #This is for the current sensor.
 kSpecialTote = 0 #needs update
-kSpecialCan = 0 #needs update
 
 #lift setpoints
 kUp = 3908 #This is so the mast won't tilt when the lift is up - needed to pass inspection.

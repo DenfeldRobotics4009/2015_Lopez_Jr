@@ -47,8 +47,6 @@ from commands.setpoint_commands.center_claw import CenterClaw
 from commands.manual_commands.manual_claw import ManualClaw
 from commands.manual_commands.manual_lift import ManualLift
 from commands.manual_commands.manual_mast import ManualMast
-#from commands.manual_commands.manual_lock import ManualLock
-#from commands.manual_commands.manual_winch import ManualWinch
 from commands.setpoint_commands.mast_level import MastLevel
 from commands.setpoint_commands.mast_back import MastBack
 from commands.setpoint_commands.mast_forward import MastForward
@@ -154,9 +152,6 @@ class OI:
         left_east.whenPressed(DriveStraight(robot, .25, 0, timeout = .35))
         left_west.whenPressed(DriveStraight(robot, -.25, 0, timeout = .35))
 
-        #Winch
-        #g0.whileHeld(ManualLock(robot))
-
         #Mast control
         left_thumb.whileHeld(Shaker(robot))
         left_five.whileHeld(MastButton(robot, .38))
@@ -175,10 +170,10 @@ class OI:
         g6.whenPressed(GrabTote(robot))
         g7.whenPressed(GrabCan(robot))
 
+        #Never, under ANY circumstances, run these during a match.
         g9.whenPressed(RecordMacro(robot, "macro.csv"))
         g10.whenPressed(PlayMacro(robot, "macro.csv"))
 
-        #g12 and g13 are for testing only and NOT for match use!
         g11.whenPressed(RecordMacro(robot, "macro_1.csv"))
         g12.whenPressed(PlayMacro(robot, "macro_1.csv"))
 
