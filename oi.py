@@ -34,6 +34,7 @@ __author__ = 'nikolojedison'
 #3/20 09:15 - @ Peoria, waiting for the robot to get back from the match. Hope they don't break anything.
 #3/20 13:06 - @ Peoria, waiting for our next match alongside 2512.
 #3/20 14:19 - @ Peoria, scored many points in ^ match.
+#3/21 08:19 - @ Peoria, setting up for the last day. WIN ALL THE THINGS
 
 #Libraries
 import wpilib
@@ -41,6 +42,7 @@ from networktables import NetworkTable
 from wpilib.buttons import JoystickButton, InternalButton
 
 #Commands
+from commands.setpoint_commands.winch_button import WinchButton
 from commands.semiauto_commands.timed_turn import TimedTurn
 from commands.setpoint_commands.lift_go_to_level import LiftGoToLevel
 from commands.setpoint_commands.lift_go_to_level_shift import LiftGoToLevelShift
@@ -158,6 +160,8 @@ class OI:
         left_thumb.whileHeld(Shaker(robot))
         left_five.whileHeld(MastButton(robot, .38))
         left_six.whileHeld(MastButton(robot, -.38))
+
+        #SuperStrafe
         left_seven.whenPressed(SuperStrafe64(robot, SuperStrafe64.kForward))
         left_eight.whenPressed(SuperStrafe64(robot, SuperStrafe64.kBack))
         left_nine.whenPressed(SuperStrafe64(robot, SuperStrafe64.kLeft))
@@ -191,12 +195,14 @@ class OI:
 
         #g15.whenPressed(RecordMacro(robot, "macro_3.csv"))
         #g16.whenPressed(PlayMacro(robot, "macro_3.csv"))
-        RecordMacro(robot, "macro_3.csv")
-        PlayMacro(robot, "macro_3.csv")
 
-
+        #Winchy thing
+        g17.whileHeld(WinchButton(robot, .5))
+        g18.whileHeld(WinchButton(robot, -.5))
 
         g19.whenPressed(GrabSpecialTote(robot))
+
+        #Mast
         g20.whileHeld(MastBack(robot))
         g21.whileHeld(MastLevel(robot))
         g22.whileHeld(MastForward(robot))

@@ -13,7 +13,7 @@ class PlayMacro(Command):
         self.requires(robot.lift)
         self.requires(robot.claw)
         self.requires(robot.mast)
-        #self.requires(robot.winch)
+        self.requires(robot.winch)
         #self.requires(robot.lock)
         self.name = name
         self.done_yet = False
@@ -40,7 +40,7 @@ class PlayMacro(Command):
             self.robot.mast.manualSet(float(line["Mast"]))
             self.robot.claw.manualSet(float(line["Claw"]))
            # self.robot.lock.spike.set(int(line["Lock"]))
-          #  self.robot.winch.manualSet(float(line["Winch"]))
+            self.robot.winch.manualSet(float(line["Winch"]))
             if self.isTimedOut() or self.done_yet:
                 break
 
@@ -56,7 +56,7 @@ class PlayMacro(Command):
         self.robot.lift.manualSet(0)
         self.robot.mast.manualSet(0)
         self.robot.claw.manualSet(0)
-        #self.robot.winch.manualSet(0)
+        self.robot.winch.manualSet(0)
         if hasattr(self, "f"):
             self.f.close()
 
