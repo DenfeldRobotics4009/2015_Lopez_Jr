@@ -7,6 +7,13 @@ def precision_mode(controller_input, button_state):
     else:
         return controller_input
 
+def inverse_dead_zone(controller_input, dead_zone):
+    """This is the inverted dead zone code which is important for Talons."""
+    if motor_output > 0:
+        return (motor_output + dead_zone)/(1 + dead_zone)
+    else:
+        return (motor_output - dead_zone)/(1 + dead_zone)
+
 def dead_zone(controller_input, dead_zone):
     """This is the dead zone code, essential for any 4009 'bot."""
     if controller_input <= dead_zone and controller_input >= -dead_zone:
