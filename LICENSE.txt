@@ -1,4 +1,4 @@
-Copyright (c) 2015, DNA Robotics
+Copyright (c) 2015, Denfeld DNA FIRST Robotics Team 4009
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
