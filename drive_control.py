@@ -10,14 +10,18 @@ def precision_mode(controller_input, button_state):
 def coach_dead_zone(controller_input, coach_dead_zone):
     """This is the dead zone with Coach's equation. I really doubt I wrote 
     this correctly, please double-check before deployment"""
-    if motor_output > 0:
-        return (motor_output***3 + motor_output)/2
+    if motor_output == 0:
+        return 0
+    elif motor_output > 0:
+        return (motor_output**3 + motor_output)/2
     else:
-        return (motor_output***3 - motor_output)/2
+        return (motor_output**3 - motor_output)/2
         
 def inverse_dead_zone(controller_input, dead_zone):
     """This is the inverted dead zone code which is important for Talons."""
-    if motor_output > 0:
+    if motor_output == 0:
+        return 0
+    elif motor_output > 0:
         return (motor_output*(1-dead_zone))+dead_zone
     else:
         return (-motor_output*(dead_zone-1))-dead_zone
