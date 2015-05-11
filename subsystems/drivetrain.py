@@ -28,7 +28,7 @@ class Drivetrain(Subsystem):
         super().__init__()
         self.robot = robot
 
-        self.drive = wpilib.RobotDrive(0, 2, 1, 3)
+        self.drive = wpilib.RobotDrive(DriveMotor(0), DriveMotor(2), DriveMotor(1), DriveMotor(3))
         self.drive.setExpiration(0.1)
 
         self.drive.setInvertedMotor(self.drive.MotorType.kFrontRight, True)
@@ -57,6 +57,10 @@ class Drivetrain(Subsystem):
         x = drive_control(joystick.getX()*2, precision)
         y = drive_control(joystick.getY(), precision)
         z = precision_mode(dead_zone(joystick.getRawAxis(3)*.75, .1), precision)
+        if x>1:
+            x=1
+        elif x<-1:
+            x=-1
         self.driveManual(x,y,z)
 
     def driveManual(self, x, y , rotation):

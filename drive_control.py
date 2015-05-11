@@ -1,4 +1,5 @@
 __author__ = 'nikolojedison'
+import wpilib
 
 def precision_mode(controller_input, button_state):
     """copied from CubertPy, b/c it worked"""
@@ -7,8 +8,14 @@ def precision_mode(controller_input, button_state):
     else:
         return controller_input
 
-def coach_dead_zone(controller_input, coach_dead_zone):
-    """This is the dead zone with Coach's equation. I really doubt I wrote 
+def exponential_scaling(base, exponent):
+    if base>0:
+        return abs(base)**exponent
+    else:
+        return -(abs(base)**exponent)
+
+def coach_dead_zone(motor_output, coach_dead_zone):
+    """This is the dead zone with Coach's equation. I really doubt I wrote
     this correctly, please double-check before deployment"""
     if motor_output == 0:
         return 0
@@ -16,10 +23,10 @@ def coach_dead_zone(controller_input, coach_dead_zone):
         return (motor_output**3 + motor_output)/2
     else:
         return (motor_output**3 - motor_output)/2
-        
-def inverse_dead_zone(controller_input, dead_zone):
+
+def inverse_dead_zone(motor_output, dead_zone):
     """This is the inverted dead zone code which is important for Talons."""
-    if motor_output == 0:
+    if abs(motor_output) < .00001: #floating point rounding error workaround.
         return 0
     elif motor_output > 0:
         return (motor_output*(1-dead_zone))+dead_zone
@@ -36,4 +43,9 @@ def dead_zone(controller_input, dead_zone):
         return ((-controller_input-dead_zone)/(dead_zone-1))
 
 def drive_control(controller_input, button_state):
-    return precision_mode(dead_zone(controller_input, .1)**3, button_state)
+    return precision_mode(exponential_scaling(dead_zone(controller_input, 0.1),2.3), button_state)
+
+class DriveMotor(wpilib.Talon):
+    """A motor controller that overcomes static friction."""
+    def set(self, speed, syncGroup=0):
+        super().set(inverse_dead_zone(speed, .1),syncGroup=syncGroup)
