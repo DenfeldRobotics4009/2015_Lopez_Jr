@@ -33,6 +33,7 @@ class Lift(PIDSubsystem):
         self.limit_down = wpilib.DigitalInput(5)
         self.lift_encoder = wpilib.Encoder(0, 1)
         self.motor = wpilib.CANTalon(0)
+        self.motor_2 = wpilib.CANTalon(1)
         self.setAbsoluteTolerance(8)
         self.trigger = EncoderLimitTrigger(robot, self)
         self.trigger.whenActive(ResetEncoder(robot, self))
@@ -46,13 +47,17 @@ class Lift(PIDSubsystem):
         bottom_limit = self.limit_down.get()
         if not bottom_limit and output < 0:
             self.motor.set(0)
+            self.motor_2.set(0)
         elif (top_limit or (self.robot.mast.isBack() and self.isUp())) and output > 0:
             self.motor.set(0)
+            self.motor_2.set(0)
         else:
             if output < 0:
                 self.motor.set(output*.75)
+                self.motor_2.set(-output*.75)
             else:
                 self.motor.set(output*1)
+                self.motor_2.set(-output*.75)
 
     def reset(self):
         self.lift_encoder.reset()
@@ -69,7 +74,7 @@ class Lift(PIDSubsystem):
         if output > 1:
             output = 1
         elif output < -1:
-            ouput = -1
+            output = -1
         self.manualSet(output*1)
 
     def isUp(self):
