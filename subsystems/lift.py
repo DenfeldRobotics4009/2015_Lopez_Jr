@@ -33,7 +33,7 @@ class Lift(PIDSubsystem):
         self.limit_down = wpilib.DigitalInput(5)
         self.lift_encoder = wpilib.Encoder(0, 1)
         self.motor = wpilib.CANTalon(0)
-        self.motor_2 = wpilib.CANTalon(1)
+        self.motor_2 = wpilib.TalonSRX(9)
         self.setAbsoluteTolerance(8)
         self.trigger = EncoderLimitTrigger(robot, self)
         self.trigger.whenActive(ResetEncoder(robot, self))
