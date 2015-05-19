@@ -45,6 +45,10 @@ def dead_zone(controller_input, dead_zone):
 def drive_control(controller_input, button_state):
     return precision_mode(exponential_scaling(dead_zone(controller_input, 0.1),2.3), button_state)
 
+def drive_control_x(controller_input, button_state):
+	"""Because we need a larger dead zone for strafing."""
+	return precision_mode(exponential_scaling(dead_zone(cotnroller_input, 0.2),2.3), button_state)
+
 class DriveMotor(wpilib.Talon):
     """A motor controller that overcomes static friction."""
     def set(self, speed, syncGroup=0):
