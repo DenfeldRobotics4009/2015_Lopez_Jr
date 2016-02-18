@@ -25,7 +25,7 @@ class DriveStraight(Command):
         self.controller.disable()
         self.robot.drivetrain.driveManual(0,0,0)
 
-    def interupted(self):
+    def interrupted(self):
         self.end()
 
     def _cancel(self):
